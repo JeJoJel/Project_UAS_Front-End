@@ -1,0 +1,196 @@
+/* Basic reset for margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fafaf1;
+}
+
+/* Center the main title */
+.main-title {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 20px;
+    color:rgb(197, 112, 93); 
+    font-family: 'Mate';
+    padding: 50px 0;
+    background-image: url('https://i.pinimg.com/564x/4a/d5/e9/4ad5e97d526e07601c1a3e02fed6ea50.jpg');
+    background-size: cover; 
+    background-position: center; 
+}
+
+/* Layout for search bar */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #fafaf1;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 15px 18px;
+    margin-left: 5px;
+    background-color:rgb(208, 184, 168);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Product gallery styles */
+.gallery {
+    display: grid;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    background-color: #fafaf1; 
+    grid-template-columns: repeat(4, 1fr); 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    margin-top: 30px;
+}
+
+.card {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8b7f6d;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Styles for pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 0 10px;
+    background-color: rgb(197, 112, 93);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#page-info {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px; 
+    background-color: rgb(223, 211, 195); 
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.footer-text {
+    text-align: center; 
+    margin-right: 10px;
+    font-size: 30px;
+    background-color: transparent; /* Ensure no background color */
+    padding: 0; /* Remove any padding that might give the illusion of a background */
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px; 
+    justify-content: center;
+}
+
+.social-icon {
+    width: 30px;
+    height: auto;
+}
+
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .search-filter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-gallery {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        margin: 0 auto; 
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); 
+        margin: 0 auto; 
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr; 
+        margin: 0 auto; 
+    }
+}
