@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&display=swap');
+
 body {
     padding: 0;
     margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6; /* Meningkatkan jarak antar baris */
+    font-family: 'Mate';
+    line-height: 1.6;
 }
 
 header {
@@ -42,17 +44,24 @@ header {
     font-size: 1.2em;
 }
 
+.overlay-text h3 a {
+    text-decoration: none;
+    color: black;
+}
+
 .featured-categories {
-    background-color: #f9f9f9;
+    background-color: #F8EDE3;
     padding: 40px 20px;
 }
 
 .section-title h2 {
-    margin: 0;
+    margin-left: 50px;
+    margin-bottom: 0px;
 }
 
 .section-title p {
-    margin: 5px 0 0;
+    margin-left: 50px;
+    margin-top: 0px;
 }
 
 .feature-container {
