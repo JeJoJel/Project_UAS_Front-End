@@ -1,6 +1,5 @@
 // Ambil semua elemen card
 const cards = document.querySelectorAll('.card');
-// Atur jumlah card per halaman
 const cardsPerPage = 12;
 let currentPage = 1;
 

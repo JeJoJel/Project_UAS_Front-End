@@ -5,10 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Gallery</title>
     <link rel="stylesheet" href="category.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+
+    <!-- Marquee Section -->
+    <marquee class="text-berjalan">
+        <span>○ Welcome to Chic & Simple! ○</span>
+        <span>Discover our latest collections and exclusive deals ○</span>
+        <span>Shop now to get the most out of your shopping experience ○</span>
+        <span>Order now and save 20% on your next purchase ○</span>
+        <span>Free shipping on all orders above $50! ○</span>
+    </marquee>
+
+    <!-- Navigation Header Section -->
     <header>
+        <div class="logo">
+            <b>Chic & Simple.</b>
+        </div>
+        <nav>
+            <ul class="menu-list">
+                <li><a href="#">Home <span class="arrow"></span></a></li>
+                <li><a href="#">Shop <span class="arrow"></span></a></li>
+                <li><a href="#">Pages <span class="arrow"></span></a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>        
+        <div class="search">
+            <a href="#">Search</a>
+        </div>
+    </header>
+
+    <!-- Main Category Section -->
+    <section>
         <h1 class="main-title">DIY Home Decor</h1>
         <div class="search-container">
             <div class="search-bar">
@@ -16,9 +46,18 @@
                 <button type="submit">&#128269;</button> <!-- Search Icon -->
             </div>
         </div>
-    </header>
+    </section>
 
     <section class="gallery">
+        <!-- Category Cards -->
+        <div class="card">
+            <img src="https://i.pinimg.com/736x/3f/3a/43/3f3a43ba137aec4b45610c61377cd020.jpg" alt="How To Tie Dye">
+            <h3>How To Tie Dye</h3>
+        </div>
+        <div class="card">
+            <img src="https://i.pinimg.com/564x/fc/28/23/fc282344bdc7b1e2d0b68ba4dedb8b2c.jpg" alt="How To Make Friendship Bracelets">
+            <h3>How To Make Friendship Bracelets</h3>
+        </div>
         <div class="card">
             <img src="https://i.pinimg.com/736x/3f/3a/43/3f3a43ba137aec4b45610c61377cd020.jpg" alt="How To Tie Dye">
             <h3>How To Tie Dye</h3>
@@ -81,6 +120,7 @@
         </div>
     </section>
 
+    <!-- Pagination Section -->
     <div class="pagination">
         <button id="prev-btn" onclick="prevPage()">Previous</button>
         <span id="page-info"></span>
