@@ -127,41 +127,6 @@
     margin-right: 10px;
 }
 
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px; 
-    background-color: rgb(223, 211, 195); 
-}
-
-.footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.footer-text {
-    text-align: center; 
-    margin-right: 10px;
-    font-size: 30px;
-    background-color: transparent; /* Ensure no background color */
-    padding: 0; /* Remove any padding that might give the illusion of a background */
-}
-
-.social-icons {
-    display: flex;
-    gap: 20px; 
-    justify-content: center;
-}
-
-.social-icon {
-    width: 30px;
-    height: auto;
-}
-
-
 /* Responsive layout */
 @media (max-width: 768px) {
     .search-filter-container {
