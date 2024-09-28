@@ -16,7 +16,7 @@ function showPage(page) {
     });
 
     const totalPages = Math.ceil(cards.length / cardsPerPage);
-    document.getElementById('page-info').textContent = `Page ${page} of ${totalPages}`;
+    document.getElementById('page-info').textContent = `${page} / ${totalPages}`;
 
     document.getElementById('prev-btn').disabled = page === 1;
     document.getElementById('next-btn').disabled = page === totalPages;

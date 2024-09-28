@@ -1,4 +1,5 @@
-/* Basic reset for margins and padding */
+@import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -175,7 +176,7 @@ footer {
     color:rgb(197, 112, 93); 
     font-family: 'Mate';
     padding: 50px 0;
-    background-image: url('https://i.pinimg.com/564x/4a/d5/e9/4ad5e97d526e07601c1a3e02fed6ea50.jpg');
+    background-image: url('https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover; 
     background-position: center; 
 }
@@ -184,7 +185,7 @@ footer {
 .search-container {
     display: flex;
     justify-content: center;
-    padding: 30px;
+    padding: 50px;
     background-color: #fafaf1;
 }
 
@@ -199,6 +200,7 @@ footer {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 400px; 
 }
 
 .search-bar button {
@@ -216,9 +218,11 @@ footer {
 .gallery {
     display: grid;
     justify-content: center;
+    justify-items: center;
     flex-wrap: wrap;
-    gap: 30px;
-    padding: 50px;
+    column-gap: 5px; /* Hanya mengatur jarak kiri-kanan antar card */
+    row-gap: 30px; /* Menjaga jarak vertikal antar card tetap sama */    
+    padding: 30px;
     background-color: #fafaf1; 
     grid-template-columns: repeat(4, 1fr); 
     margin: 0 auto;     
@@ -230,13 +234,14 @@ footer {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    width: 300px;
     transition: transform 0.2s ease-in-out;
 }
 
 .card img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ensures the image fills the width of the card */
+    height: 350px; /* Sets a fixed height */
+    object-fit: cover; /* Ensures the image is scaled and cropped to fit the fixed dimensions */
     margin-bottom: 15px;
 }
 
@@ -263,7 +268,6 @@ footer {
     align-items: center;
     background-color: #fafaf1; 
     padding: 30px;
-
 }
 
 .pagination button {
