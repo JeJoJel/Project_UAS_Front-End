@@ -43,14 +43,6 @@ img {
     margin-right: 5px;
 }
 
-.brands-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: white;
-}
-
 nav {
     flex-grow: 1;
     text-align: center;
@@ -134,7 +126,8 @@ nav ul li a {
 
 .featured-categories {
     background-color: white;
-    padding: 40px 20px;
+    padding: 0px 20px;
+    margin-bottom: 0;
 }
 
 .section-title h2 {
@@ -201,7 +194,7 @@ nav ul li a {
 
 .explore-section, .popular-posts {
     background-color: white;
-    padding: 40px 20px;
+    padding: 0px 20px;
 }
 
 .explore-section h2, .popular-posts h2 {
@@ -210,17 +203,17 @@ nav ul li a {
 }
 
 .explore-section .explore-description {
-    text-align: center; /* Centers the text */
+    text-align: center; 
     margin-bottom: 10px;
     margin-top: 0px;
-    font-size: 18px; /* Adjust the font size as needed */
+    font-size: 18px; 
 }
-
 
 .explore-posts {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    padding: 20px;
 }
 
 .post {
@@ -235,8 +228,14 @@ nav ul li a {
 }
 
 .post img {
-    width: 100%;
+    width: 80%;
+    height: 70%;
     border-radius: 5px;
+}
+
+.post a{
+    text-decoration: none;
+    color: black;
 }
 
 .section-title {
@@ -272,10 +271,15 @@ nav ul li a {
 }
 
 .brands-content {
-    text-align: center; /* Untuk memusatkan teks */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    text-align: center; 
     background-color: #F8EDE3;
 }
 
+/* cara biar kolom jadi baris */
 .wrap {
     display: flex;
     flex-wrap: wrap; /* Agar gambar bisa membungkus ke baris berikutnya */
@@ -287,25 +291,23 @@ nav ul li a {
 }
 
 .entry {
-    margin: 10px; /* Menambahkan margin di antara gambar */
+    margin: 10px; 
 }
 
 .entry img {
-    max-width: 100%; /* Membuat gambar responsif */
-    height: auto; /* Menjaga rasio aspek gambar */
+    max-width: 100%; 
+    height: auto; 
 }
 
 
-/* Untuk layar yang lebarnya 768px atau lebih kecil (tablet dan smartphone) */
+/* Untuk layar lebih kecil (tablet dan smartphone) */
 @media only screen and (max-width: 768px) {
     
-    /* Mengubah padding dan margin pada header agar lebih kompak */
     header {
         flex-direction: column;
         padding: 10px;
     }
 
-    /* Menampilkan menu dalam bentuk kolom saat di layar kecil */
     .menu-list {
         margin-right: 0;
     }
@@ -318,33 +320,30 @@ nav ul li a {
         font-size: 0.9em;
     }
 
-    /* Atur logo agar lebih kecil dan responsif */
     .logo {
         font-size: 20px;
     }
 
-    /* Menyembunyikan marquee pada layar kecil */
     .text-berjalan {
         font-size: 12px;
         padding: 10px;
     }
 
-    /* Mengatur ukuran slideshow */
     .slideshow-container {
-        height: 60vh; /* Kurangi tinggi untuk layar mobile */
+        height: 60vh; 
     }
 
     .overlay-text h2 {
         font-size: 1.5em;
     }
 
-    /* Atur ulang featured categories menjadi satu kolom */
+    /* featured categories menjadi satu kolom */
     .feature-container {
         flex-direction: column;
     }
 
     .feature-item {
-        width: 100%; /* Buat item jadi full-width */
+        width: 100%; 
         margin: 10px 0;
     }
 
@@ -353,7 +352,7 @@ nav ul li a {
     }
 
     .overlay-text h2 {
-        font-size: 1.5em; /* Sesuaikan ukuran font untuk layar kecil */
+        font-size: 1.5em; 
     }
 
     .overlay-text h3 a {
@@ -361,7 +360,7 @@ nav ul li a {
     }
 
     .menu-list {
-        display: none; /* Sembunyikan menu */
+        display: none; 
     }
 
     .search {
@@ -369,19 +368,19 @@ nav ul li a {
     }
 
     .mySlides img {
-        height: 60vh; /* Ikuti tinggi kontainer */
+        height: 60vh; /* viewport height */
     }
 }
 
-/* Untuk layar yang lebarnya 480px atau lebih kecil (smartphone) */
+/* Untuk layar lebih kecil (smartphone) */
 @media only screen and (max-width: 480px) {
 
-    /* Memperkecil font menu */
+    
     .menu-list li a {
         font-size: 0.8em;
     }
 
-    /* Atur ulang ukuran teks dan padding */
+    
     header {
         padding: 5px;
     }
@@ -390,7 +389,7 @@ nav ul li a {
         font-size: 18px;
     }
 
-    /* Ubah ukuran font di bagian teks marquee */
+    
     .text-berjalan {
         font-size: 10px;
     }
@@ -399,7 +398,7 @@ nav ul li a {
         font-size: 1.2em;
     }
 
-    /* Menyusun ulang featured categories agar terlihat lebih baik */
+   
     .feature-container {
         padding: 10px;
     }
@@ -410,7 +409,7 @@ nav ul li a {
     }
 
     .overlay-text h2 {
-        font-size: 1.2em; /* Ukuran lebih kecil untuk smartphone */
+        font-size: 1.2em; 
     }
 
     .overlay-text h3 a {
@@ -418,10 +417,10 @@ nav ul li a {
     }
 
     .slideshow-container {
-        height: 50vh; /* Lebih kecil lagi untuk layar yang lebih kecil */
+        height: 50vh; 
     }
 
     .mySlides img {
-        height: 50vh; /* Ikuti proporsi yang lebih kecil */
+        height: 50vh; 
     }
 }

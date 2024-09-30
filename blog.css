@@ -91,17 +91,27 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 31px;
+    padding: 15px;
     margin: 0px;
-    background-color: #F8EDE3;
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .logo {
     flex-basis: auto;
     display: flex;
     text-align: left;
+    margin-right: 20px;
     font-size: 25px;
+}
+
+.menu-list {
+    margin-right: 150px
 }
 
 .menu-list li a {
@@ -110,24 +120,8 @@ header {
     color: #333;
     font-size: 1em;
     padding: 0 5px;
+    margin-right: 5px;
 }
-
-.menu-list li a .arrow {
-    margin-left: 5px;
-}
-
-.menu-list li a .arrow::after {
-    content: "▼"; /* simbol panah ke bawah */
-    font-size: 0.6em; /* ukuran panah */
-    color: #333;
-    position: relative;
-    top: -1px; /* posisi panahnya agak ke atas */
-}
-
-.menu-list li a:hover .arrow::after {
-    color: #C5707D; /* berubah warna pas kena mouse */
-}
-
 
 nav {
     flex-grow: 1;
