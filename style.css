@@ -8,9 +8,84 @@ body {
 }
 
 header {
-    background-color: #D0B8A8;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 0px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.logo {
+    flex-basis: auto;
+    display: flex;
+    text-align: left;
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+.menu-list {
+    margin-right: 150px
+}
+
+.menu-list li a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    padding: 0 5px;
+    margin-right: 5px;
+}
+
+.brands-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
+    background-color: white;
+}
+
+nav {
+    flex-grow: 1;
+    text-align: center;
+}
+
+nav ul {
+    display: inline-flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.search a:hover {
+    color: #C5707D;
 }
 
 .slideshow-container {
@@ -22,6 +97,9 @@ header {
 
 .mySlides {
     display: none; 
+    width: 100%;
+    height: 100vh; 
+    object-fit: cover; 
 }
 
 .overlay-text {
@@ -31,8 +109,13 @@ header {
     transform: translate(-50%, -50%);
     color: black;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%; 
 }
 
 .overlay-text h2 {
@@ -50,7 +133,7 @@ header {
 }
 
 .featured-categories {
-    background-color: #F8EDE3;
+    background-color: white;
     padding: 40px 20px;
 }
 
@@ -91,8 +174,254 @@ header {
     margin: 10px 0;
 }
 
-footer {
+.footer-content {
     text-align: center;
     padding: 10px 0;
-    background-color: #f8f8f8;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social-media-icons {
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-berjalan {
+    font-size: 15px;
+    color: white;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #C5705D;
+}
+
+.explore-section, .popular-posts {
+    background-color: white;
+    padding: 40px 20px;
+}
+
+.explore-section h2, .popular-posts h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.explore-section .explore-description {
+    text-align: center; /* Centers the text */
+    margin-bottom: 10px;
+    margin-top: 0px;
+    font-size: 18px; /* Adjust the font size as needed */
+}
+
+
+.explore-posts {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.post {
+    width: 30%;
+    text-align: center;
+    margin: 10px;
+    transition: transform 0.3s;
+}
+
+.post:hover {
+    transform: scale(1.05);
+}
+
+.post img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.section-title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.feature-item {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.feature-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-item {
+    margin: 10px 0;
+}
+
+.brands-content {
+    text-align: center; /* Untuk memusatkan teks */
+    background-color: #F8EDE3;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap; /* Agar gambar bisa membungkus ke baris berikutnya */
+    justify-content: center; /* Memusatkan konten secara horizontal */
+    align-items: center; /* Menyelaraskan konten secara vertikal */
+    display: flex; /* Mengatur flexbox untuk elemen di dalamnya */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.entry {
+    margin: 10px; /* Menambahkan margin di antara gambar */
+}
+
+.entry img {
+    max-width: 100%; /* Membuat gambar responsif */
+    height: auto; /* Menjaga rasio aspek gambar */
+}
+
+
+/* Untuk layar yang lebarnya 768px atau lebih kecil (tablet dan smartphone) */
+@media only screen and (max-width: 768px) {
+    
+    /* Mengubah padding dan margin pada header agar lebih kompak */
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    /* Menampilkan menu dalam bentuk kolom saat di layar kecil */
+    .menu-list {
+        margin-right: 0;
+    }
+
+    .menu-list li {
+        margin: 10px 0;
+    }
+
+    .menu-list li a {
+        font-size: 0.9em;
+    }
+
+    /* Atur logo agar lebih kecil dan responsif */
+    .logo {
+        font-size: 20px;
+    }
+
+    /* Menyembunyikan marquee pada layar kecil */
+    .text-berjalan {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    /* Mengatur ukuran slideshow */
+    .slideshow-container {
+        height: 60vh; /* Kurangi tinggi untuk layar mobile */
+    }
+
+    .overlay-text h2 {
+        font-size: 1.5em;
+    }
+
+    /* Atur ulang featured categories menjadi satu kolom */
+    .feature-container {
+        flex-direction: column;
+    }
+
+    .feature-item {
+        width: 100%; /* Buat item jadi full-width */
+        margin: 10px 0;
+    }
+
+    .section-title h2, .section-title p {
+        margin-left: 20px;
+    }
+
+    .overlay-text h2 {
+        font-size: 1.5em; /* Sesuaikan ukuran font untuk layar kecil */
+    }
+
+    .overlay-text h3 a {
+        font-size: 1em;
+    }
+
+    .menu-list {
+        display: none; /* Sembunyikan menu */
+    }
+
+    .search {
+        display: none;
+    }
+
+    .mySlides img {
+        height: 60vh; /* Ikuti tinggi kontainer */
+    }
+}
+
+/* Untuk layar yang lebarnya 480px atau lebih kecil (smartphone) */
+@media only screen and (max-width: 480px) {
+
+    /* Memperkecil font menu */
+    .menu-list li a {
+        font-size: 0.8em;
+    }
+
+    /* Atur ulang ukuran teks dan padding */
+    header {
+        padding: 5px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    /* Ubah ukuran font di bagian teks marquee */
+    .text-berjalan {
+        font-size: 10px;
+    }
+
+    .overlay-text h2 {
+        font-size: 1.2em;
+    }
+
+    /* Menyusun ulang featured categories agar terlihat lebih baik */
+    .feature-container {
+        padding: 10px;
+    }
+
+    .feature-item {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .overlay-text h2 {
+        font-size: 1.2em; /* Ukuran lebih kecil untuk smartphone */
+    }
+
+    .overlay-text h3 a {
+        font-size: 0.9em;
+    }
+
+    .slideshow-container {
+        height: 50vh; /* Lebih kecil lagi untuk layar yang lebih kecil */
+    }
+
+    .mySlides img {
+        height: 50vh; /* Ikuti proporsi yang lebih kecil */
+    }
 }
