@@ -148,6 +148,14 @@ a:hover {
         padding-left: 20px;
     }
 
+    .content {
+        padding: 30px;
+    }
+
+    .section {
+        padding-left: 5px;
+    }
+
     .section p {
         padding-left: 0;
     }
