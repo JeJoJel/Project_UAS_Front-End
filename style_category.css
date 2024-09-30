@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 31px;
+    background-color: #F8EDE3;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    flex-basis: auto;
+    font-size: 25px;
+}
+
+.menu-list li a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    padding: 0 5px;
+}
+
+.menu-list li a .arrow {
+    margin-left: 5px;
+}
+
+.menu-list li a .arrow::after {
+    content: "▼"; /* simbol panah ke bawah */
+    font-size: 0.6em; /* ukuran panah */
+    color: #333;
+    position: relative;
+    top: -1px; /* posisi panahnya agak ke atas */
+}
+
+.menu-list li a:hover .arrow::after {
+    color: #C5707D; /* berubah warna pas kena mouse */
+}
+
+nav {
+    flex-grow: 1;
+    text-align: center;
+}
+
+nav ul {
+    display: inline-flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.search a:hover {
+    color: #C5707D;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none; 
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.overlay-text h2 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.overlay-text p {
+    font-size: 1.2em;
+}
+
+.overlay-text h3 a {
+    text-decoration: none;
+    color: black;
+}
+
+.featured-categories {
+    background-color: #F8EDE3;
+    padding: 40px 20px;
+}
+
+.section-title h2 {
+    margin-left: 50px;
+    margin-bottom: 0px;
+}
+
+.section-title p {
+    margin-left: 50px;
+    margin-top: 0px;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.feature-item {
+    width: 30%; 
+    text-align: center;
+    margin: 10px;
+    transition: transform 0.3s; /* Animasi saat hover */
+}
+
+.feature-item:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.feature-item img {
+    width: 100%; 
+    border-radius: 10px;
+}
+
+.feature-item h3 {
+    margin: 10px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f8f8f8;
+}
+
+.text-berjalan {
+    font-size: 15px;
+    color: white;
+    padding: 17.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #C5705D;
+}
+
+/* Center the main title */
+.main-title {
+    text-align: center;
+    font-size: 36px;
+    color:rgb(197, 112, 93); 
+    font-family: 'Mate';
+    padding: 50px 0;
+    background-image: url('https://images.unsplash.com/photo-1542841791-6ef97dd1fad4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover; 
+    background-position: center; 
+}
+
+/* Layout for search bar */
+.search-container {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    background-color: #fafaf1;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px; 
+}
+
+.search-bar button {
+    padding: 15px 18px;
+    margin-left: 5px;
+    background-color:rgb(208, 184, 168);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Product gallery styles */
+.gallery {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    column-gap: 5px; /* Hanya mengatur jarak kiri-kanan antar card */
+    row-gap: 30px; /* Menjaga jarak vertikal antar card tetap sama */    
+    padding: 30px;
+    background-color: #fafaf1; 
+    grid-template-columns: repeat(4, 1fr); 
+    margin: 0 auto;     
+}
+
+.card {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card img {
+    width: 100%; /* Ensures the image fills the width of the card */
+    height: 350px; /* Sets a fixed height */
+    object-fit: cover; /* Ensures the image is scaled and cropped to fit the fixed dimensions */
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8b7f6d;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Styles for pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafaf1; 
+    padding: 30px;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 0 10px;
+    background-color: rgb(197, 112, 93);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#page-info {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .search-filter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-gallery {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        margin: 0 auto; 
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); 
+        margin: 0 auto; 
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr; 
+        margin: 0 auto; 
+    }
+}
