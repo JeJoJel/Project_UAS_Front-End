@@ -8,9 +8,8 @@
 }
 
 .page-hero {
-    background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0KDQ0IDQ0NBwcHCA0HBwcHCA8ICQcNFREWFhURHx8YHSggGCYlJx8fITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDw0NFSsZFRkrLTcrKzctNysrKys3Ky0rKysrKystKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBHAMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAABAAIDBAUH/8QAGxABAQEBAQEBAQAAAAAAAAAAAAEREgITA5H/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIEA//EABgRAQEBAQEAAAAAAAAAAAAAAAARATEh/9oADAMBAAIRAxEAPwD9RRUcLrUjUiaioZGpBG4IYYCIo1BDFDGhCBIiEIQBazp1mii1m01mgrWK1axaiis2qs6AtZtNZoM1itVlGsFZarNAMNBOjIarLMAsOLFzB9IwyHG0UaghkEahBBqNCHRCYFFGoWVoNKM6tBoaNZ0RWirWbUU2sWi+mdFVrNqFoC0C0WoqrNTNoCims0UUGhAMtAGQ0E0CKXB9IgtIWow1BGo0zKdBosa1AaWgaqNLWdGg3aNZtGg10tZ0WoG1m0Ws2iq0Wi1m0DrNVrOop1m0aNBaEKKqKhaAFOioBJIBJJogUD6JZT0RosyrQb06xp0RuU656tB00axq0G7RrNo0G9GsX0NBvVaxotBrRazotA2sWq1nUU2i0Wi0IgrQKtWjWdBq1laNQIWpkSCBJJfRJatB71rOppI0pWdSjc9LWNVojerWNGg6aOmNWi5jfQ1nRaDdo1jRqEbtGsWrRY1aNGi0I1azaLRaBtGs2rUDaLQCh0aglCKqCh1BIFBAtSS0SSUezVrI1RvVrGrQjWrWdGhG9GsaNCOmq1z1aDejWdGg3o1nRoN6NZ0ag3o1kJujWgaNSjVAFBrQEgQkCSQJJAkkokkgkkuD0BaNbCmVoFDRaDQGq0Fo1BA6tZ1JRoAUo0AkDqoWIJLEokliCRxKBHFhBRFEAiiASxEECsAI4EHUIPQOq0WgDqGgDqtCBalixBI4sIM1NYsBnFjakBjGsPJ5SDGHG+VysGMOOnK5SDnix15U8rBzxcuvJ5BxxY64uQcsWOl8rAcsWOmDAc8WOmDkGMWNYsSASDQqkgCkKBYkcBYsMMgDFjRwGOTy1hkBmRY3I1PIMTyca5MgM4uXTEDPKxo4DGHGsWAzixrFgM4saQMWLGiDng5dMGA54LHXBgOVgx1sGA86SBHAQSxGApDhkIDGopDgDGpFI3gMYZG5DgM4caAghKAFDRShotA6mdGiNJjRfQN6tc+l0Dpatcuj0Dpqc9XQR0DHS6FbTHR0HnQMAmCEFjUgjUAyGRRqQBGopGpAEjWLDABiwgEQCGi1noGr6ZtZvpm+gbvodOd9MX2lHW+h0432zfaUd+xfbz32zf0Sj0drt5voL+hR6ux2830H0/hdHq7XbzfRfQo9Xa7eX6H6FHq7PTy/Q/Qo6mJNhhSAxqFA1GokBjUSAqFAoqkCCQMenMoGKzUgY9MVJnRis1JBis1JAUJAqKkChCBqhIGo0kD/2Q==);
+    background-image: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.3)), url(https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
     background-size: cover;
-    background-color: rgb(208, 184, 168);
     justify-content: center;
     align-items: center;
     display: flex;
@@ -19,9 +18,9 @@
 }
 
 .page-hero h1 {
-    font-size: 60px;
+    font-size: 40px;
     background: none;
-    color:rgb(197, 112, 93); 
+    color: rgba(255, 255, 255, 0.9); 
     text-align: center;
 }
 
@@ -39,8 +38,8 @@
 }
 
 .blog-image img {
-    max-width: 100%;
-    max-height: 600px;
+    max-width: 800px;
+    max-height: 100%;
     width: auto;
     height: auto;
     display: block;
@@ -108,7 +107,7 @@ a:hover {
 .blog-detail img {
     padding: 30px;
     max-width: 100%;
-    max-height: 600px;
+    max-height: 100%;
     width: auto;
     height: auto;
 }
@@ -131,6 +130,10 @@ a:hover {
         margin-bottom: 10px;
     }
 
+    .blog-image img {
+        max-width: 400px;
+    }
+
     .blog-detail {
         margin-right: 0;
     }
@@ -138,177 +141,34 @@ a:hover {
     .blog-detail p {
         font-size: 15px;
     }
-}
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 31px;
-    margin: 0px;
-    background-color: #F8EDE3;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
+    .blog-detail h2 {
+        font-size: 25px;
+    }
 
-.logo {
-    flex-basis: auto;
-    display: flex;
-    text-align: left;
-    font-size: 25px;
-}
+    .blog-detail ul, ol {
+        font-size: 15px;
+        padding-left: 20px;
+    }
 
-.menu-list li a {
-    position: relative;
-    text-decoration: none;
-    color: #333;
-    font-size: 1em;
-    padding: 0 5px;
-}
+    .content {
+        padding: 30px;
+    }
 
-.menu-list li a .arrow {
-    margin-left: 5px;
-}
+    .section {
+        padding-left: 5px;
+    }
 
-.menu-list li a .arrow::after {
-    content: "▼"; /* simbol panah ke bawah */
-    font-size: 0.6em; /* ukuran panah */
-    color: #333;
-    position: relative;
-    top: -1px; /* posisi panahnya agak ke atas */
-}
+    .section p {
+        padding-left: 0;
+    }
 
-.menu-list li a:hover .arrow::after {
-    color: #C5707D; /* berubah warna pas kena mouse */
-}
-
-
-nav {
-    flex-grow: 1;
-    text-align: center;
-}
-
-nav ul {
-    display: inline-flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1em;
-}
-
-.search {
-    display: flex;
-    align-items: center;
-}
-
-.search a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: #333;
-}
-
-.search a:hover {
-    color: #C5707D;
-}
-
-.slideshow-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.mySlides {
-    display: none; 
-}
-
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.overlay-text h2 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-.overlay-text p {
-    font-size: 1.2em;
-}
-
-.overlay-text h3 a {
-    text-decoration: none;
-    color: black;
-}
-
-.featured-categories {
-    background-color: #F8EDE3;
-    padding: 40px 20px;
-}
-
-.section-title h2 {
-    margin-left: 50px;
-    margin-bottom: 0px;
-}
-
-.section-title p {
-    margin-left: 50px;
-    margin-top: 0px;
-}
-
-.feature-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
-.feature-item {
-    width: 30%; 
-    text-align: center;
-    margin: 10px;
-    transition: transform 0.3s; /* Animasi saat hover */
-}
-
-.feature-item:hover {
-    transform: scale(1.05); /* Efek zoom saat hover */
-}
-
-.feature-item img {
-    width: 100%; 
-    border-radius: 10px;
-}
-
-.feature-item h3 {
-    margin: 10px 0;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #f8f8f8;
-}
-
-.text-berjalan {
-    font-size: 15px;
-    color: white;
-    padding: 17.5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #C5705D;
+    .toc h2 {
+        font-size: 30px;
+    }
+    
+    .toc li {
+        font-size: 20px;
+        padding: 5px;
+    }
 }
