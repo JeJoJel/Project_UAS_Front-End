@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&display=swap');
 
+/* Global */
 body {
     padding: 0;
     margin: 0;
@@ -7,6 +8,18 @@ body {
     line-height: 1.6;
 }
 
+/* Marquee text */
+.text-berjalan {
+    font-size: 15px;
+    color: white;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #C5705D;
+}
+
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -14,12 +27,6 @@ header {
     padding: 15px;
     margin: 0px;
     background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
 }
 
 .logo {
@@ -80,11 +87,19 @@ nav ul li a {
     color: #C5707D;
 }
 
+/* Slideshow */
 .slideshow-container {
+    margin-top: 50px;
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .mySlides {
@@ -124,6 +139,7 @@ nav ul li a {
     color: black;
 }
 
+/* Featured Categories */
 .featured-categories {
     background-color: white;
     padding: 20px 20px;
@@ -167,32 +183,7 @@ nav ul li a {
     margin: 10px 0;
 }
 
-.footer-content {
-    text-align: center;
-    padding: 10px 0;
-    background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.social-media-icons {
-    display: flex;
-    justify-content: space-around;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-}
-
-.text-berjalan {
-    font-size: 15px;
-    color: white;
-    padding: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #C5705D;
-}
-
+/* Explore Section */
 .explore-section, .popular-posts {
     background-color: white;
     padding: 0px 20px;
@@ -244,32 +235,7 @@ nav ul li a {
     margin-bottom: 0px;
 }
 
-.section-title {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.feature-item {
-    flex: 1;
-    margin: 0 10px;
-    text-align: center;
-}
-
-.feature-item img {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.post-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.post-item {
-    margin: 10px 0;
-}
-
+/* Brands Section */
 .brands-content {
     display: flex;
     justify-content: space-between;
@@ -279,7 +245,6 @@ nav ul li a {
     background-color: #F8EDE3;
 }
 
-/* cara biar kolom jadi baris */
 .wrap {
     display: flex;
     flex-wrap: wrap; /* Agar gambar bisa membungkus ke baris berikutnya */
@@ -299,6 +264,31 @@ nav ul li a {
     height: auto; 
 }
 
+/* Social Media */
+.social-media-icons {
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    gap: 20px
+}
+
+.social-media-icons img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Footer */
+.footer-content {
+    text-align: center;
+    padding: 10px 0;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* Untuk layar lebih kecil (tablet dan smartphone) */
 @media only screen and (max-width: 768px) {
