@@ -197,26 +197,45 @@ footer {
     display: flex;
     align-items: center;
     margin-right: 20px;
+    border-radius: 5px;
+    overflow: hidden; 
 }
 
 .search-bar input {
-    padding: 15px;
+    padding: 10px; 
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 400px; 
+    border: 1px solid #d3cecd;
+    border-radius: 5px; 
+    width: 500px;
+    height: 40px; 
 }
 
 .search-bar button {
-    padding: 15px 18px;
-    margin-left: 5px;
-    background-color:rgb(208, 184, 168);
-    color: white;
+    padding: 0 18px;
     border: none;
+    border-radius: 5px; 
     cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
 }
+
+.search-bar i {
+    font-size: 16px; 
+    color: #A3554A;
+}
+
+.search-bar button:hover {
+    background-color: transparent;
+}
+
+.search-bar input:focus {
+    outline: none; 
+    border-color: #A3554A; 
+}
+
 
 /* Product gallery styles */
 .gallery {
@@ -224,9 +243,11 @@ footer {
     justify-content: center;
     justify-items: center;
     flex-wrap: wrap;
-    column-gap: 5px; /* Hanya mengatur jarak kiri-kanan antar card */
-    row-gap: 30px; /* Menjaga jarak vertikal antar card tetap sama */    
-    padding: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    column-gap: 5px; /*mengatur jarak kiri-kanan antar card */
+    row-gap: 30px;   
     background-color: #fafaf1; 
     grid-template-columns: repeat(4, 1fr); 
     margin: 0 auto;     
@@ -265,6 +286,16 @@ footer {
     transform: translateY(-10px);
 }
 
+.no-results {
+    font-size: 22px;
+    font-weight: bold;
+    color: #c5705d; 
+    text-align: center;
+    padding: 100px;
+    display: none; 
+    background-color: #fafaf1;
+}
+
 /* Styles for pagination */
 .pagination {
     display: flex;
@@ -277,7 +308,7 @@ footer {
 .pagination button {
     padding: 10px 15px;
     margin: 0 10px;
-    background-color: rgb(197, 112, 93);
+    background-color: #c5705d;
     color: white;
     border: none;
     cursor: pointer;
