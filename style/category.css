@@ -93,9 +93,9 @@ nav ul li a {
 
 /* Row section */
 .section {
-    background-color: #F0F8FF; /* Light blue background */
-    text-align: center; /* Center the text horizontally */
-    padding: 120px 0; /* Vertical padding */
+    background-color: #F0F8FF; 
+    text-align: center; 
+    padding: 120px 0; 
 }
 
 .first-row {
@@ -148,8 +148,12 @@ nav ul li a {
 
 .section-title {
     text-align: left;
-    margin: 20px 0;
+    margin-bottom: 0px;
     font-size: 2em;
+}
+
+.section-title h2 {
+    margin-bottom: 0px;
 }
 
 .main-container {
@@ -180,6 +184,10 @@ nav ul li a {
 
 .box a:hover {
     color: #B8001F;
+}
+
+.box p{
+    margin-top: 0px
 }
 
 /* Footer */

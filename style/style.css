@@ -28,11 +28,11 @@ body {
 /* Header */
 header {
     display: flex;
-    position: absolute; /* Posisi absolut untuk menempatkan header di atas slideshow */
-    left: 0; /* Memulai dari kiri */
-    right: 0; /* Memastikan lebar penuh */
-    z-index: 10; /* Pastikan header berada di atas konten lainnya */
-    padding: 10px; /* Padding untuk header */
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    z-index: 10;
+    padding: 10px; 
 }
 
 .logo {
@@ -278,7 +278,7 @@ nav ul li a {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #e0f5f3; /* Light green background */
+    background-color: #e0f5f3; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -286,7 +286,7 @@ nav ul li a {
 
 .circle i {
     font-size: 20px;
-    color: black; /* Greenish icon color */
+    color: black; 
 }
 
 /* Read more button styling */
@@ -316,7 +316,7 @@ nav ul li a {
 }
 
 .author span {
-    color: grey; /* Blue text for the author's name */
+    color: grey; 
 }
 
 .row{
@@ -326,6 +326,11 @@ nav ul li a {
     gap: 30px;
     margin-top: 30px;
     border-radius: 15px;
+}
+
+.post-card a {
+    text-decoration: none;
+    color: #B8001F
 }
 
 .post-card {
@@ -371,7 +376,7 @@ nav ul li a {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #f9f9f9; /* Optional background */
+    background-color: #f9f9f9; 
     height: 350px;
 }
 
@@ -404,14 +409,14 @@ nav ul li a {
 }
 
 .text-section a:hover {
-    color: #ff5733; /* Change color on hover */
+    color: #ff5733; 
     text-decoration: underline;
 }
 
 .recipe-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #B8001F;
     color: white;
     border: none;
     cursor: pointer;
@@ -420,7 +425,7 @@ nav ul li a {
 }
 
 .recipe-btn:hover {
-    background-color: #ff5733; /* Change color on hover */
+    background-color: #0056b3; 
 }
 
 .image-section {
@@ -432,8 +437,8 @@ nav ul li a {
 
 .image-section img {
     width: 70%;
-    transform: rotate(5.5deg); /* Slight tilt */
-    margin-top: -10px; /* Adjust tilt upwards */
+    transform: rotate(5.5deg); 
+    margin-top: -10px; 
     object-fit: cover;
     border-radius: 15px;
 }
@@ -451,7 +456,7 @@ nav ul li a {
 
     .image-section img {
         width: 100%;
-        transform: none; /* Remove tilt on smaller screens */
+        transform: none; 
     }
 }
 
@@ -522,21 +527,21 @@ nav ul li a {
 }
 
 .button {
-    width: 100%; /* Full width button */
+    width: 100%; 
     border: none;
     color: black;
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    background-color: #B8001F; /* Background color of the button */
+    background-color: #B8001F;
     transition-duration: 0.4s;
     cursor: pointer;
     color: #FCFAEE;
 }
 
-.button:hover{
-    color: #b3f2e3;
+button:hover{
+    background-color: #0056b3;
 }
 
 
@@ -553,10 +558,10 @@ nav ul li a {
 
 .wrap {
     display: flex;
-    flex-wrap: wrap; /* Agar gambar bisa membungkus ke baris berikutnya */
-    justify-content: center; /* Memusatkan konten secara horizontal */
-    align-items: center; /* Menyelaraskan konten secara vertikal */
-    display: flex; /* Mengatur flexbox untuk elemen di dalamnya */
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    display: flex; 
     margin-left: auto;
     margin-right: auto;
 }
@@ -584,7 +589,7 @@ nav ul li a {
 }
 
 .gallery-item img {
-    width: 500px; /* Adjust size as needed */
+    width: 500px; 
     height: auto;
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -592,7 +597,7 @@ nav ul li a {
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1); /* Zoom effect on hover */
+    transform: scale(1.1);
 }
 
 .overlay {
@@ -601,7 +606,7 @@ nav ul li a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    background: rgba(0, 0, 0, 0.5); 
     color: white;
     display: flex;
     flex-direction: column;
@@ -612,7 +617,7 @@ nav ul li a {
 }
 
 .gallery-item:hover .overlay {
-    opacity: 1; /* Show the overlay when hovered */
+    opacity: 1; 
 }
   
 
@@ -675,7 +680,7 @@ nav ul li a {
 }
 
 .reply-btn {
-    background-color: #007bff;
+    background-color: #B8001F;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -711,7 +716,7 @@ nav ul li a {
 
 .comment-form button {
     padding: 10px 20px;
-    background-color: #C4DFDF;
+    background-color: #B8001F;
     color: white;
     border: none;
     border-radius: 5px;
@@ -719,7 +724,7 @@ nav ul li a {
 }
 
 .comment-form button:hover {
-    background-color: #b3b3b3;
+    background-color: #0056b3;
 }
 
 
