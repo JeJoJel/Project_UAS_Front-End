@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="asset/icon.png" type="image/png"/>
     <title>Home - Chic & Simple</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,207 +17,357 @@
         <span>Stay tuned for exclusive tips and fresh inspiration on living chic & simple ○</span>        
     </marquee>
     
-    <header>
-        <div class="logo">
-            <nav>
-                <ul>
-                    <li><a href="index.html"><b>Chic & Simple.</b></a></li>
-                </ul>
-            </nav>
-        </div>
-        <nav>
-            <ul class="menu-list">
-                <li><a href="#">Halloween </a></li>
-                <li><a href="style_category.html">Style</a></li>
-                <li><a href="recipes_category.html">Recipes </a></li>
-                <li><a href="diy_category.html">Decor + DIY</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-        </nav>        
-        <div class="search">
-            <a href="#">Search</a>
-        </div>
-    </header>
-
+    <!-- div yg bakal di isi sm header -->
+    <div id="header-container"></div>
+        
     <!-- Slideshow Section -->
     <div class="slideshow-container">
+
         <div class="mySlides fade">
-            <img src="https://img.freepik.com/free-photo/interior-design-with-photoframes-couch_23-2149385435.jpg?t=st=1727599378~exp=1727602978~hmac=d46c687054481cff90b099bb384bcadbf7e515ddd23d6f6337e277d28a320544&w=1380" alt="Slide 1" style="width:100%">
+            <img src="asset/page-header3.avif" alt="Slide 1" style="width:100%">
         </div>
         <div class="mySlides fade">
-            <img src="https://img.freepik.com/free-photo/3d-rendering-loft-luxury-living-room-with-shelf-near-dining-table-counter_105762-2105.jpg?t=st=1727599458~exp=1727603058~hmac=408bebe83f4f4586f91258f25bff9de359fb95b56f5ea6040c1feaae3f430a6f&w=1380" alt="Slide 2" style="width:100%">
-        </div>
-        <div class="mySlides fade">
-            <img src="https://img.freepik.com/free-photo/3d-rendering-luxury-modern-living-room-with-fabric-sofa_105762-2186.jpg?t=st=1727599244~exp=1727602844~hmac=4a9d6d5f8a414a49784bbdccb64f8675b89f527cfe0f2d07c7d5d5584ed31bd7&w=1380" alt="Slide 3" style="width:100%">
+            <img src="asset/page-header2.avif" alt="Slide 2" style="width:100%">
         </div>
         <div class="overlay-text">
-            <h2>Stay home and make something amazing.</h2>
-            <h3><a href="#target-section-1" class="btn">ALL RECENT POSTS</a></h3>
+            <h2>Chic & Simple</h2>
+            <h1>Your go-to place for effortless style, delicious recipes, and creative DIY ideas.</h1>
         </div>
     </div>
 
-    <!-- Featured Categories Section -->
-    <section class="featured-categories">
-        <div class="section-title">
-            <h2>Categories</h2>
-            <p>Pick the best categories that fits you.</p>
-        </div>
-        <div class="feature-container">
-            <div class="feature-item">
-                <a href="style_category.html">
-                <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3V0Zml0JTIwc3R5bGluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Style">
-                </a>
-                <h3>Style</h3>
-            </div>
-            <div class="feature-item">
-                <a href="recipe.html">
-                <img src="https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Recipe">
-                </a>
-                <h3>Recipe</h3>
-            </div>
-            <div class="feature-item">
-                <a href="diy_category.html">
-                <img src="https://images.unsplash.com/photo-1657434743746-8264509ea3fd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="DIY">
-                </a>
-                <h3>DIY</h3>
-            </div>
-        </div>
-    </section>
 
-    <!-- Explore Section -->
-    <section class="explore-section" id="target-section-1">
-        <div class="section-title">
-            <h2>Explore Over 1,000 Posts</h2>
-            <p>Find inspiration across various topics including fashion, health, recipes, and DIY.</p>
+    <div class="container">
+        <section>
+            <div class="section-title">
+                <h2>Featured Posts</h2>
+            </div>
+        <div class ="featured-container">
+            <div class="box"> 
+                <span><a href="#"><img src="asset/post1.webp" alt="">Candy Apples</a></span>
+            </div>
+            <div class="box"> 
+                <span><a href="#"><img src="asset/post2.webp" alt="">Dirty Shirley Cocktail Recipe</a></span>
+            </div>
+            <div class="box"> 
+                <span><a href="#"><img src="asset/post3.webp" alt="">Pumpkin Spice Latte</a></span>
+            </div>
+            <div class="box"> 
+                <span><a href="#"><img src="asset/post4.webp" alt="">Caramel Apples</a></span>
+            </div>
         </div>
-        <div class="explore-posts">
-            <div class="post">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/01/how-to-modify-a-granny-square-cardigan-377x490.jpg" alt="Post 1 (Style)">
-                <h3><a href="">How To Modify A Crochet Cardigan</a></h3>
+        </section>
+        <hr>
+        <section>
+            <div class="section-title2">
+                <h2>Judul 1</h2>
+                <p>January 24 2019 - 32 Comments</p>
             </div>
-            <div class="post">
-                <img src="" alt="Post 2 (Recipe)">
-                <h3><a href="#">Healthy Recipes to Try This Week</a></h3>
-            </div>
-            <div class="post">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2023/02/how-to-make-candles-377x490.jpeg" alt="Post 3 (DIY)">
-                <h3><a href="#">How To Make Candles</a></h3>
-            </div>
-        </div>
-    </section> 
+            <div class="card-body">
+                <div class="blog-media">
+                    <img src="asset/page-header1.avif" alt="" class="w-100">   
+                </div>  
+                <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores et nostrum porro odit reprehenderit animi, est ratione fugit aspernatur ipsum. Nostrum placeat hic saepe voluptatum dicta ipsum beatae.</p>
+            </div> 
+            <div class="card-footer">
+                <div class="icon">
+                    <div class="circle">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="read-more">
+                    <button class="read-more-btn">READ MORE</button>
+                </div>
+                <div class="author">
+                    <p>By: <span>Joe Mitchell</span></p>
+                </div>
+            </div>            
+        </section>
+        <hr>
+        <section>
+            <div class="row">
+                <!-- First post -->
+                <div class="col-md-6">
+                    <div class="post-card">
+                        <img src="asset/page-header3.avif" alt="Post Image">
+                        <h5>Voluptates Corporis Placeat</h5>
+                        <p class="meta-info">January 20 2019 - 34 Comments</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
+                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
+    
+                <!-- Second post -->
+                <div class="col-md-6">
+                    <div class="post-card">
+                        <img src="asset/page-header3.avif" alt="Post Image">
+                        <h5>Dolorum Dolores Itaque</h5>
+                        <p class="meta-info">January 19 2019 - 64 Comments</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
+                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
 
-    <!-- Style -->
-    <section class="explore-section">
-        <h2>Your Can Style Too!</h2>
-        <p>We are in the mood to stay home and bake something cheesy and cozy tonight! Here are some reader favorite recipes.</p>
-        <div class="explore-posts">
-            <div class="post">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2023/01/clay-bead-bracelet-ideas-377x490.jpg" alt="Post 1">
-                <h3><a href="#">Clay Bead Braceletes Idea</a></h3>
-            </div>
-            <div class="post">
-                <img src="https://i.pinimg.com/736x/3f/3a/43/3f3a43ba137aec4b45610c61377cd020.jpg" alt="Post 2">
-                <h3><a href="#">How To Tie Dye</a></h3>
-            </div>
-            <div class="post">
-                <img src="https://i.pinimg.com/564x/fc/28/23/fc282344bdc7b1e2d0b68ba4dedb8b2c.jpg" alt="Post 3">
-                <h3><a href="#">How To Make Friendship Bracelets</a></h3>
-            </div>
-        </div>
-    </section>
+                <!-- Third post -->
+                <div class="col-md-6">
+                    <div class="post-card">
+                        <img src="asset/page-header3.avif" alt="Post Image">
+                        <h5>Dolorum Dolores Itaque</h5>
+                        <p class="meta-info">January 19 2019 - 64 Comments</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
+                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
+        </section>
 
-    <!-- Recipe Guide -->
-    <section class="explore-section">
-        <h2>Recipe Guide</h2>
-        <p>We are in the mood to stay home and bake something cheesy and cozy tonight! Here are some reader favorite recipes.</p>
-        <div class="explore-posts">
-            <div class="post">
-                <img src="" alt="Post 1">
-                <h3><a href="#">Detroit Style Pizza</a></h3>
+        <!-- Recipe Guide -->
+        <section>
+            <div class="recipe-container">
+                <div class="wrap">
+                    <div class="text-section">
+                        <h2>Recipe Guide</h2>
+                        <p>
+                            Click below to receive our FREE popular recipe guide. This includes our top 25 recipes of all time— your most loved 
+                            <a href="#">desserts</a>, 
+                            <a href="#">meal ideas</a>, 
+                            <a href="#">breakfast recipes</a>, and more!
+                        </p>
+                        <a href="#recipe">
+                        <button class="recipe-btn">GET THE RECIPES</button>
+                        </a>
+                    </div>
+                    <div class="image-section">
+                        <img src="asset/page-header3.avif" alt="Recipe Guide Image">
+                    </div>
+                </div>
             </div>
-            <div class="post">
-                <img src="" alt="Post 2">
-                <h3><a href="#">Pizza Sauce</a></h3>
-            </div>
-            <div class="post">
-                <img src="" alt="Post 3">
-                <h3><a href="#">Pizza Dough</a></h3>
-            </div>
-        </div>
-    </section>
+        </section>
+
+
+        <section>
+            <div class="row">
+
+                <!-- First post -->
+                <div class="col-md-6">
+                    <div class="post-card">
+                        <img src="asset/page-header3.avif" alt="Post Image">
+                        <h5>Voluptates Corporis Placeat</h5>
+                        <p class="meta-info">January 20 2019 - 34 Comments</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
+                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
+    
+                <!-- Second post -->
+                <div class="col-md-6">
+                    <div class="post-card">
+                        <img src="asset/page-header3.avif" alt="Post Image">
+                        <h5>Dolorum Dolores Itaque</h5>
+                        <p class="meta-info">January 19 2019 - 64 Comments</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
+                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Third post -->
+                <div class="col-md-6">
+                    <div class="post-card">
+                        <img src="asset/page-header3.avif" alt="Post Image">
+                        <h5>Dolorum Dolores Itaque</h5>
+                        <p class="meta-info">January 19 2019 - 64 Comments</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
+                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Load More Button-->
+        <div class="container-button-main">
+            <a href="html/category.html">
+            <button class="button">
+                Load More Post
+            </button>
+            </a>
+        </div>  
+
+    </div>
 
     <!-- Brand Content -->
     <div class="brands-content">
         <div class="wrap">
             <h2>Brands love us!</h2>
             <div class="entry">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/shopify-156x45.png" alt="entry 1">
+                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/shopify-156x45.png" alt="Shopify">
             </div>
             <div class="entry">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/new-york-times-156x21.png" alt="entry 2">
+                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/new-york-times-156x21.png" alt="TNYT">
             </div>
             <div class="entry">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/etsy-156x78.png" alt="entry 3">
+                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/etsy-156x78.png" alt="Etsy">
             </div>
             <div class="entry">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/the-guardian-156x51.png" alt="entry 4">
+                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/the-guardian-156x51.png" alt="TheGuardian">
             </div>
             <div class="entry">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/yahoo-156x40.png" alt="entry 5">
-            </div>
-            <div class="entry">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/huffpost-156x20.png" alt="entry 6">
+                <img src="https://abeautifulmess.com/wp-content/uploads/2022/08/yahoo-156x40.png" alt="YAHOO">
             </div>
         </div>
-    </div>   
+    </div>
 
-    <!-- DIY -->
-    <section class="explore-section">
-        <h2>Easy Crafts</h2>
-        <p>We are in the mood to stay home and bake something cheesy and cozy tonight! Here are some reader favorite recipes.</p>
-        <div class="explore-posts">
-            <div class="post">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/03/hair-accessories-organizer-DIY-1-1-377x490.jpg" alt="Post 1">
-                <h3><a href="#">Hair Accessories Organizer DIY</a></h3>
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-item">
+            <a href="#">
+                <img src="asset/page-header3.avif" alt="Image 1">
+                <div class="overlay">
+                    <p class="comments">Comments: 10</p>
+                    <p class="views">Views: 100</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="gallery-item">
+            <a href="#">
+                <img src="asset/page-header3.avif" alt="Image 2">
+                <div class="overlay">
+                    <p class="comments">Comments: 20</p>
+                    <p class="views">Views: 200</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="gallery-item">
+            <a href="#">
+                <img src="asset/page-header3.avif" alt="Image 3">
+                <div class="overlay">
+                    <p class="comments">Comments: 30</p>
+                    <p class="views">Views: 300</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="gallery-item">
+            <a href="#">
+                <img src="asset/page-header3.avif" alt="Image 4">
+                <div class="overlay">
+                    <p class="comments">Comments: 40</p>
+                    <p class="views">Views: 400</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="gallery-item">
+            <a href="#">
+                <img src="asset/page-header3.avif" alt="Image 5">
+                <div class="overlay">
+                    <p class="comments">Comments: 50</p>
+                    <p class="views">Views: 500</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="gallery-item">
+            <a href="#">
+                <img src="asset/page-header3.avif" alt="Image 5">
+                <div class="overlay">
+                    <p class="comments">Comments: 50</p>
+                    <p class="views">Views: 500</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Comment Section -->
+    <section class="container">
+        <h2>Comments (3)</h2>
+
+        <div class="comment">
+            <div class="comment-avatar">
+                <img src="https://i.pinimg.com/564x/58/30/1a/58301a88cdcd0147269114affb865b9a.jpg" alt="User Avatar">
             </div>
-            <div class="post">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2023/01/hidden-room-wardrobe-entrance--377x490.jpg" alt="Post 2">
-                <h3><a href="#">How We Built A Hidden Room</a></h3>
+            <div class="comment-content">
+                <h4>John Doe <span> | October 1, 2024</span></h4>
+                <p>Love the ideas you shared! I’ve been trying out a few DIY projects, and your guide made it so much easier.</p>
+                <button class="reply-btn">Reply</button>
             </div>
-            <div class="post">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2023/05/beginners-guide-to-epoxy-resin-377x490.jpg" alt="Post 3">
-                <h3><a href="#">Resin Art</a></h3>
+        </div>
+
+        <div class="comment">
+            <div class="comment-avatar">
+                <img src="https://i.pinimg.com/736x/8b/b0/0f/8bb00f0bccc87c298057e8206ed71700.jpg" alt="User Avatar">
             </div>
+            <div class="comment-content">
+                <h4>Jane Smith <span> | September 28, 2024</span></h4>
+                <p>The recipes section is my favorite. I tried the chocolate mousse last night, and it was a hit!</p>
+                <button class="reply-btn">Reply</button>
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="comment-avatar">
+                <img src="https://i.pinimg.com/736x/84/76/92/8476920d7bd7578d3a3c4a711c2a5501.jpg" alt="User Avatar">
+            </div>
+            <div class="comment-content">
+                <h4>Alex Brown <span> | September 25, 2024</span></h4>
+                <p>Great content! Would love to see more DIY tips for home decor.</p>
+                <button class="reply-btn">Reply</button>
+            </div>
+        </div>
+
+        <div class="comment-form">
+            <h3>Leave a Comment</h3>
+            <form action="#" method="post">
+                <textarea name="comment" placeholder="Write your comment here..." rows="5" required></textarea>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <button type="submit">Post Comment</button>
+            </form>
         </div>
     </section>
 
 
-    <!-- Social Media Icons -->
-     <div class="social-media-icons">
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/733/733547.png" alt="Facebook"></a>
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/4102/4102972.png" alt="Pinterest"></a>
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/3955/3955024.png" alt="Instagram"></a>
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/3670/3670147.png" alt="Youtube"></a>
-        <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/5969/5969020.png" alt="X"></a>
-    </div>
-
-    <!-- Comment Sections -->
-
     <!-- Footer -->
-    <div class="footer-content">
-        <div class="footer-left">
-            <h3>About Chic & Simple</h3>
-            <p>We're a blog dedicated to helping people find the perfect home or enjoy a relaxing evening at home.</p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About <span>Chic & Simple</span></h3>
+                <p>We're a blog dedicated to helping people find their unique style, create delicious recipes, and enjoy creative DIYs. Explore our content and stay chic and simple.</p>
+            </div>
+
+            <div class="footer-section subscribe">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="style_category.html">Style</a></li>
+                    <li><a href="#recipe">Recipes</a></li>
+                    <li><a href="diy_category.html">DIY</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="footer-right">
-            <h3>Subscribe</h3>
-            <form action="#" method="post">
-                <input type="email" name="email" placeholder="Enter your email">
-                <button type="submit">Subscribe</button>
-            </form>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Chic & Simple | All rights reserved | <a href="#">Privacy Policy</a></p>
         </div>
-    </div>
+    </footer>
 
     <script src="script.js"></script>
+    <script src="script/load-header.js"></script>
 </body>
 </html>
