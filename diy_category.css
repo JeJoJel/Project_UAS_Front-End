@@ -16,9 +16,6 @@ header {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.content {
-    background-color: #fafaf1;
-}
 img {
     max-width: 100%;
     height: auto;
@@ -183,7 +180,7 @@ footer {
     color:rgb(255, 255, 255); 
     font-family: 'Mate';
     padding: 50px 0;
-    background-image: linear-gradient(rgb(0,0,0,0.3), rgb(0,0,0,0.3)), url('https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-image: linear-gradient(rgb(0,0,0,0.3), rgb(0,0,0,0.3)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover; 
     background-position: center; 
 }
@@ -200,26 +197,45 @@ footer {
     display: flex;
     align-items: center;
     margin-right: 20px;
+    border-radius: 5px;
+    overflow: hidden; 
 }
 
 .search-bar input {
-    padding: 15px;
+    padding: 10px; 
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 400px; 
+    border: 1px solid #d3cecd;
+    border-radius: 5px; 
+    width: 500px;
+    height: 40px; 
 }
 
 .search-bar button {
-    padding: 15px 18px;
-    margin-left: 5px;
-    background-color:rgb(208, 184, 168);
-    color: white;
+    padding: 0 18px;
     border: none;
+    border-radius: 5px; 
     cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
 }
+
+.search-bar i {
+    font-size: 16px; 
+    color: #A3554A;
+}
+
+.search-bar button:hover {
+    background-color: transparent;
+}
+
+.search-bar input:focus {
+    outline: none; 
+    border-color: #A3554A; 
+}
+
 
 /* Product gallery styles */
 .gallery {
@@ -227,8 +243,8 @@ footer {
     justify-content: center;
     justify-items: center;
     flex-wrap: wrap;
-    column-gap: 5px; /* Hanya mengatur jarak kiri-kanan antar card */
-    row-gap: 30px; /* Menjaga jarak vertikal antar card tetap sama */    
+    column-gap: 5px; /*mengatur jarak kiri-kanan antar card */
+    row-gap: 30px;   
     padding: 30px;
     background-color: #fafaf1; 
     grid-template-columns: repeat(4, 1fr); 
@@ -268,6 +284,18 @@ footer {
     transform: translateY(-10px);
 }
 
+.no-results {
+    font-size: 22px;
+    font-weight: bold;
+    color: #c5705d; 
+    text-align: center;
+    padding: 60px;
+    display: none; 
+    background-color: #fafaf1;
+}
+
+
+
 /* Styles for pagination */
 .pagination {
     display: flex;
@@ -280,7 +308,7 @@ footer {
 .pagination button {
     padding: 10px 15px;
     margin: 0 10px;
-    background-color: rgb(197, 112, 93);
+    background-color: #c5705d;
     color: white;
     border: none;
     cursor: pointer;
