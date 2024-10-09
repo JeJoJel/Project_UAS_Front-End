@@ -161,9 +161,7 @@ body {
     justify-content: center;
     justify-items: center;
     flex-wrap: wrap;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
+    padding: 30px; 
     column-gap: 20px; 
     row-gap: 20px;   
     grid-template-columns: repeat(4, 1fr); 
@@ -171,7 +169,7 @@ body {
 }
 
 .card {
-    margin-top: 50px;
+    margin-top: 30px;
     text-align: center;
     background-color: rgb(248, 246, 244);
     padding: 20px;
@@ -268,28 +266,25 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    .product-gallery {
-        justify-content: center;
-    }
-}
-
 @media (max-width: 1200px) {
     .gallery {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); 
     }
 }
 
 @media (max-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
-
-@media (max-width: 480px) {
+@media (max-width: 576px) {
     .gallery {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr; 
+    }
+
+    .card {
+        width: 100%; 
     }
 }
 
