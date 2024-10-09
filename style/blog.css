@@ -80,6 +80,17 @@
     padding-bottom: 10px;
 }
 
+.blog-video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.video {
+    width: 650px;
+    height: 366px;
+}
+
 .blog-image {
     display: flex;
     justify-content: center;
