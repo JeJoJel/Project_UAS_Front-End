@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Gallery</title>
+    <link rel="stylesheet" href="../style/halloween_category.css">
+    <link rel="stylesheet" href="../style/header_footer.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-bar">
+            <i class="fa fa-search search-icon" onclick="performSearch()"></i>
+        </div>
+    </header>
+    
+
+    <!-- Main Category Section -->
+    <div class="container">
+        <section>
+            <div class="feature-posts">
+                <a href="single-post.html" class="feature-post-item">                       
+                    <img src="../asset/halloween/hal1.jpg" class="w-100" alt="Halloween Cupcakes">
+                    <div class="feature-post-caption">Halloween Cupcakes</div>
+                </a>
+                <a href="single-post.html" class="feature-post-item">
+                    <img src="../asset/halloween/hal3.jpg" class="w-100" alt="Beetlejuice! Costume">
+                    <div class="feature-post-caption">Beetlejuice! Costume</div>
+                </a>
+                <a href="single-post.html" class="feature-post-item">
+                    <img src="../asset/halloween/hal7.jpg" class="w-100" alt="Our Spooky Village">
+                    <div class="feature-post-caption">Our Spooky Village</div>
+                </a>
+                <a href="single-post.html" class="feature-post-item">
+                    <img src="../asset/halloween/hal9.jpg" class="w-100" alt="Spooky Eyeball Jello Shots!">
+                    <div class="feature-post-caption">Spooky Eyeball Jello Shots!</div>
+                </a>
+                <a href="single-post.html" class="feature-post-item">
+                    <img src="../asset/halloween/hal12.jpg" class="w-100" alt="Halloween Cake Pops">
+                    <div class="feature-post-caption">Halloween Cake Pops</div>
+                </a>
+            </div>
+        </section>
+        <hr>
+        <div class="page-container">
+            <div class="page-content">
+
+                <div class="card1">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">How To Make Halloween Cakesicles</h5> 
+                        <small class="small text-muted">February 14 2020
+                            <span class="px-2">-</span>
+                            <a href="#" class="text-muted">222 Comments</a>
+                        </small>
+                    </div>
+                    <div class="card-body">
+                        <div class="blog-media">
+                            <img src="../asset/halloween/hal14.jpg" alt="" class="w-100">
+                        </div>  
+                        <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores et nostrum porro odit reprehenderit animi, est ratione fugit aspernatur ipsum. Nostrum placeat hic saepe voluptatum dicta ipsum beatae.</p>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-primary circle-35 mr-4"><i class="ti-back-right"></i></button>
+                        <a href="single-post.html" class="btn btn-outline-dark btn-sm">READ MORE</a>
+                    </div>                  
+                </div>
+                <hr>
+
+                <!-- Gallery Section -->
+                <section class="gallery">
+                    <!-- Category Cards -->
+                    <div class="card">
+                        <a href="blog.html">
+                            <img src="../asset/halloween/hal1.jpg" alt="Halloween Cupcakes">
+                        </a>
+                        <h3>Halloween Cupcakes</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal2.jpg" alt="No-Carve (Tattoo) Pumpkin Decor">
+                        <h3>No-Carve (Tattoo) Pumpkin Decor</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal3.jpg" alt="Beetlejuice! Costume">
+                        <h3>Beetlejuice! Costume</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal4.jpg" alt="DIY Candy Corn Garland">
+                        <h3>DIY Candy Corn Garland</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal5.jpg" alt="Easy DIY Fabric Pumpkins">
+                        <h3>Easy DIY Fabric Pumpkins</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal6.jpg" alt="5 Ways to Decorate with Skeletons">
+                        <h3>5 Ways to Decorate with Skeletons</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal7.jpg" alt="Our Spooky Village">
+                        <h3>Our Spooky Village</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal8.jpg" alt="DIY Full Moon Photo Backdrop">
+                        <h3>DIY Full Moon Photo Backdrop</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal9.jpg" alt="Spooky Eyeball Jello Shots!">
+                        <h3>Spooky Eyeball Jello Shots!</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal10.jpg" alt="Glass Bead Jack-O-Lanterns">
+                        <h3>Glass Bead Jack-O-Lanterns</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal11.jpg" alt="Pumpkin Spice Syrup Recipe">
+                        <h3>Pumpkin Spice Syrup Recipe</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/halloween/hal12.jpg" alt="Halloween Cake Pops">
+                        <h3>Halloween Cake Pops</h3>
+                    </div>
+                </section>        
+
+                <div class="no-results" id="no-results"></div>
+
+                <!-- Pagination Section -->
+                <div class="pagination">
+                    <button id="prev-btn" onclick="prevPage()">Previous</button>
+                    <span id="page-info"></span>
+                    <button id="next-btn" onclick="nextPage()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="../script/diy_category.js"></script>
+    <script src="../script/load-header.js"></script>
+    <script src="../script/load-footer.js"></script>
+    
+</body>
+</html>
