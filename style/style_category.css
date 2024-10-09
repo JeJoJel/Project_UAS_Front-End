@@ -177,7 +177,7 @@ footer {
 .main-title {
     text-align: center;
     font-size: 36px;
-    color:rgb(255, 255, 255); 
+    color:rgb(248, 246, 244); 
     font-family: 'Mate';
     padding: 50px 0;
     background-image: linear-gradient(rgb(0,0,0,0.3), rgb(0,0,0,0.3)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
@@ -190,7 +190,7 @@ footer {
     display: flex;
     justify-content: center;
     padding: 50px;
-    background-color: #fafaf1;
+    background-color: rgb(248, 246, 244);
 }
 
 .search-bar {
@@ -224,7 +224,7 @@ footer {
 
 .search-bar i {
     font-size: 16px; 
-    color: #A3554A;
+    color: rgb(196, 223, 223);
 }
 
 .search-bar button:hover {
@@ -233,7 +233,7 @@ footer {
 
 .search-bar input:focus {
     outline: none; 
-    border-color: #A3554A; 
+    border-color: rgb(196, 223, 223); 
 }
 
 
@@ -248,7 +248,7 @@ footer {
     padding-bottom: 30px;
     column-gap: 5px; /*mengatur jarak kiri-kanan antar card */
     row-gap: 30px;   
-    background-color: #fafaf1; 
+    background-color: rgb(248, 246, 244); 
     grid-template-columns: repeat(4, 1fr); 
     margin: 0 auto;     
 }
@@ -264,9 +264,9 @@ footer {
 }
 
 .card img {
-    width: 100%; /* Ensures the image fills the width of the card */
-    height: 350px; /* Sets a fixed height */
-    object-fit: cover; /* Ensures the image is scaled and cropped to fit the fixed dimensions */
+    width: 100%; 
+    height: 350px; 
+    object-fit: cover; 
     margin-bottom: 15px;
 }
 
@@ -289,11 +289,11 @@ footer {
 .no-results {
     font-size: 22px;
     font-weight: bold;
-    color: #c5705d; 
+    color: rgb(0, 0, 0); 
     text-align: center;
     padding: 100px;
     display: none; 
-    background-color: #fafaf1;
+    background-color: rgb(248, 246, 244);
 }
 
 /* Styles for pagination */
@@ -301,15 +301,15 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fafaf1; 
+    background-color: rgb(248, 246, 244); 
     padding: 30px;
 }
 
 .pagination button {
     padding: 10px 15px;
     margin: 0 10px;
-    background-color: #c5705d;
-    color: white;
+    background-color:rgb(210, 233, 233);
+    color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
     border-radius: 5px;

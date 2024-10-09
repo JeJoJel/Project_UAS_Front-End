@@ -1,16 +1,14 @@
 const cards = document.querySelectorAll('.card');
-const searchInput = document.querySelector('.search-bar input');
-const searchButton = document.querySelector('.search-bar button');
-const cardsPerPage = 12;
+const searchInput = document.querySelector('.search-bar'); // Updated to target the input field directly
+const searchIcon = document.querySelector('.search-icon'); // Updated to select the search icon
+const cardsPerPage = 8;
 let currentPage = 1;
-let filteredCards = [...cards]; // Array to store search results
+let filteredCards = [...cards]; 
 
-// Function to display cards for a specific page
 function showPage(page, cardsToShow = filteredCards) {
   const start = (page - 1) * cardsPerPage;
   const end = start + cardsPerPage;
 
-  // Hide all cards and display only the ones for the current page
   cards.forEach(card => {
     card.style.display = 'none';
   });
@@ -23,48 +21,46 @@ function showPage(page, cardsToShow = filteredCards) {
   document.getElementById('page-info').textContent = `${page} / ${totalPages}`;
 
   document.getElementById('prev-btn').disabled = page === 1;
-  document.getElementById('next-btn').disabled = page === totalPages;
+  document.getElementById('next-btn').disabled = page === totalPages || cardsToShow.length === 0;
 }
 
-// Function to update and display search results
 function searchCards() {
-    const searchTerm = searchInput.value.toLowerCase();
-  
-    // Filter cards based on search term in title (h3)
-    filteredCards = [...cards].filter(card => {
-      const title = card.querySelector('h3').textContent.toLowerCase();
-      return title.includes(searchTerm);
+  const searchTerm = searchInput.value.toLowerCase();
+
+  filteredCards = [...cards].filter(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    return title.includes(searchTerm);
+  });
+
+  const noResultsMessage = document.getElementById('no-results');
+
+  if (filteredCards.length === 0) {
+    noResultsMessage.textContent = 'Sorry, no content matched your criteria';
+    noResultsMessage.style.display = 'block'; 
+
+    cards.forEach(card => {
+      card.style.display = 'none';
     });
-  
-    // Check if any results match the search criteria
-    if (filteredCards.length === 0) {
-      const noResultsMessage = document.getElementById('no-results');
-      noResultsMessage.textContent = 'Sorry, no content matched your criteria';
-      noResultsMessage.style.display = 'block'; // Display "no results" message
-  
-      // Hide all cards since there are no search results
-      cards.forEach(card => {
-        card.style.display = 'none';
-      });
-  
-      // Disable pagination buttons if no results
-      document.getElementById('prev-btn').disabled = true;
-      document.getElementById('next-btn').disabled = true;
-    } else {
-      // Display search results (already handled in "showPage")
-      const noResultsMessage = document.getElementById('no-results');
-      noResultsMessage.textContent = ''; // Hide "no results" message
-      noResultsMessage.style.display = 'none';
-  
-      // Reset pagination and display first page
-      currentPage = 1;
-      showPage(currentPage);
-    }
+
+    document.getElementById('prev-btn').disabled = true;
+    document.getElementById('next-btn').disabled = true;
+  } else {
+    noResultsMessage.textContent = ''; 
+    noResultsMessage.style.display = 'none';
+
+    currentPage = 1; // Reset to first page on search
+    showPage(currentPage);
+  }
 }
 
-  
+// Event listeners
+searchIcon.addEventListener('click', searchCards); // Use the search icon to trigger the search
 
-searchButton.addEventListener('click', searchCards);
+searchInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    searchCards(); // Trigger search on Enter key press
+  }
+});
 
 function nextPage() {
   if (currentPage < Math.ceil(filteredCards.length / cardsPerPage)) {
@@ -80,5 +76,5 @@ function prevPage() {
   }
 }
 
+// Initial page display
 showPage(currentPage);
-
