@@ -7,7 +7,7 @@
     font-family: 'Mate';
 }
 
-/* All Section */
+/* For All Section */
 .spacer {
     padding-left: 8px;
     padding-right: 8px;
@@ -62,9 +62,10 @@
     padding: 3px;
     border-radius: 2px;
     color: #A3C3C3;
+    transform: translateY(-1px);
 }
 
-/* Main Content */
+/* Main Content Section */
 .content {
     flex-grow: 1; 
     padding: auto;
@@ -74,12 +75,13 @@
     width: 75%;
 }
 
-/* Blog Top Section */
+/* Blog Title */
 .blog-title {
     font-size: 30px;
     padding-bottom: 10px;
 }
 
+/* Blog Video */
 .blog-video {
     width: 100%;
     display: flex;
@@ -91,24 +93,9 @@
     height: 366px;
 }
 
-.blog-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100px;
-    margin-bottom: 20px;
-}
-
-.blog-image img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    display: block;
-}
-
+/* Blog Info */
 .blog-info {
-    font-size: 20px;
+    font-size: 17px;
     padding: 10px;
     margin-bottom: 30px;
     grid-column-gap: 10px;
@@ -161,7 +148,7 @@
     padding-bottom: 10px;
 }
 
-/* TOC Section */
+/* Table of Contents Section */
 .toc {
     padding-left: 20px;
     border-bottom: 1px solid #212529;
@@ -190,6 +177,7 @@
 
 .toc a:hover {
     background-color: #A3C3C3; 
+    transform: translateY(-1px);
 }
 
 .toc a:hover::after {
@@ -202,7 +190,7 @@
     color: #212529;
 }
 
-/* Recipe Section */
+/* Recipe/How-to Section */
 .recipe-section {
     padding: 10px;
     padding-top: 0;
@@ -230,7 +218,7 @@
     height: auto;
 }
 
-/* Recipe Header */
+/* Recipe Time Frame */
 .recipe-header {
     display: flex;
     padding: 0 10px;
@@ -268,7 +256,7 @@
     margin: 5px;
 }
 
-/* Ingredients Section */
+/* Ingredients/Supplies Section */
 .ingredients-section {
     flex: 1;
 }
@@ -306,6 +294,7 @@
 
 .ingredients-button:hover, .ingredients-button.active {
     background-color: #A3C3C3;
+    transform: translateY(-1px);
 }
 
 .ingredients-list ul{
@@ -390,6 +379,7 @@
 
 .reply-button:hover {
     background-color: #A3C3C3;
+    transform: translateY(-1px);
 }
 
 .comment-form {
@@ -423,19 +413,24 @@
 .comment-form button:hover {
     background-color: #A3C3C3;
     transition: background-color 0.3s ease;
+    transform: translateY(-1px);
 }
 
 /* Sidebar Section */
 .page-sidebar {
-    width: 25%; 
+    width: calc(25% - 20px); 
+    margin: 10px;
+    margin-bottom: 2px;
     padding: 20px;
     overflow-y: auto; 
     flex-shrink: 0;
     position: sticky;
     top: 0; 
     height: fit-content;
+    border-radius: 20px;
 }
 
+/* Tags */
 .tag {
     display: inline-block;
     color: #212529;
@@ -451,8 +446,10 @@
 
 .tag:hover {
     background-color: #A3C3C3; 
+    transform: translateY(-1px);
 }
 
+/* Ads */
 .ad-card {
     margin-top: 10px;
     display: flex;
@@ -460,8 +457,42 @@
     align-items: center;
     justify-content: center;
     background-color: lightgrey;
-    height: 200px;
+    height: 180px;
     width: auto;
+}
+
+/* Related Post Section */
+.related-post {
+    margin: 15px 0;
+}
+
+.post-card {
+    margin-top: 10px;
+    text-align: center;
+    background-color: #F8F6F4;
+    padding: 15px 10px;
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    width: auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+.post-card img {
+    width: 100%; 
+    height: 100px; 
+    object-fit: cover; 
+    margin-bottom: 5px;
+}
+
+.post-card h4 {
+    font-size: 15px;
+    color: #212529;
+    background-color: transparent;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    background-color: #C4DFDF; 
 }
 
 @media (max-width: 576px) {
@@ -485,6 +516,14 @@
     .recipe-detail span {
         font-size: 15px;
     }
+
+    .post-card {
+        margin: 5px;
+    }
+
+    .post-card h4 {
+        font-size: 15px;
+    }
 }
 
 @media(max-width:768px) {
@@ -494,10 +533,6 @@
 
     .blog-date {
         margin-bottom: 10px;
-    }
-
-    .blog-image img {
-        max-width: 100%;
     }
 
     .blog-info {
@@ -534,6 +569,10 @@
         padding-left: 0;
     }
 
+    .steps {
+        padding-left: 0;
+    }
+
     .page-sidebar {
         position: relative; 
         width: 100%; 
@@ -541,8 +580,18 @@
         margin-top: 20px; 
     }
 
-    .steps {
-        padding-left: 0;
+    .post-cards {
+        display: flex;
+        justify-content: center;
+    }
+
+    .post-card {
+        width: 300px;
+        margin: 15px;
+    }
+
+    .post-card h4 {
+        font-size: 12px;
     }
 }
 
