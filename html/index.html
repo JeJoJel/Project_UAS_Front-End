@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../img/icon.png" type="image/png"/>
+    <link rel="icon" href="../asset/icon.png" type="image/png"/>
     <title>Home - Chic & Simple</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/header_footer.css">
 </head>
 <body>
     <marquee class="text-berjalan">
@@ -24,10 +24,10 @@
     <div class="slideshow-container">
 
         <div class="mySlides fade">
-            <img src="../img/page-header3.avif" alt="Slide 1" style="width:100%">
+            <img src="../img/index/hero-image-1.jpg" alt="Slide 1" style="width:100%">
         </div>
         <div class="mySlides fade">
-            <img src="../img/page-header2.avif" alt="Slide 2" style="width:100%">
+            <img src="../img/index/hero-image-2.jpg" alt="Slide 2" style="width:100%">
         </div>
         <div class="overlay-text">
             <h2>Chic & Simple</h2>
@@ -37,159 +37,185 @@
 
 
     <div class="container">
+        <!-- Main content section -->
         <section>
             <div class="section-title">
                 <h2>Featured Posts</h2>
             </div>
-        <div class ="featured-container">
-            <div class="box"> 
-                <span><a href="#"><img src="../img/post1.webp" alt="">Candy Apples</a></span>
+            <div class="featured-container">
+                <div class="box">
+                    <span><a href="#"><img src="../img/index/halloween1.webp" alt="">Pumpkin Spice Syrup Recipe</a></span>
+                </div>
+                <div class="box">
+                    <span><a href="#"><img src="../img/index/halloween2.webp" alt="">Halloween Cupcakes - Easy Ideas</a></span>
+                </div>
+                <div class="box">
+                    <span><a href="#"><img src="../img/index/halloween3.webp" alt="">Edible Chocolate Pumpkin Candy Bowl DIY</a></span>
+                </div>
+                <div class="box">
+                    <span><a href="#"><img src="../img/index/halloween4.jpg" alt="">Halloween Jello Shots</a></span>
+                </div>
             </div>
-            <div class="box"> 
-                <span><a href="#"><img src="../img/post2.webp" alt="">Dirty Shirley Cocktail Recipe</a></span>
+        </section>
+        <hr>
+        <div class="row">
+            <!-- Bagian Kiri -->
+            <div class="col-lg-8">
+                <section>
+                    <div class="section-title2">
+                        <h2>Judul 1</h2>
+                        <p>October 9 2024 - 12 Comments</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="blog-media">
+                            <img src="../img/page-header3.avif" alt="" class="w-100">
+                        </div>
+                        <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores et nostrum porro odit reprehenderit animi, est ratione fugit aspernatur ipsum. Nostrum placeat hic saepe voluptatum dicta ipsum beatae.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="icon">
+                            <div class="circle">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="read-more">
+                            <button class="read-more-btn">READ MORE</button>
+                        </div>
+                        <div class="author">
+                            <p>By: <span>Joe Mitchell</span></p>
+                        </div>
+                    </div>
+                </section>
+                <hr>
+    
+                <section>
+                    <div class="row">
+                        <!-- post 1 -->
+                        <div class="col-md-6">
+                            <div class="post-card">
+                                <img src="../img/index/halloween1.webp" alt="Post Image">
+                                <h5>Ombre Heart Mani</h5>
+                                <p class="meta-info">January 20 2019 - 34 Comments</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
+                                <a href="#" class="btn btn-outline-primary">Read More</a>
+                            </div>
+                        </div>
+    
+                        <!-- post 2-->
+                        <div class="col-md-6">
+                            <div class="post-card">
+                                <img src="../img/index/halloween1.webp" alt="Post Image">
+                                <h5>Simple Macrame</h5>
+                                <p class="meta-info">January 19 2019 - 64 Comments</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
+                                <a href="#" class="btn btn-outline-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <section>
+                    <div class="recipe-container">
+                        <div class="wrap">
+                            <div class="text-section">
+                                <h2>Recipe Guide</h2>
+                                <p>
+                                    Click below to receive our FREE popular recipe guide. This includes our top 25 recipes of all time— your most loved
+                                    <a href="#">desserts</a>,
+                                    <a href="#">meal ideas</a>,
+                                    <a href="#">breakfast recipes</a>, and more!
+                                </p>
+                                <a href="#recipe">
+                                    <button class="recipe-btn">GET THE RECIPES</button>
+                                </a>
+                            </div>
+                            <div class="image-section">
+                                <img src="../img/index/overnight-oats.jpg" alt="Recipe Guide Image">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <!-- Load More -->
+                <div class="container-button-main">
+                    <a href="category.html">
+                        <button class="button">
+                            Load More Post
+                        </button>
+                    </a>
+                </div>
             </div>
-            <div class="box"> 
-                <span><a href="#"><img src="../img/post3.webp" alt="">Pumpkin Spice Latte</a></span>
-            </div>
-            <div class="box"> 
-                <span><a href="#"><img src="../img/post4.webp" alt="">Caramel Apples</a></span>
+    
+            <!-- Kanan -->
+            <div class="col-lg-4">
+                <aside class="sidebar">
+                    <!-- Title -->
+                    <h2>Popular Posts</h2>
+    
+                    <!-- Sidebar Content -->
+                    <div class="sidebar-item">
+                        <h5><a href="#">How to Make an Affogato</a></h5>
+                        <small>January 15, 2022</small>
+                        <p>Learn how to prepare this classic Italian coffee-based dessert, combining rich espresso with creamy gelato.</p>
+                    </div>
+                    <hr>
+                    <div class="sidebar-item">
+                        <h5><a href="#">10 Easy Nail Art Tutorials (Step-by-Step)</a></h5>
+                        <small>February 10, 2022</small>
+                        <p>Get creative with these simple and fun nail art designs, perfect for beginners and special occasions.</p>
+                    </div>
+                    <hr>
+                    <div class="sidebar-item">
+                        <h5><a href="#">Butterbeer Recipe</a></h5>
+                        <small>March 5, 2022</small>
+                        <p>Make your own version of the magical, sweet, and creamy drink inspired by the world of Harry Potter.</p>
+                    </div>
+                    <hr>
+                    <div class="sidebar-item">
+                        <h5><a href="#">Big Mac Sauce</a></h5>
+                        <small>March 5, 2022</small>
+                        <p>Recreate McDonald's iconic Big Mac sauce at home with this easy-to-follow recipe.</p>
+                    </div>
+                    <hr>
+                    <div class="sidebar-item">
+                        <h5><a href="#">Clay Bead Bracelet Ideas</a></h5>
+                        <small>March 5, 2022</small>
+                        <p>Explore fun and colorful clay bead bracelet designs that are perfect for expressing your unique style.</p>
+                    </div>
+                    <hr>
+                    <div class="sidebar-item">
+                        <h5><a href="#">Learn to Make Bath Bombs</a></h5>
+                        <small>March 5, 2022</small>
+                        <p>Discover how to create your own luxurious bath bombs with customizable scents and colors.</p>
+                    </div>                    
+                    <hr>
+                    <div class="sidebar-item">
+                        <h5><a href="#">Instagram</a></h5>
+                        <div class="sidebar-gallery">
+                        <img src="../img/index/sidebar/alcohol-ink-epoxy-resin-coasters.jpg" alt= "image">
+                        <img src="../img/index/sidebar/deep-dish-pizza.jpg" alt= "image">
+                        <img src="../img/index/sidebar/Exterior-decor-tips.jpg" alt= "image">
+                        <img src="../img/index/sidebar/Find-this-easy-macrame-bag.jpg" alt= "image">
+                        <img src="../img/index/sidebar/hidden-room-wardrobe-entrance.jpg" alt= "image">
+                        <img src="../img/index/sidebar/How-to-Make-a-Tooth-Fairy-Pillow.webp" alt= "image">
+                        <img src="../img/index/sidebar/How-to-make-affogato.webp" alt= "image">
+                        <img src="../img/index/sidebar/IMG_8066.jpg" alt= "image">
+                        <img src="../img/index/sidebar/London-Fog-Drink.webp" alt= "image">
+                        <img src="../img/index/sidebar/No-Sew-Braided-Velvet-Headband.jpg" alt= "image">
+                        <img src="../img/index/sidebar/pizza-dough.jpg" alt= "image">
+                        <img src="../img/index/sidebar/pumpkin-cream-cold-brew.webp" alt= "image">
+                        <img src="../img/index/sidebar/PumpkinCheesecake.webp" alt= "image">
+                        <img src="../img/index/sidebar/tiramisu.jpg" alt= "image">
+                        <img src="../img/index/sidebar/Easy-Rosemary-Hair-Growth-Spray.jpg" alt= "image">
+                        <img src="../img/index/sidebar/holiday-pjs.jpg" alt= "image">
+                        <img src="../img/index/sidebar/rambut-kepang.webp" alt= "image">
+                        <img src="../img/index/sidebar/5-minute-messy-bun.webp" alt= "image">
+                    </div>
+                </aside>
             </div>
         </div>
-        </section>
-        <hr>
-        <section>
-            <div class="section-title2">
-                <h2>Judul 1</h2>
-                <p>January 24 2019 - 32 Comments</p>
-            </div>
-            <div class="card-body">
-                <div class="blog-media">
-                    <img src="../img/page-header1.avif" alt="" class="w-100">   
-                </div>  
-                <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores et nostrum porro odit reprehenderit animi, est ratione fugit aspernatur ipsum. Nostrum placeat hic saepe voluptatum dicta ipsum beatae.</p>
-            </div> 
-            <div class="card-footer">
-                <div class="icon">
-                    <div class="circle">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-                <div class="read-more">
-                    <button class="read-more-btn">READ MORE</button>
-                </div>
-                <div class="author">
-                    <p>By: <span>Joe Mitchell</span></p>
-                </div>
-            </div>            
-        </section>
-        <hr>
-        <section>
-            <div class="row">
-                <!-- First post -->
-                <div class="col-md-6">
-                    <div class="post-card">
-                        <img src="../img/page-header3.avif" alt="Post Image">
-                        <h5>Voluptates Corporis Placeat</h5>
-                        <p class="meta-info">January 20 2019 - 34 Comments</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
-                        <a href="#" class="btn btn-outline-primary">Read More</a>
-                    </div>
-                </div>
-    
-                <!-- Second post -->
-                <div class="col-md-6">
-                    <div class="post-card">
-                        <img src="../img/page-header3.avif" alt="Post Image">
-                        <h5>Dolorum Dolores Itaque</h5>
-                        <p class="meta-info">January 19 2019 - 64 Comments</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
-                        <a href="#" class="btn btn-outline-primary">Read More</a>
-                    </div>
-                </div>
-
-                <!-- Third post -->
-                <div class="col-md-6">
-                    <div class="post-card">
-                        <img src="../img/page-header3.avif" alt="Post Image">
-                        <h5>Dolorum Dolores Itaque</h5>
-                        <p class="meta-info">January 19 2019 - 64 Comments</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
-                        <a href="#" class="btn btn-outline-primary">Read More</a>
-                    </div>
-                </div>
-        </section>
-
-        <!-- Recipe Guide -->
-        <section>
-            <div class="recipe-container">
-                <div class="wrap">
-                    <div class="text-section">
-                        <h2>Recipe Guide</h2>
-                        <p>
-                            Click below to receive our FREE popular recipe guide. This includes our top 25 recipes of all time— your most loved 
-                            <a href="#">desserts</a>, 
-                            <a href="#">meal ideas</a>, 
-                            <a href="#">breakfast recipes</a>, and more!
-                        </p>
-                        <a href="#recipe">
-                        <button class="recipe-btn">GET THE RECIPES</button>
-                        </a>
-                    </div>
-                    <div class="image-section">
-                        <img src="../img/page-header3.avif" alt="Recipe Guide Image">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section>
-            <div class="row">
-
-                <!-- First post -->
-                <div class="col-md-6">
-                    <div class="post-card">
-                        <img src="../img/page-header3.avif" alt="Post Image">
-                        <h5>Voluptates Corporis Placeat</h5>
-                        <p class="meta-info">January 20 2019 - 34 Comments</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
-                        <a href="#" class="btn btn-outline-primary">Read More</a>
-                    </div>
-                </div>
-    
-                <!-- Second post -->
-                <div class="col-md-6">
-                    <div class="post-card">
-                        <img src="../img/page-header3.avif" alt="Post Image">
-                        <h5>Dolorum Dolores Itaque</h5>
-                        <p class="meta-info">January 19 2019 - 64 Comments</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
-                        <a href="#" class="btn btn-outline-primary">Read More</a>
-                    </div>
-                </div>
-
-                <!-- Third post -->
-                <div class="col-md-6">
-                    <div class="post-card">
-                        <img src="../img/page-header3.avif" alt="Post Image">
-                        <h5>Dolorum Dolores Itaque</h5>
-                        <p class="meta-info">January 19 2019 - 64 Comments</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
-                        <a href="#" class="btn btn-outline-primary">Read More</a>
-                    </div>
-                </div>
-        </section>
-
-        <!-- Load More Button-->
-        <div class="container-button-main">
-            <a href="category.html">
-            <button class="button">
-                Load More Post
-            </button>
-            </a>
-        </div>  
-
     </div>
+    
 
     <!-- Brand Content -->
     <div class="brands-content">
@@ -285,8 +311,8 @@
                 <img src="https://i.pinimg.com/564x/58/30/1a/58301a88cdcd0147269114affb865b9a.jpg" alt="User Avatar">
             </div>
             <div class="comment-content">
-                <h4>John Doe <span> | October 1, 2024</span></h4>
-                <p>Love the ideas you shared! I’ve been trying out a few DIY projects, and your guide made it so much easier.</p>
+                <h4>James Anderson <span> | October 1, 2024</span></h4>
+                <p>Love the ideas you shared! I've been trying out a few DIY projects, and your guide made it so much easier.</p>
                 <button class="reply-btn">Reply</button>
             </div>
         </div>
@@ -296,7 +322,7 @@
                 <img src="https://i.pinimg.com/736x/8b/b0/0f/8bb00f0bccc87c298057e8206ed71700.jpg" alt="User Avatar">
             </div>
             <div class="comment-content">
-                <h4>Jane Smith <span> | September 28, 2024</span></h4>
+                <h4>Jocelyn Novia <span> | September 28, 2024</span></h4>
                 <p>The recipes section is my favorite. I tried the chocolate mousse last night, and it was a hit!</p>
                 <button class="reply-btn">Reply</button>
             </div>
@@ -307,7 +333,7 @@
                 <img src="https://i.pinimg.com/736x/84/76/92/8476920d7bd7578d3a3c4a711c2a5501.jpg" alt="User Avatar">
             </div>
             <div class="comment-content">
-                <h4>Alex Brown <span> | September 25, 2024</span></h4>
+                <h4>Angel <span> | September 25, 2024</span></h4>
                 <p>Great content! Would love to see more DIY tips for home decor.</p>
                 <button class="reply-btn">Reply</button>
             </div>

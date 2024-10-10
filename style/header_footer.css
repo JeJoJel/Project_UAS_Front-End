@@ -1,33 +1,31 @@
 /* Header */
 header {
     display: flex;
-    position: absolute; 
-    left: 0; 
-    right: 0; 
-    z-index: 10;
-    padding: 10px; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px;
 }
 
+
 .logo {
-    flex-basis: auto;
+    flex-basis: 200px; 
     display: flex;
     text-align: left;
-    margin-right: 20px;
     font-size: 25px;
 }
+
 
 .menu-list {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 150px
 }
 
 .menu-list li a {
     position: relative;
     text-decoration: none;
     color: #384B70;
-    font-size: 1.7em;
+    font-size: 1.4em;
     padding: 0 5px;
     margin-right: 5px;
 }
@@ -61,6 +59,7 @@ nav ul li a {
 .search {
     display: flex;
     align-items: center;
+    font-size: small;
 }
 
 .search a {
@@ -73,6 +72,17 @@ nav ul li a {
 .search a:hover {
     color: #B8001F;
 }
+
+@media (max-width: 768px) {
+    .logo, .menu-list li a,.search a{
+        font-size: 20px;
+    }
+
+    .menu-list{
+        display: none;
+    }
+}
+
 
 /* Footer */
 footer {
