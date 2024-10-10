@@ -14,6 +14,7 @@ body {
     font-family: 'Mate', serif;
 }
 
+/* Page Header */
 .page-header {
     position: relative;
     background: url(../asset/diy/diy1.jpg) no-repeat center top fixed;
@@ -155,13 +156,26 @@ body {
     border-top: 1px solid #e1e1e1;
 }
 
+.read-more {
+    color: black; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+
+.read-more:hover {
+    color:  black; 
+    text-decoration: underline;
+}
+
 /* Product gallery styles */
 .gallery {
     display: grid;
     justify-content: center;
     justify-items: center;
     flex-wrap: wrap;
-    padding: 30px; 
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
     column-gap: 20px; 
     row-gap: 20px;   
     grid-template-columns: repeat(4, 1fr); 
@@ -169,7 +183,7 @@ body {
 }
 
 .card {
-    margin-top: 30px;
+    margin-top: 50px;
     text-align: center;
     background-color: rgb(248, 246, 244);
     padding: 20px;
@@ -212,7 +226,7 @@ body {
     display: none; 
 }
 
-/* Styles for pagination */
+/* Pagination */
 .pagination {
     display: flex;
     justify-content: center;
@@ -246,7 +260,6 @@ body {
     margin-right: 10px;
 }
 
-
 /* Responsive layout */
 @media screen and (max-width: 768px) {
     .search-bar {
@@ -266,25 +279,28 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .product-gallery {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 1200px) {
     .gallery {
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 576px) {
-    .gallery {
-        grid-template-columns: 1fr; 
-    }
 
-    .card {
-        width: 100%; 
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
