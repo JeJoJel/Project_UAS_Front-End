@@ -4,140 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Gallery</title>
-    <link rel="stylesheet" href="diy_category.css">
+    <link rel="stylesheet" href="../style/diy_category.css">
+    <link rel="stylesheet" href="../style/header_footer.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Marquee Section -->
-    <marquee class="text-berjalan">
-        <span>○ Welcome to Chic & Simple! ○</span>
-        <span>Discover our latest collections and exclusive deals ○</span>
-        <span>Shop now to get the most out of your shopping experience ○</span>
-        <span>Order now and save 20% on your next purchase ○</span>
-        <span>Free shipping on all orders above $50! ○</span>
-    </marquee>
+    <!-- Header Container -->
+    <div id="header-container"></div>
 
-    <header>
-        <div class="logo">
-            <nav>
-                <ul>
-                    <li><a href="index.html"><b>Chic & Simple.</b></a></li>
-                </ul>
-            </nav>
-        </div>
-        <nav>
-            <ul class="menu-list">
-                <li><a href="#">Halloween </a></li>
-                <li><a href="style_category.html">Style</a></li>
-                <li><a href="recipes_category.html">Recipes </a></li>
-                <li><a href="diy_category.html">Decor + DIY</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-        </nav>        
-        <div class="search">
-            <a href="#">Search</a>
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-bar">
+            <i class="fa fa-search search-icon" onclick="performSearch()"></i>
         </div>
     </header>
+    
 
     <!-- Main Category Section -->
-     <div class="content">
+    <div class="container">
         <section>
-            <h1 class="main-title">DIY Home Decor</h1>
-            <div class="search-container">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <button>
-                        <i class="fas fa-search"></i>
-                      </button>                
+            <div class="feature-posts">
+                <a href="single-post.html" class="feature-post-item">                       
+                    <img src="../asset/diy/diy12.jpg" class="w-100" alt="How To Paint Leather">
+                    <div class="feature-post-caption">How To Paint Leather</div>
+                </a>
+                <a href="single-post.html" class="feature-post-item">
+                    <img src="../asset/diy/diy9.jpg" class="w-100" alt="Christmas Card Ideas">
+                    <div class="feature-post-caption">Christmas Card Ideas</div>
+                </a>
+                <a href="single-post.html" class="feature-post-item">
+                    <img src="../asset/diy/diy2.jpg" class="w-100" alt="How To Make Candles">
+                    <div class="feature-post-caption">How To Make Candles</div>
+                </a>
+                <a href="single-post.html" class="feature-post-item">
+                    <img src="../asset/diy/diy15.jpg" class="w-100" alt="DIY Pumpkin Stands">
+                    <div class="feature-post-caption">DIY Pumpkin Stands</div>
+                </a>
+                <a href="single-post.html" class="feature-post-item">
+                    <img src="../asset/diy/diy6.jpg" class="w-100" alt="PVC Wall Planter DIY">
+                    <div class="feature-post-caption">PVC Wall Planter DIY</div>
+                </a>
+            </div>
+        </section>
+        <hr>
+        <div class="page-container">
+            <div class="page-content">
+
+                <div class="card1">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">DIY Pumpkin Stands</h5> 
+                        <small class="small text-muted">January 24 2021 
+                            <span class="px-2">-</span>
+                            <a href="#" class="text-muted">32 Comments</a>
+                        </small>
+                    </div>
+                    <div class="card-body">
+                        <div class="blog-media">
+                            <img src="../asset/diy/diy18.jpg" alt="" class="w-100">
+                        </div>  
+                        <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores et nostrum porro odit reprehenderit animi, est ratione fugit aspernatur ipsum. Nostrum placeat hic saepe voluptatum dicta ipsum beatae.</p>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-primary circle-35 mr-4"><i class="ti-back-right"></i></button>
+                        <a href="single-post.html" class="btn btn-outline-dark btn-sm">READ MORE</a>
+                    </div>                  
+                </div>
+                <hr>
+
+                <!-- Gallery Section -->
+                <section class="gallery">
+                    <!-- Category Cards -->
+                    <div class="card">
+                        <a href="blog1.html">
+                            <img src="../asset/diy/diy2.jpg" alt="How To Make Candles">
+                        </a>
+                        <h3>How To Make Candles</h3>
+                    </div>
+                    <div class="card">
+                        <a href="blog2.html">
+                            <img src="../asset/diy/diy3.jpg" alt="Hair Accessories Organizer DIY">
+                        </a>
+                        <h3>Hair Accessories Organizer DIY</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy4.jpg" alt="How We Built A Hidden Room">
+                        <h3>How We Built A Hidden Room</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy5.jpg" alt="Resin Art">
+                        <h3>Resin Art</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy6.jpg" alt="DIY Hanging Clothes Rail">
+                        <h3>PVC Wall Planter DIY</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy7.jpg" alt="How To Clean Copper">
+                        <h3>How To Clean Copper</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy8.jpg" alt="Easy Balloon Garland DIY">
+                        <h3>Easy Balloon Garland DIY</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy9.jpg" alt="Christmas Card Ideas">
+                        <h3>Christmas Card Ideas</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy10.jpg" alt="15 Fall Decor DIYs">
+                        <h3>15 Fall Decor DIYs</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy11.jpg" alt="Homemade Bath Bombs">
+                        <h3>Homemade Bath Bombs</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy12.jpg" alt="How To Paint Leather">
+                        <h3>How To Paint Leather</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy13.jpg" alt="Northern Popcorn Machine">
+                        <h3>Northern Popcorn Machine</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy14.jpg" alt="Make Your Own Clay Ornaments">
+                        <h3>Make Your Own Clay Ornaments</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy15.jpg" alt="DIY Pumpkin Stands">
+                        <h3>DIY Pumpkin Stands</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy16.jpg" alt="Divided Built In Closet DIY">
+                        <h3>Divided Built In Closet DIY</h3>
+                    </div>
+                    <div class="card">
+                        <img src="../asset/diy/diy17.jpg" alt="Create Your Own Cozy Fireplace">
+                        <h3>Create Your Own Cozy Fireplace</h3>
+                    </div>
+                </section>        
+
+                <div class="no-results" id="no-results"></div>
+
+                <!-- Pagination Section -->
+                <div class="pagination">
+                    <button id="prev-btn" onclick="prevPage()">Previous</button>
+                    <span id="page-info"></span>
+                    <button id="next-btn" onclick="nextPage()">Next</button>
                 </div>
             </div>
-        </section>
-
-        <section class="gallery">
-            <!-- Category Cards -->
-            <div class="card">
-                <a href="blog.html">
-                    <img src="https://abeautifulmess.com/wp-content/uploads/2023/02/how-to-make-candles-377x490.jpeg" alt="How To Make Candles">
-                </a>
-                <h3>How To Make Candles</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/03/hair-accessories-organizer-DIY-1-1-377x490.jpg" alt="Hair Accessories Organizer DIY">
-                <h3>Hair Accessories Organizer DIY</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2023/01/hidden-room-wardrobe-entrance--377x490.jpg" alt="How We Built A Hidden Room">
-                <h3>How We Built A Hidden Room</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2023/05/beginners-guide-to-epoxy-resin-377x490.jpg" alt="Resin Art">
-                <h3>Resin Art</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/11/LITTLE-GREENE-1-377x490.jpg" alt="DIY Hanging Clothes Rail">
-                <h3>Clay Bead Braceletes Idea</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2023/02/how-to-clean-copper-1-750x960.jpg" alt="How To Clean Copper">
-                <h3>How To Clean Copper</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2023/01/easy-balloon-garland-arch-diy-pink-birthday-party--377x490.jpg" alt="Easy Balloon Garland DIY">
-                <h3>Easy Balloon Garland DIY</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/11/christmas-card-ideas--377x490.jpg" alt="Christmas Card Ideas">
-                <h3>Christmas Card Ideas</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/10/Garland-1-1-scaled-1-377x490.jpg" alt="15 Fall Decor DIYs">
-                <h3>15 Fall Decor DIYs</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/04/Homemade-bath-bombs-377x490.jpg" alt="Homemade Bath Bombs">
-                <h3>Homemade Bath Bombs</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/04/how-to-paint-leopard-print-377x490.jpg" alt="How To Paint Leather">
-                <h3>How To Paint Leather</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2022/02/Great-Northern-Popcorn-Machine-review-1-377x490.jpg" alt="Northern Popcron Machine">
-                <h3>Northern Popcron Machine</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2012/12/Make-Your-Own-Clay-Ornaments-click-through-for-tutorial.-1-3-377x490.jpg" alt="Make Your Own Clay Ornaments">
-                <h3>Make Your Own Clay Ornaments</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2021/09/PumpkinStandFeaturedImage-377x490.jpg" alt="DIY Pumpkin Stands">
-                <h3>DIY Pumpkin Stands</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2021/05/Divided-Built-In-Closet-DIY-click-through-for-tutorial--377x490.jpg" alt="Divided Built In Closet DIY">
-                <h3>Divided Built In Closet DIY</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2020/11/Turn-an-antique-mantle-into-a-cozy-fireplace-377x490.jpg" alt="Create Your Own Cozy Fireplace">
-                <h3>Create Your Own Cozy Fireplace</h3>
-            </div>
-            <div class="card">
-                <img src="https://abeautifulmess.com/wp-content/uploads/2020/09/Cardboard-Car-DIY-for-Kids-click-through-for-tutorial-1-7-377x490.jpg" alt="Cardboard Car DIY for Kids">
-                <h3>Cardboard Car DIY for Kids</h3>
-            </div>
-        </section>
-
-        <div class="no-results" id="no-results"></div>
-
-        <!-- Pagination Section -->
-        <div class="pagination">
-            <button id="prev-btn" onclick="prevPage()">Previous</button>
-            <span id="page-info"></span>
-            <button id="next-btn" onclick="nextPage()">Next</button>
         </div>
     </div>
 
-    <script src="diy_category.js"></script>
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="../script/diy_category.js"></script>
+    <script src="../script/load-header.js"></script>
+    <script src="../script/load-footer.js"></script>
+    
 </body>
 </html>
