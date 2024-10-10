@@ -221,6 +221,11 @@
     padding-bottom: 10px;
 }
 
+.recipe-section h3 {
+    font-size: 18px;
+    padding: 7px 0;
+}
+
 /* Recipe Title */
 .recipe-title {
     display: flex;
