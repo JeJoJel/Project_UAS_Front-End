@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+}
+
+.input-box label {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: #666;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label {
+    top: -15px;
+    left: 10px;
+    color: #3498db;
+    font-size: 12px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.remember-forgot label {
+    color: #666;
+}
+
+.remember-forgot a {
+    color: #B8001F;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #B8001F;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #2980b9;
+}
+
+.register-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.register-link a {
+    color: #B8001F;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    color: #B8001F;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: #2980b9;
+}

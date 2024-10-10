@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&display=swap');
+
+/* Global */
+html {
+    scroll-behavior: smooth;
+}
+
+* { 
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Mate';
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    background-color: #D8D8D8;
+}
+
+.image-section {
+    position: relative;
+    width: 50%; 
+    max-width: 50%;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.contact-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.pagination {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.page {
+    display: inline-block;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #D8D8D8;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.page.active {
+    background-color: #D85C57;
+}
+
+.contact-section {
+    width: 50%; 
+    max-width: 50%;
+    padding: 20px; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+.send-button {
+    padding: 15px;
+    background-color: #B8001F;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    
+    .image-section, .contact-section {
+        width: 100%; 
+        max-width: 100%;
+        padding: 0; 
+    }
+
+    .contact-section {
+        margin-top: 20px; 
+    }
+}
