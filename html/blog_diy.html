@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/blog.css">
+    <link rel="stylesheet" href="../style/header_footer.css">
+    <link rel="icon" href="asset/icon.png" type="image/png"/>
+    <title>Blog Title</title>
+</head>
+<body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Page Hero Section -->
+    <div class="page-hero">
+        <h1>Blog Title</h1>
+        <ol>
+            <li class=""><a href="index.html">Home</a></li>
+            <span class="spacer">&raquo;</span>
+            <li class=""><a href="diy_category.html">DIY</a></li>
+            <span class="spacer">&raquo;</span>
+            <li class="active">Blog Title</li>
+            <span class="spacer">&raquo;</span>
+            <li class="active"><a href="#recipe">Full How-to</a></li>
+        </ol>
+    </div>
+
+    <!-- Main Category Section -->
+    <div class="container">
+
+        <!-- Main Content Section -->
+        <div class="content">
+
+            <!-- Blog Title -->
+            <div class="blog-title">
+                Blog Title
+            </div>
+
+            <!-- Blog Image -->
+            <div class="blog-image">
+                <img src="../asset/diy/diy7.jpg">
+            </div>
+
+            <!-- Blog Info -->
+            <div class="blog-info">
+                <a href="#">By Admin</a>
+                <span class="spacer">·</span>
+                <span>Month Date Year</span>
+                <span class="spacer">·</span>
+                <a href="#">XX Comments</a>
+            </div>
+
+            <!-- Blog Content -->
+            <div class="blog-detail">
+
+                <!-- Opening Paragraph -->
+                <div class="section">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Unde non, eveniet, cumque nemo amet impedit fuga repellat soluta 
+                        laboriosam sequi similique provident corrupti magni laudantium, 
+                        quisquam vitae rerum explicabo. Ratione! Lorem ipsum dolor sit, 
+                        amet consectetur adipisicing elit. Expedita, error architecto, 
+                        perspiciatis nemo ipsa voluptatum optio est consequuntur impedit 
+                        molestias iure quo, neque vel pariatur laudantium provident totam facere amet!
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Unde non, eveniet, cumque nemo amet impedit fuga repellat soluta 
+                        laboriosam sequi similique provident corrupti magni laudantium, 
+                        quisquam vitae rerum explicabo. Ratione! 
+                    </p>
+                </div>
+    
+                <!-- Table of Contents Section -->
+                <div class="section toc">
+                    <h2>Table of Contents</h2>
+                    <ul>
+                        <li><a href="#section1">Section 1</a></li>
+                        <li><a href="#section2">Section 2</a></li>
+                        <li><a href="#section3">Section 3</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Section 1 -->
+                <div class="section" id="section1">
+                    <h2>Section 1</h2> 
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Unde non, eveniet, cumque nemo amet impedit fuga repellat soluta 
+                        laboriosam sequi similique provident corrupti magni laudantium, 
+                        quisquam vitae rerum explicabo. Ratione! 
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Unde non, eveniet, cumque nemo amet impedit fuga repellat soluta 
+                        laboriosam sequi similique provident corrupti magni laudantium, 
+                        quisquam vitae rerum explicabo. Ratione! 
+                    </p>
+                </div>
+    
+                <!-- Section 2 -->
+                <div class="section" id="section2">
+                    <h2>Section 2</h2>
+                    <ul>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                    </ul>
+                </div>
+    
+                <!-- Section 3 -->
+                <div class="section" id="section3">
+                    <h2>Section 3</h2>
+                    <ol>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Recipe/How-to Section -->
+            <div class="recipe-section" id="recipe">
+
+                <!-- Recipe Title -->
+                <div class="recipe-title">
+                    <img src="../asset/blog/recipe_title_2_no_bg.png" alt="full how-to">
+                </div>
+
+                <!-- Recipe Time Frame -->
+                <div class="recipe-header">
+                    <div class="recipe-detail">
+                        <span>Prep</span>
+                        5 Minutes
+                    </div>
+                    <div class="recipe-detail">
+                        <span>Crafting</span>
+                        10 Minutes
+                    </div>
+                    <div class="recipe-detail">
+                        <span>Total</span>
+                        15 Minutes
+                    </div>
+                </div>
+
+                <!-- Top Section -->
+                <div class="top-section">
+
+                    <!-- Ingredients/Supplies Section -->
+                    <div class="ingredient-section">
+                        <div class="ingredients-header">
+                            <h2 class="ingredients-title">Supplies</h2>
+        
+                            <div class="ingredients-counter">
+                                <button onclick="multiplyIngredients(1, this)" class="ingredients-button active">X1</button>
+                                <button onclick="multiplyIngredients(2, this)" class="ingredients-button">X2</button>
+                                <button onclick="multiplyIngredients(3, this)" class="ingredients-button">X3</button>
+                            </div>
+                        </div>
+                        
+                        <div class="ingredients-list">
+                            <ul id="ingredients">
+                                <li id="ingredient1"><input type="checkbox" onclick="itemChecked(this)">200 g material 1</li>
+                                <li id="ingredient2"><input type="checkbox" onclick="itemChecked(this)">30 ml material 2</li>
+                                <li id="ingredient3"><input type="checkbox" onclick="itemChecked(this)">material 3</li>
+                                <li id="ingredient4"><input type="checkbox" onclick="itemChecked(this)">2.5 l material 4</li>
+                                <li id="ingredient5"><input type="checkbox" onclick="itemChecked(this)">560 material 5</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- Equipment Section -->
+                    <div class="equipment-section">
+                        <h2>Equipment</h2>
+                        <div class="equipment">
+                            <ul>
+                                <li><input type="checkbox" onclick="itemChecked(this)">tool 1</li>
+                                <li><input type="checkbox" onclick="itemChecked(this)">tool 2</li>
+                                <li><input type="checkbox" onclick="itemChecked(this)">tool 3</li>
+                                <li><input type="checkbox" onclick="itemChecked(this)">tool 4</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Steps Section -->
+                <div class="bottom-section">
+                    <h2>Step by step</h2>
+                    <div class="steps">
+                        <ol>
+                            <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing</li>
+                        </ol>
+                    </div>
+                    <div class="notes">
+                        <h2>Notes</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Unde non, eveniet, cumque nemo amet impedit fuga repellat soluta 
+                            laboriosam sequi similique provident corrupti magni laudantium, 
+                            quisquam vitae rerum explicabo. Ratione! 
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Unde non, eveniet, cumque nemo amet impedit fuga repellat soluta 
+                            laboriosam sequi similique provident corrupti magni laudantium, 
+                            quisquam vitae rerum explicabo. Ratione! 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comment Section -->
+            <div class="section">
+                <h2>Comments (XX)</h2>
+        
+                <!-- Comment 1 -->
+                <div class="comment">
+                    <div class="comment-avatar">
+                        <img src="https://i.pinimg.com/564x/58/30/1a/58301a88cdcd0147269114affb865b9a.jpg" alt="User Avatar">
+                    </div>
+                    <div class="comment-content">
+                        <h4>Username 1 <span> | Month Date, Year</span></h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates ut, quisquam ipsum</p>
+                        <button class="reply-button">Reply</button>
+                    </div>
+                </div>
+        
+                <!-- Comment 2 -->
+                <div class="comment">
+                    <div class="comment-avatar">
+                        <img src="https://i.pinimg.com/736x/8b/b0/0f/8bb00f0bccc87c298057e8206ed71700.jpg" alt="User Avatar">
+                    </div>
+                    <div class="comment-content">
+                        <h4>Username 2 <span> | Month Date, Year</span></h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates ut, quisquam ipsum</p>
+                        <button class="reply-button">Reply</button>
+                    </div>
+                </div>
+        
+                <!-- Comment 2 -->
+                <div class="comment">
+                    <div class="comment-avatar">
+                        <img src="https://i.pinimg.com/736x/84/76/92/8476920d7bd7578d3a3c4a711c2a5501.jpg" alt="User Avatar">
+                    </div>
+                    <div class="comment-content">
+                        <h4>Username 3 <span> | Month Date, Year</span></h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates ut, quisquam ipsum</p>
+                        <button class="reply-button">Reply</button>
+                    </div>
+                </div>
+                
+                <div class="load-more-button">
+                    <button>Load More ↓</button>
+                </div>
+        
+                <!-- Comment Forms -->
+                <div class="comment-form">
+                    <h3>Leave a Comment</h3>
+                    <form action="#" method="post">
+                        <textarea name="comment" placeholder="Write your comment here..." rows="5" required></textarea>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <button type="submit">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Sidebar Section -->
+        <div class="page-sidebar">
+
+            <!-- Tags -->
+            <h4>Tags</h4>
+            <a href="#" class="tag">#tag1</a>
+            <a href="#" class="tag">#tag2</a>
+            <a href="#" class="tag">#tag3</a>
+            <a href="#" class="tag">#tag4</a>
+            <a href="#" class="tag">#tag5</a>
+            <a href="#" class="tag">#tag6</a>
+    
+            <!-- Ads -->
+            <div class="ad-card">
+                <div class="ad-text">
+                    <span href="#">ADS</span>
+                </div>
+            </div>
+
+            <!-- Related Post Section -->
+            <div class="related-post">
+                <h3>Related Post</h3>
+                <div class="post-cards">
+                    <div class="post-card">
+                        <a href="blog1.html">
+                            <img src="../asset/diy/diy2.jpg" alt="How to Make Candles">
+                        </a>
+                        <h4>How to Make Candles</h4>
+                    </div>
+                    <div class="post-card">
+                        <a href="blog2.html">
+                            <img src="../asset/diy/diy3.jpg" alt="Hair Accessories Organizer DIY">
+                        </a>
+                        <h4>Hair Accessories Organizer DIY</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div id="footer-container"></div>
+
+    <script src="../script/blog.js"></script>
+    <script src="../script/load-header.js"></script>
+    <script src="../script/load-footer.js"></script>
+
+</body>
+</html>
