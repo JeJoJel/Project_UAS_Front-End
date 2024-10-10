@@ -93,6 +93,23 @@
     height: 366px;
 }
 
+/* Blog Image */
+.blog-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    margin-bottom: 10px;
+}
+ 
+.blog-image img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+}
+
 /* Blog Info */
 .blog-info {
     font-size: 17px;
@@ -332,6 +349,16 @@
     text-align: justify;
 }
 
+/* Notes Section */
+.notes p {
+    font-size: 15px;
+    line-height: 140%;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: justify;
+}
+
 /* Comment Section */
 .comment {
     display: flex;
@@ -416,6 +443,24 @@
     transform: translateY(-1px);
 }
 
+.load-more-button {
+    display: flex;
+    justify-content: center;
+}
+
+.load-more-button button {
+    background: none;
+    border: none;
+    font-size: 15px;
+}
+
+.load-more-button button:hover {
+    color: #A3C3C3;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #A3C3C3;
+    transform: translateY(-3px);
+}
+
 /* Sidebar Section */
 .page-sidebar {
     width: calc(25% - 20px); 
@@ -457,8 +502,17 @@
     align-items: center;
     justify-content: center;
     background-color: lightgrey;
-    height: 180px;
-    width: auto;
+    width: 100%;
+    position: relative;
+    padding-top: 75%;
+}
+
+.ad-card > .ad-text {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 /* Related Post Section */
