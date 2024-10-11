@@ -1,11 +1,14 @@
+// Deklarasi Variabel
 const originalValues = {};
 let activeButton = null;
 
+// Saat load page atau reload page
 document.addEventListener('DOMContentLoaded', () => {
-    storeOriginalValues();
-    activeButton = document.querySelector('.ingredients-button.active');
+    storeOriginalValues(); // memanggil fungsi
+    activeButton = document.querySelector('.ingredients-button.active'); // menyimpan yg menjadi active button
 });
 
+// Menyimpan semua data ingredients/supplies yg X1
 function storeOriginalValues() {
     const ingredients = document.querySelectorAll('#ingredients li');
     ingredients.forEach(ingredient => {
@@ -14,6 +17,7 @@ function storeOriginalValues() {
     });
 }
 
+// Fungsi untuk X2, X3, dan balik ke X1
 function multiplyIngredients(multiplier, button) {
     const ingredients = document.querySelectorAll('#ingredients li');
 
@@ -50,13 +54,12 @@ function multiplyIngredients(multiplier, button) {
     });
 }
 
+// Fungsi untuk memberikan garis tengah jika checkbox diklik
 function itemChecked(checkbox) {
-    const ingredientItem = checkbox.parentElement;  // Parent <li>
+    const ingredientItem = checkbox.parentElement;  
     if (checkbox.checked) {
-        ingredientItem.style.textDecoration = 'line-through';  // Strike-through when checked
+        ingredientItem.style.textDecoration = 'line-through';  
     } else {
-        ingredientItem.style.textDecoration = 'none';  // Remove strike-through when unchecked
+        ingredientItem.style.textDecoration = 'none';  
     }
 }
-
-storeOriginalValues();
