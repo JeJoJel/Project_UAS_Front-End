@@ -13,20 +13,3 @@ function showSlides() {
 }
 
 let currentIndex = 0;
-
-function moveSlide(direction) {
-    const slides = document.querySelectorAll('.box');
-    const totalSlides = slides.length;
-    const slidesToShow = 5; // Number of slides to show at a time
-
-    currentIndex += direction;
-
-    if (currentIndex < 0) {
-        currentIndex = Math.floor(totalSlides / slidesToShow) * slidesToShow - 1; // Go to the last set of images
-    } else if (currentIndex >= totalSlides / slidesToShow) {
-        currentIndex = 0; // Loop to the first set of images
-    }
-
-    const offset = -currentIndex * (100 / slidesToShow); // Calculate the offset
-    document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
-}
