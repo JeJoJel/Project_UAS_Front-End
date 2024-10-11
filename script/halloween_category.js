@@ -1,6 +1,6 @@
 const cards = document.querySelectorAll('.card');
-const searchInput = document.querySelector('.search-bar'); // Updated to target the input field directly
-const searchIcon = document.querySelector('.search-icon'); // Updated to select the search icon
+const searchInput = document.querySelector('.search-bar');
+const searchIcon = document.querySelector('.search-icon');
 const cardsPerPage = 8;
 let currentPage = 1;
 let filteredCards = [...cards]; 
@@ -48,17 +48,16 @@ function searchCards() {
     noResultsMessage.textContent = ''; 
     noResultsMessage.style.display = 'none';
 
-    currentPage = 1; // Reset to first page on search
+    currentPage = 1; 
     showPage(currentPage);
   }
 }
 
-// Event listeners
-searchIcon.addEventListener('click', searchCards); // Use the search icon to trigger the search
+searchIcon.addEventListener('click', searchCards); 
 
 searchInput.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
-    searchCards(); // Trigger search on Enter key press
+    searchCards();
   }
 });
 
@@ -76,5 +75,4 @@ function prevPage() {
   }
 }
 
-// Initial page display
 showPage(currentPage);

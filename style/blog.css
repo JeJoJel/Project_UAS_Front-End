@@ -226,6 +226,10 @@
     padding: 7px 0;
 }
 
+.recipe-section input {
+    accent-color: #A3C3C3;
+}
+
 /* Recipe Title */
 .recipe-title {
     display: flex;
