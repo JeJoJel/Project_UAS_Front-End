@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 
-const uri = "mongodb+srv://jejojel:jejojel12345@clusteruas.e0bga.mongodb.net/?retryWrites=true&w=majority&appName=ClusterUAS";
+const uri = "mongodb://jejojel:jejojel12345@clusteruas-shard-00-00.e0bga.mongodb.net:27017,clusteruas-shard-00-01.e0bga.mongodb.net:27017,clusteruas-shard-00-02.e0bga.mongodb.net:27017/?ssl=true&replicaSet=atlas-nf5n95-shard-0&authSource=admin&retryWrites=true&w=majority&appName=ClusterUAS ";
 
 async function connect() {
     try {
