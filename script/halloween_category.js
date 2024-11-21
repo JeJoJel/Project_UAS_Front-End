@@ -1,78 +1,70 @@
-const cards = document.querySelectorAll('.card');
-const searchInput = document.querySelector('.search-bar');
-const searchIcon = document.querySelector('.search-icon');
-const cardsPerPage = 8;
-let currentPage = 1;
-let filteredCards = [...cards]; 
+const app = angular.module('halloweenApp', []);
 
-function showPage(page, cardsToShow = filteredCards) {
-  const start = (page - 1) * cardsPerPage;
-  const end = start + cardsPerPage;
+app.controller('HalloweenController', ['$scope', function($scope) {
+    $scope.featurePosts = [
+        { img: "../asset/halloween/hal1.jpg", alt: "Halloween Cupcakes", caption: "Halloween Cupcakes" },
+        { img: "../asset/halloween/hal3.jpg", alt: "Beetlejuice! Costume", caption: "Beetlejuice! Costume" },
+        { img: "../asset/halloween/hal7.jpg", alt: "Our Spooky Village", caption: "Our Spooky Village" },
+        { img: "../asset/halloween/hal9.jpg", alt: "Spooky Eyeball Jello Shots!", caption: "Spooky Eyeball Jello Shots!" },
+        { img: "../asset/halloween/hal12.jpg", alt: "Halloween Cake Pops", caption: "Halloween Cake Pops" }
+    ];
 
-  cards.forEach(card => {
-    card.style.display = 'none';
-  });
+    $scope.cards = [
+      { link: "blog7.html", img: "../asset/halloween/hal1.jpg", alt: "Halloween Cupcakes", title: "Halloween Cupcakes" },
+      { link: "blog8.html", img: "../asset/halloween/hal2.jpg", alt: "No-Carve (Tattoo) Pumpkin Decor", title: "No-Carve (Tattoo) Pumpkin Decor" },
+      { link: "blog_style.html", img: "../asset/halloween/hal3.jpg", alt: "Beetlejuice! Costume", title: "Beetlejuice! Costume" },
+      { link: "blog_style.html", img: "../asset/halloween/hal4.jpg", alt: "DIY Candy Corn Garland", title: "DIY Candy Corn Garland" },
+      { link: "blog_style.html", img: "../asset/halloween/hal5.jpg", alt: "Easy DIY Fabric Pumpkins", title: "Easy DIY Fabric Pumpkins" },
+      { link: "blog_style.html", img: "../asset/halloween/hal6.jpg", alt: "5 Ways to Decorate with Skeletons", title: "5 Ways to Decorate with Skeletons" },
+      { link: "blog_style.html", img: "../asset/halloween/hal7.jpg", alt: "Our Spooky Village", title: "Our Spooky Village" },
+      { link: "blog_style.html", img: "../asset/halloween/hal8.jpg", alt: "DIY Full Moon Photo Backdrop", title: "DIY Full Moon Photo Backdrop" },
+      { link: "blog_style.html", img: "../asset/halloween/hal9.jpg", alt: "Spooky Eyeball Jello Shots!", title: "Spooky Eyeball Jello Shots!" },
+      { link: "blog_style.html", img: "../asset/halloween/hal10.jpg", alt: "Glass Bead Jack-O-Lanterns", title: "Glass Bead Jack-O-Lanterns" },
+      { link: "blog_style.html", img: "../asset/halloween/hal11.jpg", alt: "Pumpkin Spice Syrup Recipe", title: "Pumpkin Spice Syrup Recipe" },
+      { link: "blog_style.html", img: "../asset/halloween/hal12.jpg", alt: "Halloween Cake Pops", title: "Halloween Cake Pops" },
+  ];
+  
 
-  cardsToShow.slice(start, end).forEach(card => {
-    card.style.display = 'block';
-  });
+    $scope.filteredCards = [...$scope.cards];
+    $scope.currentPage = 1;
+    $scope.cardsPerPage = 8;
 
-  const totalPages = Math.ceil(cardsToShow.length / cardsPerPage);
-  document.getElementById('page-info').textContent = `${page} / ${totalPages}`;
+    $scope.searchTerm = '';
+    $scope.totalPages = Math.ceil($scope.filteredCards.length / $scope.cardsPerPage);
 
-  document.getElementById('prev-btn').disabled = page === 1;
-  document.getElementById('next-btn').disabled = page === totalPages || cardsToShow.length === 0;
-}
+    $scope.showPage = function(page) {
+        const start = (page - 1) * $scope.cardsPerPage;
+        const end = start + $scope.cardsPerPage;
+        $scope.visibleCards = $scope.filteredCards.slice(start, end);
+    };
 
-function searchCards() {
-  const searchTerm = searchInput.value.toLowerCase();
+    $scope.searchCards = function() {
+        const term = $scope.searchTerm.toLowerCase();
+        $scope.filteredCards = $scope.cards.filter(card => card.title.toLowerCase().includes(term));
+        $scope.currentPage = 1;
+        $scope.totalPages = Math.ceil($scope.filteredCards.length / $scope.cardsPerPage);
+        $scope.showPage($scope.currentPage);
+    };
 
-  filteredCards = [...cards].filter(card => {
-    const title = card.querySelector('h3').textContent.toLowerCase();
-    return title.includes(searchTerm);
-  });
+    $scope.checkEnter = function(event) {
+        if (event.key === 'Enter') {
+            $scope.searchCards();
+        }
+    };
 
-  const noResultsMessage = document.getElementById('no-results');
+    $scope.nextPage = function() {
+        if ($scope.currentPage < $scope.totalPages) {
+            $scope.currentPage++;
+            $scope.showPage($scope.currentPage);
+        }
+    };
 
-  if (filteredCards.length === 0) {
-    noResultsMessage.textContent = 'Sorry, no content matched your criteria';
-    noResultsMessage.style.display = 'block'; 
+    $scope.prevPage = function() {
+        if ($scope.currentPage > 1) {
+            $scope.currentPage--;
+            $scope.showPage($scope.currentPage);
+        }
+    };
 
-    cards.forEach(card => {
-      card.style.display = 'none';
-    });
-
-    document.getElementById('prev-btn').disabled = true;
-    document.getElementById('next-btn').disabled = true;
-  } else {
-    noResultsMessage.textContent = ''; 
-    noResultsMessage.style.display = 'none';
-
-    currentPage = 1; 
-    showPage(currentPage);
-  }
-}
-
-searchIcon.addEventListener('click', searchCards); 
-
-searchInput.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') {
-    searchCards();
-  }
-});
-
-function nextPage() {
-  if (currentPage < Math.ceil(filteredCards.length / cardsPerPage)) {
-    currentPage++;
-    showPage(currentPage);
-  }
-}
-
-function prevPage() {
-  if (currentPage > 1) {
-    currentPage--;
-    showPage(currentPage);
-  }
-}
-
-showPage(currentPage);
+    $scope.showPage($scope.currentPage);
+}]);

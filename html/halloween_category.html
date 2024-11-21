@@ -1,51 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="halloweenApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halloween-Chich and Simple</title>
+    <title>Halloween-Chic and Simple</title>
     <link rel="icon" href="../asset/icon.png" type="image/png"/>
     <link rel="stylesheet" href="../style/halloween_category.css">
     <link rel="stylesheet" href="../style/header_footer.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body>
 
+<body ng-controller="HalloweenController">
     <!-- Header Container -->
-    <div id="header-container"></div>
+    <div id="header-container" ng-include="'header.html'"></div>
 
     <!-- Page Header -->
     <header class="page-header">
         <div class="search-container">
-            <input type="text" placeholder="Search..." class="search-bar">
-            <i class="fa fa-search search-icon" onclick="performSearch()"></i>
+            <input type="text" placeholder="Search..." class="search-bar" ng-model="searchTerm" ng-keypress="checkEnter($event)">
+            <i class="fa fa-search search-icon" ng-click="searchCards()"></i>
         </div>
     </header>
     
-
     <!-- Main Category Section -->
     <div class="container">
         <section>
             <div class="feature-posts">
-                <a href="blog7.html" class="feature-post-item">                       
-                    <img src="../asset/halloween/hal1.jpg" class="w-100" alt="Halloween Cupcakes">
-                    <div class="feature-post-caption">Halloween Cupcakes</div>
-                </a>
-                <a href="blog_style.html" class="feature-post-item">
-                    <img src="../asset/halloween/hal3.jpg" class="w-100" alt="Beetlejuice! Costume">
-                    <div class="feature-post-caption">Beetlejuice! Costume</div>
-                </a>
-                <a href="blog_style.html" class="feature-post-item">
-                    <img src="../asset/halloween/hal7.jpg" class="w-100" alt="Our Spooky Village">
-                    <div class="feature-post-caption">Our Spooky Village</div>
-                </a>
-                <a href="blog_style.html" class="feature-post-item">
-                    <img src="../asset/halloween/hal9.jpg" class="w-100" alt="Spooky Eyeball Jello Shots!">
-                    <div class="feature-post-caption">Spooky Eyeball Jello Shots!</div>
-                </a>
-                <a href="blog_style.html" class="feature-post-item">
-                    <img src="../asset/halloween/hal12.jpg" class="w-100" alt="Halloween Cake Pops">
-                    <div class="feature-post-caption">Halloween Cake Pops</div>
+                <a href="blog_style.html" class="feature-post-item" ng-repeat="feature in featurePosts">
+                    <img ng-src="{{feature.img}}" class="w-100" alt="{{feature.alt}}">
+                    <div class="feature-post-caption">{{feature.caption}}</div>
                 </a>
             </div>
         </section>
@@ -53,123 +36,32 @@
         <div class="page-container">
             <div class="page-content">
 
-                <div class="card1">
-                    <div class="card-header text-center">
-                        <h5 class="card-title">How To Make Halloween Cakesicles</h5> 
-                        <small class="small text-muted">February 14 2020
-                            <span class="px-2">-</span>
-                            <a class="text-muted">222 Comments</a>
-                        </small>
-                    </div>
-                    <div class="card-body">
-                        <div class="blog-media">
-                            <img src="../asset/halloween/hal14.jpg" alt="" class="w-100">
-                        </div>  
-                        <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores et nostrum porro odit reprehenderit animi, est ratione fugit aspernatur ipsum. Nostrum placeat hic saepe voluptatum dicta ipsum beatae.</p>
-                    </div>
-                    
-                    <div class="card-footer">
-                        <button class="btn btn-primary circle-35 mr-4"><i class="ti-back-right"></i></button>
-                        <a href="blog_style.html" class="read-more">READ MORE</a>
-                    </div>                  
-                </div>
-                <hr>
-
                 <!-- Gallery Section -->
                 <section class="gallery">
-                    <!-- Category Cards -->
-                    <div class="card">
-                        <a href="blog7.html">
-                            <img src="../asset/halloween/hal1.jpg" alt="Halloween Cupcakes">
+                    <div class="card" ng-repeat="card in visibleCards">
+                        <a href="{{card.link}}">
+                            <img ng-src="{{card.img}}" alt="{{card.alt}}">
                         </a>
-                        <h3>Halloween Cupcakes</h3>
+                        <h3>{{card.title}}</h3>
                     </div>
-                    <div class="card">
-                        <a href="blog8.html">
-                            <img src="../asset/halloween/hal2.jpg" alt="No-Carve (Tattoo) Pumpkin Decor">
-                        </a>
-                        <h3>No-Carve (Tattoo) Pumpkin Decor</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_style.html">
-                            <img src="../asset/halloween/hal3.jpg" alt="Beetlejuice! Costume">
-                        </a>
-                        <h3>Beetlejuice! Costume</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_style.html">
-                            <img src="../asset/halloween/hal4.jpg" alt="DIY Candy Corn Garland">
-                        </a>
-                        <h3>DIY Candy Corn Garland</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_style.html">
-                            <img src="../asset/halloween/hal5.jpg" alt="Easy DIY Fabric Pumpkins">
-                        </a>
-                        <h3>Easy DIY Fabric Pumpkins</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_style.html">
-                            <img src="../asset/halloween/hal6.jpg" alt="5 Ways to Decorate with Skeletons">
-                        </a>
-                        <h3>5 Ways to Decorate with Skeletons</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_style.html">
-                            <img src="../asset/halloween/hal7.jpg" alt="Our Spooky Village">
-                        </a>
-                        <h3>Our Spooky Village</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_style.html">
-                            <img src="../asset/halloween/hal8.jpg" alt="DIY Full Moon Photo Backdrop">
-                        </a>
-                        <h3>DIY Full Moon Photo Backdrop</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_style.html">
-                            <img src="../asset/halloween/hal9.jpg" alt="Spooky Eyeball Jello Shots!">
-                        </a>
-                        <h3>Spooky Eyeball Jello Shots!</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_style.html">
-                            <img src="../asset/halloween/hal10.jpg" alt="Glass Bead Jack-O-Lanterns">
-                        </a>
-                        <h3>Glass Bead Jack-O-Lanterns</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_style.html">
-                            <img src="../asset/halloween/hal11.jpg" alt="Pumpkin Spice Syrup Recipe">
-                        </a>
-                        <h3>Pumpkin Spice Syrup Recipe</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_style.html">
-                            <img src="../asset/halloween/hal12.jpg" alt="Halloween Cake Pops">
-                        </a>
-                        <h3>Halloween Cake Pops</h3>
-                    </div>
-                </section>        
+                </section>
 
-                <div class="no-results" id="no-results"></div>
+                <div class="no-results" ng-show="!filteredCards.length">Sorry, no content matched your criteria</div>
 
                 <!-- Pagination Section -->
                 <div class="pagination">
-                    <button id="prev-btn" onclick="prevPage()">Previous</button>
-                    <span id="page-info"></span>
-                    <button id="next-btn" onclick="nextPage()">Next</button>
+                    <button id="prev-btn" ng-click="prevPage()" ng-disabled="currentPage === 1">Previous</button>
+                    <span id="page-info">{{currentPage}} / {{totalPages}}</span>
+                    <button id="next-btn" ng-click="nextPage()" ng-disabled="currentPage === totalPages">Next</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <div id="footer-container"></div>
+    <div id="footer-container" ng-include="'footer.html'"></div>
 
-    <script src="../script/diy_category.js"></script>
-    <script src="../script/load-header.js"></script>
-    <script src="../script/load-footer.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../script/halloween_category.js"></script>
 </body>
 </html>

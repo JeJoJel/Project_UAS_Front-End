@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="recipesApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,43 +9,26 @@
     <link rel="stylesheet" href="../style/header_footer.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body>
 
+<body ng-controller="RecipesController">
     <!-- Header Container -->
-    <div id="header-container"></div>
+    <div id="header-container" ng-include="'header.html'"></div>
 
     <!-- Page Header -->
     <header class="page-header">
         <div class="search-container">
-            <input type="text" placeholder="Search..." class="search-bar">
-            <i class="fa fa-search search-icon" onclick="performSearch()"></i>
+            <input type="text" placeholder="Search..." class="search-bar" ng-model="searchTerm" ng-keypress="checkEnter($event)">
+            <i class="fa fa-search search-icon" ng-click="searchCards()"></i>
         </div>
     </header>
     
-
     <!-- Main Category Section -->
     <div class="container">
         <section>
             <div class="feature-posts">
-                <a href="blog_recipe.html" class="feature-post-item">                       
-                    <img src="../asset/recipe/recipe4.jpg" class="w-100" alt="Air Fryer Salmon">
-                    <div class="feature-post-caption">Air Fryer Salmon</div>
-                </a>
-                <a href="blog_recipe.html" class="feature-post-item">
-                    <img src="../asset/recipe/recipe8.jpg" class="w-100" alt="Brandy Alexander">
-                    <div class="feature-post-caption">Brandy Alexander</div>
-                </a>
-                <a href="blog_recipe.html" class="feature-post-item">
-                    <img src="../asset/recipe/recipe10.jpg" class="w-100" alt="Dumpling Sauce">
-                    <div class="feature-post-caption">Dumpling Sauce</div>
-                </a>
-                <a href="blog_recipe.html" class="feature-post-item">
-                    <img src="../asset/recipe/recipe12.jpg" class="w-100" alt="Tomato Burrata">
-                    <div class="feature-post-caption">Tomato Burrata</div>
-                </a>
-                <a href="blog_recipe.html" class="feature-post-item">
-                    <img src="../asset/recipe/recipe15.jpg" class="w-100" alt="Enoki Mushrooms">
-                    <div class="feature-post-caption">Enoki Mushrooms</div>
+                <a href="blog_recipe.html" class="feature-post-item" ng-repeat="feature in featurePosts">
+                    <img ng-src="{{feature.img}}" class="w-100" alt="{{feature.alt}}">
+                    <div class="feature-post-caption">{{feature.caption}}</div>
                 </a>
             </div>
         </section>
@@ -53,147 +36,32 @@
         <div class="page-container">
             <div class="page-content">
 
-                <div class="card1">
-                    <div class="card-header text-center">
-                        <h5 class="card-title">Strawberry Cheesecake</h5> 
-                        <small class="small text-muted">October 14 2022
-                            <span class="px-2">-</span>
-                            <a class="text-muted">190 Comments</a>
-                        </small>
-                    </div>
-                    <div class="card-body">
-                        <div class="blog-media">
-                            <img src="../asset/recipe/recipe17.jpg" alt="" class="w-100">
-                        </div>  
-                        <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores et nostrum porro odit reprehenderit animi, est ratione fugit aspernatur ipsum. Nostrum placeat hic saepe voluptatum dicta ipsum beatae.</p>
-                    </div>
-                    
-                    <div class="card-footer">
-                        <button class="btn btn-primary circle-35 mr-4"><i class="ti-back-right"></i></button>
-                        <a href="blog_recipe.html" class="read-more">READ MORE</a>
-                    </div>                  
-                </div>
-                <hr>
-
                 <!-- Gallery Section -->
                 <section class="gallery">
-                    <!-- Category Cards -->
-                    <div class="card">
-                        <a href="blog3.html">
-                            <img src="../asset/recipe/recipe1.jpg" alt="Overnight Baked Blueberry Muffin Oatmeal">
+                    <div class="card" ng-repeat="card in visibleCards">
+                        <a href="{{card.link}}">
+                            <img ng-src="{{card.img}}" alt="{{card.alt}}">
                         </a>
-                        <h3>Overnight Baked Blueberry Muffin Oatmeal</h3>
+                        <h3>{{card.title}}</h3>
                     </div>
-                    <div class="card">
-                        <a href="blog4.html">
-                            <img src="../asset/recipe/recipe2.jpg" alt="Pumpkin Cheesecake">
-                        </a>
-                        <h3>Pumpkin Cheesecake</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe3.jpg" alt="Alfredo Sauce">
-                        </a>
-                        <h3>Alfredo Sauce</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe4.jpg" alt="Air Fryer Salmon">
-                        </a>
-                        <h3>Air Fryer Salmon</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe5.jpg" alt="Pumpkin Juice">
-                        </a>
-                        <h3>Pumpkin Juice</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe6.jpg" alt="Caprese Skewers">
-                        </a>
-                        <h3>Caprese Skewers</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe7.jpg" alt="Old Fashioned Cocktail">
-                        </a>
-                        <h3>Old Fashioned Cocktail</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe8.jpg" alt="Brandy Alexander">
-                        </a>
-                        <h3>Brandy Alexander</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe9.jpg" alt="Pizza Bagels">
-                        </a>
-                        <h3>Pizza Bagels</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe10.jpg" alt="Dumpling Sauce">
-                        </a>
-                        <h3>Dumpling Sauce</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe11.jpg" alt="Lactation Cookies">
-                        </a>
-                        <h3>Lactation Cookies</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe12.jpg" alt="Tomato Burrata">
-                        </a>
-                        <h3>Tomato Burrata</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe13.jpg" alt="Pimm's Cup">
-                        </a>
-                        <h3>Pimm's Cup</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe14.jpg" alt="Mango Salsa">
-                        </a>
-                        <h3>Mango Salsa</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe15.jpg" alt="Enoki Mushrooms">
-                        </a>
-                        <h3>Enoki Mushrooms</h3>
-                    </div>
-                    <div class="card">
-                        <a href="blog_recipe.html">
-                            <img src="../asset/recipe/recipe16.jpg" alt="Queso Recipe">
-                        </a>
-                        <h3>Queso Recipe</h3>
-                    </div>
-                </section>        
+                </section>
 
-                <div class="no-results" id="no-results"></div>
+                <div class="no-results" ng-show="!filteredCards.length">Sorry, no content matched your criteria</div>
 
                 <!-- Pagination Section -->
                 <div class="pagination">
-                    <button id="prev-btn" onclick="prevPage()">Previous</button>
-                    <span id="page-info"></span>
-                    <button id="next-btn" onclick="nextPage()">Next</button>
+                    <button id="prev-btn" ng-click="prevPage()" ng-disabled="currentPage === 1">Previous</button>
+                    <span id="page-info">{{currentPage}} / {{totalPages}}</span>
+                    <button id="next-btn" ng-click="nextPage()" ng-disabled="currentPage === totalPages">Next</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <div id="footer-container"></div>
+    <div id="footer-container" ng-include="'footer.html'"></div>
 
-    <script src="../script/diy_category.js"></script>
-    <script src="../script/load-header.js"></script>
-    <script src="../script/load-footer.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../script/recipe_category.js"></script>
 </body>
 </html>
