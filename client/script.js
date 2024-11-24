@@ -1,15 +1,17 @@
-let slideIndex = 0;
-showSlides();
+app.controller('LoginController', function($scope, AuthService, $location) {
+    $scope.user = {}; // Bind form data to this object
 
-function showSlides() {
-    let slides = document.getElementsByClassName("mySlides");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    slides[slideIndex - 1].style.display = "block";  
-    setTimeout(showSlides, 10000);
-}
-
-let currentIndex = 0;
+    $scope.login = function() {
+        AuthService.login($scope.user)
+            .then(response => {
+                alert('Login successful');
+                const token = response.data.token;
+                
+                localStorage.setItem('token', token);
+                $location.path('/'); 
+            })
+            .catch(err => {
+                alert(err.data.message || 'Error during login');
+            });
+    };
+});

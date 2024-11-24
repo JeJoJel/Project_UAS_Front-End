@@ -1,5 +1,13 @@
+var app = angular.module('myApp', []);
+
+app.service('AuthService', function($http) {
+    this.register = function(user) {
+        return $http.post('/api/register', user);
+    };
+});
+
 app.controller('RegisterController', function($scope, AuthService, $location) {
-    $scope.user = {}; // Bind form data to this object
+    $scope.user = {};
 
     $scope.register = function() {
         if ($scope.user.password !== $scope.user.confirmPassword) {
@@ -8,12 +16,13 @@ app.controller('RegisterController', function($scope, AuthService, $location) {
         }
 
         AuthService.register($scope.user)
-            .then(() => {
-                alert('Registration successful');
-                $location.path('../login/login.html'); 
-            })
-            .catch(err => {
-                alert(err.data.message || 'Error during registration');
-            }); 
+        .then(() => {
+            alert('Registration successful');
+            $location.path('../home/home.html');
+        })
+        .catch(err => {
+            alert(err.data.message || 'Error during registration');
+        });
+    
     };
 });
