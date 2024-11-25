@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth'); 
 
+// Register route
 router.post('/register', authController.register);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/app/views/index.html'));
-});
+// Login route
+router.post('/login', authController.login);
 
 
 module.exports = router;
