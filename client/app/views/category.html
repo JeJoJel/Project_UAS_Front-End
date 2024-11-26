@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="categoryApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY-Chic and Simple</title>
+    <link rel="icon" href="../asset/icon.png" type="image/png"/>
+    <link rel="stylesheet" href="../style/category.css">
+    <link rel="stylesheet" href="../style/header_footer.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body ng-controller="CategoryController">
+    <!-- Header Container -->
+    <div id="header-container" ng-include="'header.html'"></div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-bar" ng-model="searchTerm" ng-keypress="checkEnter($event)">
+            <i class="fa fa-search search-icon" ng-click="searchCards()"></i>
+        </div>
+    </header>
+    
+    <!-- Main Category Section -->
+    <div class="container">
+        <section>
+            <div class="feature-posts">
+                <a href="blog_diy.html" class="feature-post-item" ng-repeat="feature in featurePosts">
+                    <img ng-src="{{feature.img}}" class="w-100" alt="{{feature.alt}}">
+                    <div class="feature-post-caption">{{feature.caption}}</div>
+                </a>
+            </div>
+        </section>
+        <hr>
+        <div class="page-container">
+            <div class="page-content">
+
+                <!-- Gallery Section -->
+                <section class="gallery">
+                    <div class="card" ng-repeat="card in visibleCards">
+                        <a href="{{card.link}}">
+                            <img ng-src="{{card.img}}" alt="{{card.alt}}">
+                        </a>
+                        <h3>{{card.title}}</h3>
+                    </div>
+                </section>
+
+                <div class="no-results" ng-show="!filteredCards.length">Sorry, no content matched your criteria</div>
+
+                <!-- Pagination Section -->
+                <div class="pagination">
+                    <button id="prev-btn" ng-click="prevPage()" ng-disabled="currentPage === 1">Previous</button>
+                    <span id="page-info">{{currentPage}} / {{totalPages}}</span>
+                    <button id="next-btn" ng-click="nextPage()" ng-disabled="currentPage === totalPages">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container" ng-include="'footer.html'"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../controller/category.controller.js"></script>
+</body>
+</html>
