@@ -21,7 +21,7 @@
             <i class="fa fa-search search-icon" ng-click="searchCards()"></i>
         </div>
     </header>
-    
+
     <!-- Main Category Section -->
     <div class="container">
         <section>
@@ -35,6 +35,13 @@
         <hr>
         <div class="page-container">
             <div class="page-content">
+
+                <!-- Category Selection -->
+                <div class="category-selection">
+                    <button class="category-btn" ng-click="filterByCategory('recipes')">Recipes</button>
+                    <button class="category-btn" ng-click="filterByCategory('diy')">DIY</button>
+                    <button class="category-btn" ng-click="filterByCategory('style')">Style</button>
+                </div>
 
                 <!-- Gallery Section -->
                 <section class="gallery">
