@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../asset/icon.png" type="image/png"/>
+    <link rel="icon" href="../../assets/components/icon/icon.png" type="image/png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <title>Contact - Chic & Simple</title>
-    <!-- Import Header Footer CSS -->
-    <link rel="stylesheet" href="../../../assets/styles/main.css">
-    <link rel="stylesheet" href="contact.css">
+    <!-- Contact Css -->
+    <link rel="stylesheet" href="../style/contact.css">
+    <!-- Main Css (Buat CSS Header sm Footer) -->
+    <link rel="stylesheet" href="../style/main.css">
+    <!-- app  -->
+    <script src="../../app.js"></script>
+    <!-- Controller -->
+    <script src="../controller/contact.controller.js"></script>
+    
 </head>
 <body>
     <!-- Header -->
-    <div id="header-container" ng-include="'../../../app/components/header/header.html'"></div>
+    <div id="header-container" ng-include="'../components/header/header.html'"></div>
 
     <!-- Main Content -->
     <div class="container" ng-controller="ContactController">
@@ -36,11 +43,7 @@
     </div>
 
     <!-- Footer -->
-    <div id="footer-container" ng-include="'../../../app/components/footer/footer.html'"></div>
-
-    <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="contact.controller.js"></script>
+    <div id="footer-container" ng-include="'../components/footer/footer.html'"></div>
 
 </body>
 </html>

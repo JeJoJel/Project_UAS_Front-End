@@ -13,3 +13,11 @@ function showSlides() {
 }
 
 let currentIndex = 0;
+
+
+function authentication () {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            window.location.href = "/client/app/views/login.html"; // Redirect jika tidak login
+        }
+};

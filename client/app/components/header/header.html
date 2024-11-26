@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
     <div class="logo">
         <nav>
             <ul>
@@ -16,7 +16,28 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <div class="search">
-        <a href="../../views/login/login.html">Login</a>
+    <div class="login">
+        <a href="../../../../client/index.html">Login</a>
     </div>
-</header>
+</header> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+<div ng-controller="HeaderController">
+    <nav>
+        <ul>
+            <li><a href="/client/app/views/home.html">Home</a></li>
+            <li ng-if="!isLoggedIn"><a href="/client/app/views/login.html">Login</a></li>
+            <li ng-if="isLoggedIn" class="profile-menu">
+                <div class="profile-icon">
+                    <i class="fas fa-user-circle"></i> <!-- Ikon Profil -->
+                    <span>Welcome, {{ user.username }}</span>
+                </div>
+                <ul class="dropdown">
+                    <li><a href="/client/app/views/profile.html">Profile</a></li>
+                    <li><a href="#" ng-click="logout()">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
