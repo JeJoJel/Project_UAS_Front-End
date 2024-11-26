@@ -2,10 +2,12 @@ Project UAS Semester 3
 
 ========================================================================================
 
-Tiap bikin pages / file baru yang wajib di import:
+Tiap bikin pages / file baru yang wajib di import: (Pathnya sesuain sendiri)
 
 URUTAN WAJIB CSS-ANGULAR-SERVICE-CONTROLLER
 
+ICON WEBSITE 
+<link rel="icon" href="../../assets/components/icon/icon.png" type="image/png"/>
 CSS
 <link rel="stylesheet" href="../style/register.css">
 ANGULAR

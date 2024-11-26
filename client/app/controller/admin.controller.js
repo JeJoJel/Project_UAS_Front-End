@@ -8,6 +8,7 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
     $scope.editing = false;
     $scope.formData = {};
 
+    // Load articles
     $scope.loadArticles = function() {
         $scope.currentTab = 'articles';
         ArticleService.getAll().then(response => {
@@ -15,6 +16,7 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
         });
     };
 
+    // Load events
     $scope.loadEvents = function() {
         $scope.currentTab = 'events';
         EventService.getAll().then(response => {
@@ -22,6 +24,7 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
         });
     };
 
+    // Open form
     $scope.openArticleForm = function() {
         $scope.formData = {};
         $scope.showForm = true;
@@ -34,6 +37,7 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
         $scope.editing = false;
     };
 
+    // Save form
     $scope.saveForm = function() {
         if ($scope.currentTab === 'articles') {
             if ($scope.editing) {
@@ -53,15 +57,26 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
         $scope.loadEvents();
     };
 
+    // Close form
     $scope.closeForm = function() {
         $scope.showForm = false;
     };
 
+    // Delete article
     $scope.deleteArticle = function(id) {
         ArticleService.delete(id).then(() => $scope.loadArticles());
     };
 
+    // Delete event
     $scope.deleteEvent = function(id) {
         EventService.delete(id).then(() => $scope.loadEvents());
+    };
+
+    // **Logout Functionality**
+    $scope.logout = function() {
+        // Hapus token dari localStorage
+        localStorage.removeItem('token');
+        // Arahkan ke halaman login
+        window.location.href = '../../index.html';
     };
 });

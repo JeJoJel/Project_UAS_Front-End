@@ -19,12 +19,12 @@ const UserSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['user', 'admin'], // Peran hanya bisa 'user' atau 'admin'
-        default: 'user'          // Secara default, user baru adalah 'user'
+        enum: ['user', 'admin'],
+        default: 'user'
     }
 });
 
-// Middleware untuk hash password
+// hash password
 UserSchema.pre('save', async function (next) {
     if (!this.isModified('password')) return next();
     const salt = await bcrypt.genSalt(10);
