@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="app/style/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="./app/controller/app.js"></script>
-    <script src="./app/services/AuthService.js"></script>
+    <script src="app.js"></script>
+    <script src="../client/app/controller/login.controller.js"></script>
+    <script src="./app/services/AuthService.js"></script>    
 
 </head>
 
-<body ng-app="myApp" ng-controller="LoginController">
+<body ng-controller="LoginController">
+
     <div class="login-container">
-        <h1>Login</h1>
+        <h1>{{title}}</h1>
         <form class="login-form" ng-submit="login()">
             <input type="text" placeholder="Username" name="username" ng-model="user.username" required>
             <input type="password" placeholder="Password" name="password" ng-model="user.password" required>
-            <button type="submit">Login</button>
+            <button type="submit">{{title}}</button>
         </form>
         <p>Don't have an account? <a href="app/views/register.html">Register</a></p>
     </div>
-</body>
 
+</body>
 </html>

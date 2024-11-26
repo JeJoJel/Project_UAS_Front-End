@@ -4,14 +4,17 @@ Project UAS Semester 3
 
 Tiap bikin pages / file baru yang wajib di import:
 
+URUTAN WAJIB CSS-ANGULAR-SERVICE-CONTROLLER
+
 CSS
 <link rel="stylesheet" href="../style/register.css">
 ANGULAR
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-REGISTER
-<script src="../controller/register.controller.js"></script>    
 SERVICE
 <script src="../auth/auth.service.js"></script>
+CONTROLLER
+<script src="../controller/register.controller.js"></script>    
+
 
 ========================================================================================
 

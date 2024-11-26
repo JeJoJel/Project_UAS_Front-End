@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../style/admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../../app.js"></script>
+    <script src="../controller/admin.controller.js"></script>
+    <script src="../services/ArticleService.js"></script>
+    <script src="../services/EventService.js"></script>
+
+</head>
+<body ng-controller="AdminController">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Admin Dashboard</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li ng-click="loadArticles()" ng-class="{'active': currentTab === 'articles'}">
+                <a href="#articles"><i class="fas fa-newspaper"></i> Manage Articles</a>
+            </li>
+            <li ng-click="loadEvents()" ng-class="{'active': currentTab === 'events'}">
+                <a href="#events"><i class="fas fa-calendar-alt"></i> Manage Events</a>
+            </li>
+            <li ng-click="logout()">
+                <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="header">
+            <h1>{{ currentTab === 'articles' ? 'Manage Articles' : 'Manage Events' }}</h1>
+            <button class="add-btn" ng-click="openForm()">+ Add {{ currentTab === 'articles' ? 'Article' : 'Event' }}</button>
+        </header>
+
+        <!-- Articles Table -->
+        <div class="content" ng-if="currentTab === 'articles'">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="article in articles">
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.category }}</td>
+                        <td>
+                            <button class="edit-btn" ng-click="edit(article)">Edit</button>
+                            <button class="delete-btn" ng-click="deleteArticle(article.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Events Table -->
+        <div class="content" ng-if="currentTab === 'events'">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="event in events">
+                        <td>{{ event.name }}</td>
+                        <td>{{ event.date }}</td>
+                        <td>{{ event.location }}</td>
+                        <td>
+                            <button class="edit-btn" ng-click="edit(event)">Edit</button>
+                            <button class="delete-btn" ng-click="deleteEvent(event.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for Forms -->
+    <div class="modal" ng-show="showForm">
+        <div class="modal-content">
+            <span class="close-btn" ng-click="closeForm()">&times;</span>
+            <form ng-submit="save()">
+                <h3>{{ editing ? 'Edit ' : 'Add ' }} {{ currentTab === 'articles' ? 'Article' : 'Event' }}</h3>
+
+                <!-- Article Form -->
+                <div ng-if="currentTab === 'articles'">
+                    <label>Title:</label>
+                    <input type="text" ng-model="formData.title" required>
+                    <label>Category:</label>
+                    <input type="text" ng-model="formData.category" required>
+                    <label>Content:</label>
+                    <textarea ng-model="formData.content"></textarea>
+                </div>
+
+                <!-- Event Form -->
+                <div ng-if="currentTab === 'events'">
+                    <label>Event Name:</label>
+                    <input type="text" ng-model="formData.name" required>
+                    <label>Date:</label>
+                    <input type="date" ng-model="formData.date" required>
+                    <label>Location:</label>
+                    <input type="text" ng-model="formData.location" required>
+                    <label>Description:</label>
+                    <textarea ng-model="formData.description"></textarea>
+                </div>
+
+                <button type="submit">Save</button>
+                <button type="button" ng-click="closeForm()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -16,6 +16,11 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin'], // Peran hanya bisa 'user' atau 'admin'
+        default: 'user'          // Secara default, user baru adalah 'user'
     }
 });
 

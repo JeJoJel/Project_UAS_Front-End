@@ -1,4 +1,4 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp');
 
 app.service('AuthService', function($http) {
     this.register = function(user) {
@@ -7,6 +7,9 @@ app.service('AuthService', function($http) {
 });
 
 app.controller('RegisterController', function($scope, AuthService) {
+
+    $scope.title = "Register";
+
     $scope.user = {};
 
     $scope.register = function() {

@@ -1,3 +1,5 @@
+var app = angular.module('myApp');
+
 let slideIndex = 0;
 showSlides();
 

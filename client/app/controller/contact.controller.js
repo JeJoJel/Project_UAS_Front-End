@@ -1,5 +1,4 @@
-// Define the AngularJS application
-var app = angular.module('contactApp', []);
+var app = angular.module('myApp');
 
 // Define the controller
 app.controller('ContactController', ['$scope', function($scope) {
