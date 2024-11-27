@@ -19,7 +19,8 @@ app.controller('LoginController', function($scope, AuthService) {
                 const role = response.data.role; // Ambil role dari respons
                 
                 if (token) {
-                    localStorage.setItem('token', token); // Simpan token di localStorage
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('role', role); // Simpan token di localStorage
                     
                     // Cek role dan redirect sesuai kondisi
                     if (role === 'admin') {

@@ -21,3 +21,19 @@ app.controller("HeaderController", function ($scope) {
         window.location.href = "/client/app/views/login.html";
     };
 });
+
+app.factory('AuthInterceptor', function () {
+    return {
+        request: function (config) {
+            const token = localStorage.getItem('token');
+            if (token) {
+                config.headers['Authorization'] = token;
+            }
+            return config;
+        },
+    };
+});
+
+app.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('AuthInterceptor');
+});

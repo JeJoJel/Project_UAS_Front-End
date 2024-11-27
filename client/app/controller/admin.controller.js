@@ -1,6 +1,6 @@
 var app = angular.module('myApp');
 
-app.controller("AdminController", function($scope, ArticleService, EventService) {
+app.controller("AdminController", function($scope, ArticleService, EventService, $http) {
     $scope.currentTab = 'articles';
     $scope.articles = [];
     $scope.events = [];
@@ -8,11 +8,39 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
     $scope.editing = false;
     $scope.formData = {};
 
+    // Ambil token dan role dari localStorage
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
+
+    // Validasi akses
+    if (!token) {
+        // Jika tidak ada token, pengguna belum login
+        alert("Access Denied: Please log in.");
+        window.location.href = '../../index.html'; // Redirect ke halaman login
+        return;
+    } else if (role !== 'admin') {
+        // Jika bukan admin, redirect ke home
+        alert("Access Denied: Admins only.");
+        window.location.href = '/client/app/views/home.html'; // Redirect ke halaman home
+        return;
+    }
+
+    // Logout function
+    $scope.logout = function () {
+        // Hapus token dan informasi role
+        localStorage.removeItem('token');
+        localStorage.removeItem('role');
+        window.location.href = '../../index.html';
+    };
+
     // Load articles
     $scope.loadArticles = function() {
         $scope.currentTab = 'articles';
         ArticleService.getAll().then(response => {
             $scope.articles = response.data;
+        }).catch(err => {
+            console.error("Error loading articles:", err);
+            alert("Failed to load articles.");
         });
     };
 
@@ -21,6 +49,9 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
         $scope.currentTab = 'events';
         EventService.getAll().then(response => {
             $scope.events = response.data;
+        }).catch(err => {
+            console.error("Error loading events:", err);
+            alert("Failed to load events.");
         });
     };
 
@@ -41,20 +72,38 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
     $scope.saveForm = function() {
         if ($scope.currentTab === 'articles') {
             if ($scope.editing) {
-                ArticleService.update($scope.formData.id, $scope.formData);
+                ArticleService.update($scope.formData.id, $scope.formData).then(() => {
+                    $scope.loadArticles();
+                }).catch(err => {
+                    console.error("Error updating article:", err);
+                    alert("Failed to update article.");
+                });
             } else {
-                ArticleService.create($scope.formData);
+                ArticleService.create($scope.formData).then(() => {
+                    $scope.loadArticles();
+                }).catch(err => {
+                    console.error("Error creating article:", err);
+                    alert("Failed to create article.");
+                });
             }
         } else if ($scope.currentTab === 'events') {
             if ($scope.editing) {
-                EventService.update($scope.formData.id, $scope.formData);
+                EventService.update($scope.formData.id, $scope.formData).then(() => {
+                    $scope.loadEvents();
+                }).catch(err => {
+                    console.error("Error updating event:", err);
+                    alert("Failed to update event.");
+                });
             } else {
-                EventService.create($scope.formData);
+                EventService.create($scope.formData).then(() => {
+                    $scope.loadEvents();
+                }).catch(err => {
+                    console.error("Error creating event:", err);
+                    alert("Failed to create event.");
+                });
             }
         }
         $scope.showForm = false;
-        $scope.loadArticles();
-        $scope.loadEvents();
     };
 
     // Close form
@@ -64,19 +113,21 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
 
     // Delete article
     $scope.deleteArticle = function(id) {
-        ArticleService.delete(id).then(() => $scope.loadArticles());
+        ArticleService.delete(id).then(() => {
+            $scope.loadArticles();
+        }).catch(err => {
+            console.error("Error deleting article:", err);
+            alert("Failed to delete article.");
+        });
     };
 
     // Delete event
     $scope.deleteEvent = function(id) {
-        EventService.delete(id).then(() => $scope.loadEvents());
-    };
-
-    // **Logout Functionality**
-    $scope.logout = function() {
-        // Hapus token dari localStorage
-        localStorage.removeItem('token');
-        // Arahkan ke halaman login
-        window.location.href = '../../index.html';
+        EventService.delete(id).then(() => {
+            $scope.loadEvents();
+        }).catch(err => {
+            console.error("Error deleting event:", err);
+            alert("Failed to delete event.");
+        });
     };
 });
