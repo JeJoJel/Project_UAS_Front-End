@@ -40,19 +40,22 @@
         </header>
 
         <!-- Articles Table -->
-        <div class="content" ng-if="currentTab === 'articles'">
+        <div class="content" ng-if="currentTab === 'articles'" ng-controller="GetArticleController">
+            <button class="add-btn" ng-click="openForm()">+ Add Article</button>
             <table>
                 <thead>
                     <tr>
                         <th>Title</th>
                         <th>Category</th>
+                        <th>Author</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-if="hasArticles">
                     <tr ng-repeat="article in articles">
                         <td>{{ article.title }}</td>
                         <td>{{ article.category }}</td>
+                        <td>{{ article.author }}</td>
                         <td>
                             <button class="edit-btn" ng-click="edit(article)">Edit</button>
                             <button class="delete-btn" ng-click="deleteArticle(article.id)">Delete</button>

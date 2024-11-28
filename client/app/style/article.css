@@ -1,0 +1,16 @@
+#editor {
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    min-height: 100px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.toolbar button {
+    margin-right: 5px;
+}
+
+.input-field {
+    margin-bottom: 10px;
+}
