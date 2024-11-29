@@ -7,7 +7,7 @@ app.service("EventService", function($http) {
     };
 
     this.create = function(event) {
-        return $http.post(apiUrl, event);
+        return $http.post(apiUrl, event); // Ensure the backend returns the created event
     };
 
     this.update = function(id, event) {
@@ -18,3 +18,4 @@ app.service("EventService", function($http) {
         return $http.delete(`${apiUrl}/${id}`);
     };
 });
+

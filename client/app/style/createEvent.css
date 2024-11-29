@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Mate', serif;
+}
+
+/* Page Header */
+.page-header {
+    position: relative;
+    background: url(/asset/recipe/recipe18.jpg) no-repeat center top fixed;
+    background-size: cover;
+    height: 450px;
+}
+
+.search-container {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    margin-top: 170px;
+}
+
+.search-bar {
+    padding: 10px;
+    border: 2px solid rgb(196, 223, 223);
+    border-radius: 20px;
+    width: 800px;
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the color and opacity */
+    padding-left: 20px;
+    transition: border-color 0.3s;
+    font-size: 20px;
+}
+
+.search-bar::placeholder {
+    color: black;
+}
+
+.search-bar:focus {
+    outline: rgb(13, 61, 61);
+    border-color: rgb(13, 61, 61);
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(30, 105, 105);
+    cursor: pointer;
+}
+
+/* Event List Styles */
+.event-list {
+    list-style-type: none;
+    padding: 20px;
+}
+
+.event-list-item {
+    background-color: rgb(248, 246, 244);
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-list-item h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.event-list-item p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.event-list-item:hover {
+    transform: translateY(-5px);
+    transition: transform 0.2s ease;
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 0 10px;
+    background-color: rgb(210, 233, 233);
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination button:hover {
+    background-color: rgb(180, 200, 200);
+    color: white;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#page-info {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+    .search-bar {
+        width: 500px; /* Adjust search bar width */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .search-bar {
+        width: 350px; /* Adjust search bar width */
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .search-bar {
+        width: 250px; /* Adjust search bar width for very small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .event-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .event-list-item {
+        width: 100%;
+    }
+}

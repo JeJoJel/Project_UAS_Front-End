@@ -1,20 +1,20 @@
 const mongoose = require('mongoose');
 
-// Define the schema for an article
-const articleSchema = new mongoose.Schema({
-    title: {
+// Define the schema for an event
+const eventSchema = new mongoose.Schema({
+    name: {
         type: String,
         required: true
     },
-    category: {
+    date: {
+        type: Date,
+        required: true
+    },
+    time: {
         type: String,
         required: true
     },
-    content: {
-        type: String,
-        required: true
-    },
-    author: {
+    location: {
         type: String,
         required: true
     },
@@ -24,7 +24,7 @@ const articleSchema = new mongoose.Schema({
     }
 });
 
-// Create the Article model based on the schema
-const Article = mongoose.model('Article', articleSchema);
+// Create the Event model based on the schema
+const Event = mongoose.model('Event', eventSchema);
 
-module.exports = Article;
+module.exports = Event;

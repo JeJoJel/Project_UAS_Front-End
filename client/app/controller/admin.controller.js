@@ -32,30 +32,45 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
     };
 
     $scope.openEventForm = function() {
-        $scope.formData = {};
-        $scope.showForm = true;
-        $scope.editing = false;
+        $scope.formData = {}; // Clear form data
+        $scope.showForm = true; // Show modal
+        $scope.editing = false; // Set editing mode to false
     };
-
+    
     // Save form
     $scope.saveForm = function() {
         if ($scope.currentTab === 'articles') {
             if ($scope.editing) {
                 ArticleService.update($scope.formData.id, $scope.formData);
             } else {
-                ArticleService.create($scope.formData);
+                // Post the new article to the backend
+                $http.post('http://localhost:3000/api/articles', $scope.formData)
+                    .then(response => {
+                        console.log('Article posted successfully:', response);
+                        $scope.loadArticles();
+                    })
+                    .catch(error => {
+                        console.error('Error posting article:', error);
+                    });
             }
         } else if ($scope.currentTab === 'events') {
             if ($scope.editing) {
                 EventService.update($scope.formData.id, $scope.formData);
             } else {
-                EventService.create($scope.formData);
+                // Post the new event to the backend
+                $http.post('http://localhost:3000/api/events', $scope.formData)
+                    .then(response => {
+                        console.log('Event posted successfully:', response);
+                        $scope.loadEvents();
+                    })
+                    .catch(error => {
+                        console.error('Error posting event:', error);
+                    });
             }
         }
         $scope.showForm = false;
-        $scope.loadArticles();
-        $scope.loadEvents();
     };
+    
 
     // Close form
     $scope.closeForm = function() {
