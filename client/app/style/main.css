@@ -1,0 +1,4 @@
+/* File: style.css */
+@import url('../components/header/header.css');
+@import url('../components/footer/footer.css');
+/* Tambahkan file CSS lain jika perlu */

@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../asset/icon.png" type="image/png"/>
+    <link rel="icon" href="../../assets/components/icon/icon.png" type="image/png"/>
     <title>Home - Chic & Simple</title>
     <link rel="stylesheet" href="../style/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src ="../../app.js"></script>
+    <script src ="../controller/home.controller.js"></script>
+    <script src ="../script/home.js"></script>
+
 
 </head>
 <body>
@@ -18,7 +23,7 @@
     </marquee>
     
     <!-- div yg bakal di isi sm header -->
-    <div id="header-container"></div>
+    <div id="header-container" ng-include="'../../../app/components/header/header.html'"></div>
         
     <!-- Slideshow Section -->
     <div class="slideshow-container">
@@ -42,7 +47,7 @@
             <div class="section-title">
                 <h2>Featured Posts</h2>
             </div>
-            <div class="featured-container">
+            <!-- <div class="featured-container">
                 <div class="box">
                     <span><a href="#"><img src="assets/images/index/halloween2.webp" alt="">Halloween Cupcakes</a></span>
                 </div>
@@ -55,23 +60,41 @@
                 <div class="box">
                     <span><a href="#"><img src="../asset/halloween/hal4.jpg" alt="">DIY Candy Corn Garland</a></span>
                 </div>
+            </div> -->
+            <div class="featured-container" ng-controller="FeaturedPostsController">
+                <div class="box" ng-repeat="post in featuredPosts">
+                    <span><a href="{{ post.link }}"><img ng-src="{{ post.image }}" alt="{{ post.title }}">{{ post.title }}</a></span>
+                </div>
             </div>
+
+            <div class="featured-container" ng-controller="FeaturedPostsController">
+                <div class="box" ng-repeat="post in featuredPosts">
+                    <span><a href="{{ post.link }}"><img ng-src="{{ post.image }}" alt="{{ post.title }}">{{ post.title }}</a></span>
+                </div>
+            </div>
+
+            <div class="featured-container" ng-controller="FeaturedPostsController">
+                <div class="box" ng-repeat="post in featuredPosts">
+                    <span><a href="{{ post.link }}"><img ng-src="{{ post.image }}" alt="{{ post.title }}">{{ post.title }}</a></span>
+                </div>
+            </div>
+            
         </section>
         <hr>
         <div class="row">
             <!-- Bagian Kiri -->
             <div class="col-lg-8">
                 <section>
-                    <div class="section-title2">
-                        <h2>Dog Family Costume Ideas</h2>
-                        <p>October 9 2024 - 12 Comments</p>
-                    </div>
-                    <div class="card-body">
-                        <div class="blog-media">
-                            <img src="../asset/style/style18.jpg" alt="" class="w-100">
+                    <div ng-controller="BlogPostController">
+                        <div class="section-title2">
+                            <h2>{{ post.title }}</h2>
+                            <p>{{ post.date }} - {{ post.comments }} Comments</p>
                         </div>
-                        <p class="my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores et nostrum porro odit reprehenderit animi, est ratione fugit aspernatur ipsum. Nostrum placeat hic saepe voluptatum dicta ipsum beatae.</p>
-                    </div>
+                        <div class="blog-media">
+                            <img ng-src="{{ post.image }}" alt="" class="w-100">
+                        </div>
+                        <p class="my-3">{{ post.description }}</p>
+                    </div>                    
                     <div class="card-footer">
                         <div class="icon">
                             <div class="circle">
@@ -92,28 +115,18 @@
     
                 <section>
                     <div class="row">
-                        <!-- post 1 -->
-                        <div class="col-md-6">
-                            <div class="post-card">
-                                <img src="../asset/recipe/recipe6.jpg" alt="Post Image">
-                                <h5>Caprese Skewers</h5>
-                                <p class="meta-info">January 20 2019 - 34 Comments</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
-                                <a href="#" class="btn btn-outline-primary">Read More</a>
+                        <div ng-controller="PostListController">
+                            <div class="col-md-6" ng-repeat="post in posts">
+                                <div class="post-card">
+                                    <img ng-src="{{ post.image }}" alt="Post Image">
+                                    <h5>{{ post.title }}</h5>
+                                    <p class="meta-info">{{ post.date }} - {{ post.comments }} Comments</p>
+                                    <p>{{ post.description }}</p>
+                                    <a href="{{ post.link }}" class="btn btn-outline-primary">Read More</a>
+                                </div>
                             </div>
-                        </div>
-    
-                        <!-- post 2-->
-                        <div class="col-md-6">
-                            <div class="post-card">
-                                <img src="../asset/recipe/recipe2.jpg" alt="Post Image">
-                                <h5>Pumpkin Cheesecake</h5>
-                                <p class="meta-info">January 19 2013 - 64 Comments</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos saepe dolores est ratione.</p>
-                                <a href="blog4.html" class="btn btn-outline-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div>
+                        </div>      
+                    </div>              
                 </section>
 
 

@@ -4,8 +4,8 @@ var app = angular.module('myApp');
 app.controller('ContactController', ['$scope', function($scope) {
     // Define the images
     $scope.images = [
-        '../../../assets/images/contact/person1.jpg',
-        '../../../assets/images/contact/person2.jpg',
+        '../../assets/images/contact/person1.jpg',
+        '../../assets/images/contact/person2.jpg',
     ];
 
     // Initialize the current image

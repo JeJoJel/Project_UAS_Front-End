@@ -16,12 +16,21 @@ app.controller('LoginController', function($scope, AuthService) {
         AuthService.login($scope.user)
             .then(response => {
                 const token = response.data.token; // Ambil token dari respons
+                const role = response.data.role; // Ambil role dari respons
+                
                 if (token) {
                     localStorage.setItem('token', token); // Simpan token di localStorage
-                // Berhasil
-                alert(response.data.message); // Tampilkan pesan sukses
-                // route ke halaman login
-                window.location.href = '/client/app/views/home.html';
+                    
+                    // Cek role dan redirect sesuai kondisi
+                    if (role === 'admin') {
+                        // Redirect ke halaman admin
+                        window.location.href = '/client/app/views/admin.html';
+                    } else {
+                        // Redirect ke halaman user biasa
+                        window.location.href = '/client/app/views/home.html';
+                    }
+
+                    alert(response.data.message); // Tampilkan pesan sukses
                 } else {
                     alert('Token not found in response');
                 }

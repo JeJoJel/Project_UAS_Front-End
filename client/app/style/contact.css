@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&display=swap');
+@import url('../components/header/header.html');
+@import url('../components/footer/footer.html');
 
 /* Global */
 html {

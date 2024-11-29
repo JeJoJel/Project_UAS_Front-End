@@ -66,21 +66,26 @@ exports.login = async (req, res) => {
         }
 
         // Verifikasi password
-        const isMatch = await user.comparePassword(password); // Assume comparePassword ada di model User
+        const isMatch = await user.comparePassword(password);
         if (!isMatch) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
         // Buat token JWT
         const token = jwt.sign(
-            { id: user._id, username: user.username }, // Payload
+            { id: user._id, username: user.username, role: user.role }, // Tambahkan role ke token
             'secret', // Ganti dengan secret key Anda
-            { expiresIn: '1h' } // Token berlaku selama 1 jam
+            { expiresIn: '1h' }
         );
 
-        // Kirim token ke client
-        res.status(200).json({ message: 'Login successful', token });
+        // Kirim token dan role dalam respons
+        res.status(200).json({
+            message: 'Login successful',
+            token,
+            role: user.role // Pastikan role disertakan di sini
+        });
     } catch (error) {
+        console.error('Error during login:', error);
         res.status(500).json({ error: 'Server error' });
     }
 };
