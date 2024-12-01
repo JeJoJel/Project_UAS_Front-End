@@ -25,7 +25,7 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
         $scope.currentTab = 'events';
         EventService.getAll().then(response => {
             console.log(response.data); // Log untuk memastikan data diterima
-            $scope.events = response.data; // Pastikan data diterima dan disimpan di scope
+            $scope.events = response.data.events; // Pastikan data diterima dan disimpan di scope
         }).catch(error => {
             console.error('Error loading events:', error); // Log error jika ada masalah
         });
@@ -151,8 +151,11 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
         window.location.href = '../../index.html';
     };
 
-    console.log($scope.formData);  // Check what is being submitted
+    console.log($scope.formData);  
     console.log($scope.articles);
     console.log($scope.events);
+    
+    $scope.loadArticles();
+    $scope.loadEvents();
 
 });
