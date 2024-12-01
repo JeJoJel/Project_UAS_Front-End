@@ -1,4 +1,5 @@
-var app = angular.module('myApp');
+var app = angular.module('myApp'); 
+
 app.service("EventService", function($http) {
     const apiUrl = "http://localhost:3000/api/events";
 
@@ -7,7 +8,7 @@ app.service("EventService", function($http) {
     };
 
     this.create = function(event) {
-        return $http.post(apiUrl, event); // Ensure the backend returns the created event
+        return $http.post(apiUrl, event);
     };
 
     this.update = function(id, event) {
@@ -18,4 +19,3 @@ app.service("EventService", function($http) {
         return $http.delete(`${apiUrl}/${id}`);
     };
 });
-

@@ -8,7 +8,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="../../app.js"></script>
     <script src="../controller/admin.controller.js"></script>
-    <script src="../controller/article.controller.js"></script>
     <script src="../services/ArticleService.js"></script>
     <script src="../services/EventService.js"></script>
 </head>
@@ -40,8 +39,14 @@
             <button class="add-btn" ng-if="currentTab === 'events'" ng-click="openEventForm()">+ Add Event</button>
         </header>
 
+        <!-- Success Message -->
+        <div class="success-message" ng-show="successMessage">
+            <p>{{ successMessage }}</p>
+            <button class="close-msg-btn" ng-click="closeSuccessMessage()">×</button>
+        </div>
+
         <!-- Articles Table -->
-        <div class="content" ng-if="currentTab === 'articles'" ng-controller="GetArticleController">
+        <div class="content" ng-if="currentTab === 'articles'">
             <table>
                 <thead>
                     <tr>
@@ -51,7 +56,7 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody ng-if="hasArticles">
+                <tbody ng-if="articles.length">
                     <tr ng-repeat="article in articles">
                         <td>{{ article.title }}</td>
                         <td>{{ article.category }}</td>
@@ -74,9 +79,10 @@
                         <th>Date</th>
                         <th>Time</th>
                         <th>Location</th>
+                        <th>Actions</th> 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-if="events.length">
                     <tr ng-repeat="event in events">
                         <td>{{ event.name }}</td>
                         <td>{{ event.date }}</td>
@@ -96,7 +102,7 @@
     <div class="modal" ng-show="showForm">
         <div class="modal-content">
             <span class="close-btn" ng-click="closeForm()">&times;</span>
-            <form ng-submit="save()">
+            <form ng-submit="saveForm()">
                 <h3>{{ editing ? 'Edit ' : 'Add ' }} {{ currentTab === 'articles' ? 'Article' : 'Event' }}</h3>
 
                 <!-- Article Form -->
@@ -105,10 +111,11 @@
                     <input type="text" ng-model="formData.title" required>
                     <label>Category:</label>
                     <input type="text" ng-model="formData.category" required>
+                    <label>Author:</label> 
+                    <input type="text" ng-model="formData.author" required>
                     <label>Content:</label>
-                    <textarea ng-model="formData.content"></textarea>
-                    <button type="submit">Post Articles</button>
-                    <button type="button" ng-click="closeForm()">Cancel</button>
+                    <input type="text" ng-model="formData.content" required>
+                    <button type="submit">Save Article</button>
                 </div>
 
                 <!-- Event Form -->
@@ -121,8 +128,7 @@
                     <input type="time" ng-model="formData.time" required>
                     <label>Location:</label>
                     <input type="text" ng-model="formData.location" required>
-                    <button type="submit">Post Event</button>
-                    <button type="button" ng-click="closeForm()">Cancel</button>
+                    <button type="submit">Save Event</button>
                 </div>
             </form>
         </div>
