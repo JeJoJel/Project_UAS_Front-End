@@ -128,6 +128,33 @@ table th, table td {
     position: relative; 
 }
 
+.form-group label {
+    display: flex;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group select {
+    width: 98%;
+    height: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #444;
+}
+
+.form-group select option[value=""][disabled] {
+    color: #aaa; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+
 /* Close Button */
 .close-btn {
     position: absolute;

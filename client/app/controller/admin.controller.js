@@ -13,10 +13,10 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
     $scope.loadArticles = function() {
         $scope.currentTab = 'articles';
         ArticleService.getAll().then(response => {
-            console.log(response.data);  // Log response to check if events are being fetched
-            $scope.articles = response.data;
+            console.log(response.data);  // Log untuk memastikan data diterima
+            $scope.articles = response.data; // Pastikan data diterima dan disimpan di scope
         }).catch(error => {
-            console.error('Error loading articles:', error);  // Log any errors
+            console.error('Error loading articles:', error); 
         });
     };
 
@@ -27,7 +27,7 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
             console.log(response.data); // Log untuk memastikan data diterima
             $scope.events = response.data.events; // Pastikan data diterima dan disimpan di scope
         }).catch(error => {
-            console.error('Error loading events:', error); // Log error jika ada masalah
+            console.error('Error loading events:', error); 
         });
     };    
     
@@ -40,8 +40,8 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
     };
 
     $scope.openEventForm = function() {
-        $scope.formData = {}; // Clear form data
-        $scope.showForm = true; // Show modal
+        $scope.formData = {}; 
+        $scope.showForm = true; 
         $scope.editing = false; 
     };
     
@@ -82,7 +82,7 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
             } else {
                 EventService.create($scope.formData)
                     .then(() => {
-                        $scope.loadEvents(); // Refresh data setelah tambah
+                        $scope.loadEvents(); // Refresh data setelah update
                         alert('Event added successfully');
                     })
                     .catch(error => {
@@ -95,31 +95,46 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
         $scope.showForm = false;
     };
     
-    
-    $scope.edit = function(articles) {
-        $scope.formData = angular.copy(articles); 
-        $scope.showForm = true; 
-        $scope.editing = true; 
+    $scope.editArticle = function(article) {
+        $scope.formData = angular.copy(article);
+        $scope.showForm = true;
+        $scope.editing = true;
     };
     
-    $scope.edit = function(event) {
-        $scope.formData = angular.copy(event); 
-        $scope.showForm = true; 
-        $scope.editing = true; 
+    $scope.editEvent = function(event) {
+        $scope.formData = angular.copy(event);
+        $scope.showForm = true;
+        $scope.editing = true;
     };
-    
-
+        
     // Close form
     $scope.closeForm = function() {
         $scope.showForm = false;
     };
 
     // Delete 
+    $scope.deleteArticle = function(id) {
+        console.log('Article ID to delete:', id); // Debugging line
+        if (confirm('Are you sure you want to delete this article?')) {
+            ArticleService.delete(id)
+                .then(() => {
+                    $scope.loadArticles();
+                    alert('Article deleted successfully');
+                })
+                .catch(error => {
+                    console.error('Error deleting article:', error);
+                    alert('Failed to delete article. Please try again.');
+                });
+        }
+    };    
+    
+    
     $scope.deleteEvent = function(id) {
+        console.log('Event ID to delete:', id); // Debugging line
         if (confirm('Are you sure you want to delete this event?')) {
             EventService.delete(id)
                 .then(() => {
-                    $scope.loadEvents(); // Muat ulang data setelah penghapusan
+                    $scope.loadEvents();
                     alert('Event deleted successfully');
                 })
                 .catch(error => {
@@ -129,18 +144,6 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
         }
     };
     
-    $scope.deleteArticle = function(id) {
-        if (confirm('Are you sure you want to delete this article?')) {
-            ArticleService.delete(id)
-                .then(() => {
-                    $scope.loadArticles(); 
-                    alert('Article deleted successfully');
-                }).catch(error => {
-                    console.error('Error deleting article:', error);
-                    alert('Failed to delete article. Please try again.');
-                });
-        }
-    };
     
 
     // **Logout Functionality**
