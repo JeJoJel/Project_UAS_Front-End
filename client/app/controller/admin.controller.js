@@ -20,7 +20,7 @@ app.controller("AdminController", function($scope, ArticleService, EventService,
     $scope.loadEvents = function() {
         $scope.currentTab = 'events';
         EventService.getAll().then(response => {
-            $scope.events = response.data;
+            $scope.events = response.data.events;
         });
     };    
     
