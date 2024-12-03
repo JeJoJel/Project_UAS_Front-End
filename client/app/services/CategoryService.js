@@ -1,4 +1,4 @@
-var app = angular.module('categoryApp', []);
+var app = angular.module('myApp', []);
 
 app.service("CategoryService", function($http) {
     const apiUrl = "http://localhost:3000/api/articles";
