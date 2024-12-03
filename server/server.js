@@ -1,12 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const authRoutes = require('./routes/auth.js');
-const articleRouter = require('./routes/article.js');
-const eventRouter = require('./routes/event.js');  // Import event routes
 const cors = require('cors');
 
-// Initialize the application
+// Import routes
+const authRoutes = require('./routes/auth.js');
+const articleRouter = require('./routes/article.js');
+const eventRouter = require('./routes/event.js');
+const categoryRoutes = require('./routes/category.js');
+
+
+// Initialize the app
 const app = express();
 const PORT = 3000;
 
@@ -14,13 +18,15 @@ const PORT = 3000;
 const MONGO_URI = 'mongodb://jejojel:jejojel12345@clusteruas-shard-00-00.e0bga.mongodb.net:27017,clusteruas-shard-00-01.e0bga.mongodb.net:27017,clusteruas-shard-00-02.e0bga.mongodb.net:27017/ChicSimple?ssl=true&replicaSet=atlas-nf5n95-shard-0&authSource=admin&retryWrites=true&w=majority&appName=ClusterUAS';
 
 // Middleware
-app.use(cors()); // Enable CORS for all origins
-app.use(bodyParser.json()); // Parse incoming JSON requests
+app.use(cors()); // Enable CORS
+app.use(bodyParser.json()); // Parse JSON payloads
 
-// Routes
+// Define routes
 app.use('/api/auth', authRoutes);
 app.use('/api/articles', articleRouter);
-app.use('/api/events', eventRouter);  
+app.use('/api/events', eventRouter);
+app.use('/api/categories', categoryRoutes);
+
 
 // MongoDB connection
 mongoose

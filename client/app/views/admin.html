@@ -11,6 +11,7 @@
     <script src="../services/ArticleService.js"></script>
     <script src="../services/EventService.js"></script>
 </head>
+
 <body ng-controller="AdminController">
 
     <!-- Sidebar -->
@@ -62,7 +63,7 @@
                         <td>{{ article.title }}</td>
                         <td>{{ article.category }}</td>
                         <td>{{ article.author }}</td>
-                        <td>{{ article.content }}</td>
+                        <td><div class="content-list">{{ article.content }}</div></td>
                         <td>
                             <button class="edit-btn" ng-click="editArticle(article)">Edit</button>
                             <button class="delete-btn" ng-click="deleteArticle(article.id)">Delete</button>

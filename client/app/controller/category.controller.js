@@ -1,45 +1,56 @@
-const app = angular.module('categoryApp');
-
-app.controller('CategoryController', function ($scope, ArticleService) {
-    $scope.categories = [];  
+app.controller('CategoryController', function ($scope, CategoryService) {
+    $scope.articles = [];
     $scope.filteredCards = [];
     $scope.visibleCards = [];
     $scope.currentPage = 1;
     $scope.itemsPerPage = 3;
     $scope.totalPages = 0;
+    $scope.selectedArticle = null; // To hold the clicked article's data
 
-    // Load all cards initially and extract categories from articles
-    $scope.loadCards = function () {
-        // Fetch all articles
-        ArticleService.getAll().then(response => {
-            $scope.filteredCards = response.data;  // Store all articles
+    // Load articles and extract necessary fields
+    $scope.loadArticles = function () {
+        CategoryService.getAll().then(response => {
+            console.log("Response data:", response.data); // Log to ensure data is received
             
-            // Extract unique categories from articles
-            $scope.categories = [...new Set($scope.filteredCards.map(article => article.category))];
-            
-            // Update pagination
+            // Ensure the correct fields are present in your response
+            $scope.articles = response.data.map(article => ({
+                title: article.title,
+                category: article.category,
+                author: article.author,
+                content: article.content, 
+                link: article.link,
+                img: article.img,
+                alt: article.alt
+            }));
+
+            // Initialize pagination
+            $scope.filteredCards = $scope.articles;
             $scope.totalPages = Math.ceil($scope.filteredCards.length / $scope.itemsPerPage);
             $scope.updateVisibleCards();
         }).catch(error => {
-            console.error('Error loading articles:', error);
+            console.error('Error fetching articles:', error);
         });
     };
 
-    // Update visible cards based on current page
+    // Update visible articles for the current page
     $scope.updateVisibleCards = function () {
         const start = ($scope.currentPage - 1) * $scope.itemsPerPage;
         $scope.visibleCards = $scope.filteredCards.slice(start, start + $scope.itemsPerPage);
     };
 
-    // Filter articles by category
-    $scope.filterByCategory = function (category) {
-        $scope.filteredCards = $scope.filteredCards.filter(card => card.category === category);
-        $scope.totalPages = Math.ceil($scope.filteredCards.length / $scope.itemsPerPage);
-        $scope.currentPage = 1;
-        $scope.updateVisibleCards();
+    // Show selected article content in the modal
+    $scope.showArticleContent = function(article) {
+        $scope.selectedArticle = article;
+        // Show the modal (You can control visibility with ng-show or ng-if)
+        document.getElementById("articleModal").style.display = "block";
     };
 
-    // Pagination logic
+    // Hide the modal
+    $scope.closeModal = function() {
+        document.getElementById("articleModal").style.display = "none";
+    };
+
+    // Pagination functions
     $scope.prevPage = function () {
         if ($scope.currentPage > 1) {
             $scope.currentPage--;
@@ -54,13 +65,6 @@ app.controller('CategoryController', function ($scope, ArticleService) {
         }
     };
 
-    // Search functionality
-    $scope.searchCards = function () {
-        $scope.filteredCards = $scope.filteredCards.filter(card => card.title.toLowerCase().includes($scope.searchTerm.toLowerCase()));
-        $scope.totalPages = Math.ceil($scope.filteredCards.length / $scope.itemsPerPage);
-        $scope.updateVisibleCards();
-    };
-
-    // Call this function when the page loads
-    $scope.loadCards();
+    // Call this on page load
+    $scope.loadArticles();
 });

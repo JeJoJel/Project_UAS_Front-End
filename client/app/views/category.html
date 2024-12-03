@@ -6,15 +6,14 @@
     <title>DIY-Chic and Simple</title>
     <link rel="icon" href="../asset/icon.png" type="image/png"/>
     <link rel="stylesheet" href="../style/category.css">
-    <link rel="stylesheet" href="../style/header_footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../services/CategoryService.js"></script>
+    <script src="../controller/category.controller.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body ng-controller="CategoryController">
     <!-- Header Container -->
-    <div id="header-container" ng-include="'header.html'"></div>
-
-    <!-- Page Header -->
     <header class="page-header">
         <div class="search-container">
             <input type="text" placeholder="Search..." class="search-bar" ng-model="searchTerm" ng-keypress="checkEnter($event)">
@@ -35,23 +34,16 @@
         <hr>
         <div class="page-container">
             <div class="page-content">
-
-                <!-- Category Selection -->
-                <div class="category-selection">
-                    <button class="category-btn" ng-click="filterByCategory('recipes')">Recipes</button>
-                    <button class="category-btn" ng-click="filterByCategory('diy')">DIY</button>
-                    <button class="category-btn" ng-click="filterByCategory('style')">Style</button>
-                </div>
-
                 <!-- Gallery Section -->
                 <section class="gallery">
-                    <div class="card" ng-repeat="card in visibleCards">
-                        <a href="{{card.link}}">
-                            <img ng-src="{{card.img}}" alt="{{card.alt}}">
+                    <div class="card" ng-repeat="article in visibleCards" ng-click="showArticleContent(article)">
+                        <a href="{{article.link}}">
+                            <img ng-src="{{article.img}}" alt="{{article.alt}}">
                         </a>
-                        <h3>{{card.title}}</h3>
-                        <p>By: {{card.author}}</p>
-                    </div>
+                        <h3>{{article.title}}</h3>
+                        <h4>{{article.category}}</h4>
+                        <p>By: {{article.author}}</p>
+                    </div>                                   
                 </section>
 
                 <div class="no-results" ng-show="!filteredCards.length">Sorry, no content matched your criteria</div>
@@ -66,10 +58,21 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <div id="footer-container" ng-include="'footer.html'"></div>
+    <!-- Article Modal -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" ng-click="closeModal()">&times;</span>
+            <h2>{{selectedArticle.title}}</h2>
+            <div class="article-content">
+                <p>{{selectedArticle.content}}</p>
+                 <ol>
+                    <li ng-repeat="point in selectedArticle.content">
+                        {{point}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="../controller/category.controller.js"></script>
 </body>
 </html>
