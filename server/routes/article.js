@@ -17,15 +17,15 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // API route for uploading images
-app.post('/api/upload-image', upload.single('image'), (req, res) => {
-    if (!req.file) {
-        return res.status(400).send('No file uploaded');
-    }
+// app.post('/api/upload-image', upload.single('image'), (req, res) => {
+//     if (!req.file) {
+//         return res.status(400).send('No file uploaded');
+//     }
 
-    // Assuming you save the file URL in your database
-    const imageUrl = `/uploads/${req.file.filename}`;
-    res.json({ imageUrl: imageUrl });
-});
+//     // Assuming you save the file URL in your database
+//     const imageUrl = `/uploads/${req.file.filename}`;
+//     res.json({ imageUrl: imageUrl });
+// });
 
 // POST: Save a new article
 router.post('/', upload.single('image'), async (req, res) => {
