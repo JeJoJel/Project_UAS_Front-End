@@ -19,11 +19,6 @@ app.use(bodyParser.json());
 // Routes
 app.use('/api/auth', authRoutes);
 
-// Endpoint dilindungi oleh token (contoh: /api/protected)
-app.get('/api/protected', verifyToken, (req, res) => {
-    res.json({ message: 'You have access!', userId: req.userId });
-});
-
 // Koneksi ke MongoDB
 mongoose
     .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })

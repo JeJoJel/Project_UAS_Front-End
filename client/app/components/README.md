@@ -1,1 +1,0 @@
-components gunanya untuk folder yang digunakan berkali2.
