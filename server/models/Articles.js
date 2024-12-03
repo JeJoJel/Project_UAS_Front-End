@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Define the schema for an article
 const articleSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -17,6 +16,10 @@ const articleSchema = new mongoose.Schema({
     author: {
         type: String,
         required: true
+    },
+    image: { 
+        type: String,
+        default: ''
     },
     createdAt: {
         type: Date,
