@@ -9,15 +9,17 @@
     <title>Home - Chic & Simple</title>
     <!-- CSS HOME-->
     <link rel="stylesheet" href="../style/home.css">
+    <link rel="stylesheet" href="../style/category.css">
     <!-- ANGULAR -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
     <script src ="../../app.js"></script>
+    <script src ="../services/CategoryService.js"></script>
     <script src ="../controller/home.controller.js"></script>
     <script src ="/client/app/script/home.js"></script>
 
 </head>
-<body>
+<body ng-controller="HomeController">
     
     <!-- HEADER -->
     <header>
@@ -64,6 +66,59 @@
     <div class="container">
     </div>
     
+
+    <!-- Main Category Section -->
+    <div class="container">
+        <section>
+            <div class="feature-posts">
+                <a href="blog_diy.html" class="feature-post-item" ng-repeat="feature in featurePosts">
+                    <img ng-src="{{feature.img}}" class="w-100" alt="{{feature.alt}}">
+                    <div class="feature-post-caption">{{feature.caption}}</div>
+                </a>
+            </div>
+        </section>
+        <hr>
+        <div class="page-container">
+            <div class="page-content">
+                <!-- Gallery Section -->
+                <section class="gallery">
+                    <div class="card" ng-repeat="article in visibleCards" ng-click="showArticleContent(article)">
+                        <a href="{{article.link}}">
+                            <img ng-src="{{article.img}}" alt="{{article.alt}}">
+                        </a>
+                        <h3>{{article.title}}</h3>
+                        <h4>{{article.category}}</h4>
+                        <p>By: {{article.author}}</p>
+                    </div>                                   
+                </section>
+
+                <div class="no-results" ng-show="!filteredCards.length">Sorry, no content matched your criteria</div>
+
+                <!-- Pagination Section -->
+                <div class="pagination">
+                    <button id="prev-btn" ng-click="prevPage()" ng-disabled="currentPage === 1">Previous</button>
+                    <span id="page-info">{{currentPage}} / {{totalPages}}</span>
+                    <button id="next-btn" ng-click="nextPage()" ng-disabled="currentPage === totalPages">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" ng-click="closeModal()">&times;</span>
+            <h2>{{selectedArticle.title}}</h2>
+            <div class="article-content">
+                <p>{{selectedArticle.content}}</p>
+                 <ol>
+                    <li ng-repeat="point in selectedArticle.content">
+                        {{point}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
 
     <!-- Brand Content -->
     <div class="brands-content">
