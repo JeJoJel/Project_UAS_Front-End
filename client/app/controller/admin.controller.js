@@ -1,22 +1,18 @@
 var app = angular.module('myApp');
 
-app.controller("AdminController", function($scope, ArticleService, EventService) {
+app.controller("AdminController", function($scope, ArticleService, EventService, $http) {
     $scope.currentTab = 'articles';
     $scope.articles = [];
     $scope.events = [];
     $scope.showForm = false;
     $scope.editing = false;
     $scope.formData = {};
-    $scope.successMessage = '';
 
     // Load articles
     $scope.loadArticles = function() {
         $scope.currentTab = 'articles';
         ArticleService.getAll().then(response => {
-            console.log(response.data);  // Log untuk memastikan data diterima
-            $scope.articles = response.data; // Pastikan data diterima dan disimpan di scope
-        }).catch(error => {
-            console.error('Error loading articles:', error); 
+            $scope.articles = response.data;
         });
     };
 
@@ -24,10 +20,7 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
     $scope.loadEvents = function() {
         $scope.currentTab = 'events';
         EventService.getAll().then(response => {
-            console.log(response.data); // Log untuk memastikan data diterima
-            $scope.events = response.data.events; // Pastikan data diterima dan disimpan di scope
-        }).catch(error => {
-            console.error('Error loading events:', error); 
+            $scope.events = response.data;
         });
     };    
     
@@ -53,58 +46,20 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
                 return;
             }
             if ($scope.editing) {
-                ArticleService.update($scope.formData.id, $scope.formData).then(() => {
-                    $scope.loadArticles();
-                    alert('Article updated successfully');
-                });
+                ArticleService.update($scope.formData.id, $scope.formData);
             } else {
-                ArticleService.create($scope.formData)
-                    .then(() => {
-                        $scope.loadArticles(); 
-                        alert('Article added successfully');
-                    })
-                    .catch(error => {
-                        console.error('Error adding Article:', error);
-                        alert('Failed to add Article. Please try again.');
-                    });
+                ArticleService.create($scope.formData);
             }
         } else if ($scope.currentTab === 'events') {
             if ($scope.editing) {
-                EventService.update($scope.formData.id, $scope.formData)
-                    .then(() => {
-                        $scope.loadEvents(); // Refresh data setelah update
-                        alert('Event updated successfully');
-                    })
-                    .catch(error => {
-                        console.error('Error updating event:', error);
-                        alert('Failed to update event. Please try again.');
-                    });
+                EventService.update($scope.formData.id, $scope.formData);
             } else {
-                EventService.create($scope.formData)
-                    .then(() => {
-                        $scope.loadEvents(); // Refresh data setelah update
-                        alert('Event added successfully');
-                    })
-                    .catch(error => {
-                        console.error('Error adding event:', error);
-                        alert('Failed to add event. Please try again.');
-                    });
+                EventService.create($scope.formData);
             }
         }
-        
         $scope.showForm = false;
-    };
-    
-    $scope.editArticle = function(article) {
-        $scope.formData = angular.copy(article);
-        $scope.showForm = true;
-        $scope.editing = true;
-    };
-    
-    $scope.editEvent = function(event) {
-        $scope.formData = angular.copy(event);
-        $scope.showForm = true;
-        $scope.editing = true;
+        $scope.loadArticles();
+        $scope.loadEvents();
     };
         
     // Close form
@@ -114,37 +69,13 @@ app.controller("AdminController", function($scope, ArticleService, EventService)
 
     // Delete 
     $scope.deleteArticle = function(id) {
-        console.log('Article ID to delete:', id); // Debugging line
-        if (confirm('Are you sure you want to delete this article?')) {
-            ArticleService.delete(id)
-                .then(() => {
-                    $scope.loadArticles();
-                    alert('Article deleted successfully');
-                })
-                .catch(error => {
-                    console.error('Error deleting article:', error);
-                    alert('Failed to delete article. Please try again.');
-                });
-        }
-    };    
-    
-    
-    $scope.deleteEvent = function(id) {
-        console.log('Event ID to delete:', id); // Debugging line
-        if (confirm('Are you sure you want to delete this event?')) {
-            EventService.delete(id)
-                .then(() => {
-                    $scope.loadEvents();
-                    alert('Event deleted successfully');
-                })
-                .catch(error => {
-                    console.error('Error deleting event:', error);
-                    alert('Failed to delete event. Please try again.');
-                });
-        }
+        ArticleService.delete(id).then(() => $scope.loadArticles());
     };
-    
-    
+
+    // Delete event
+    $scope.deleteEvent = function(id) {
+        EventService.delete(id).then(() => $scope.loadEvents());
+    };
 
     // **Logout Functionality**
     $scope.logout = function() {
