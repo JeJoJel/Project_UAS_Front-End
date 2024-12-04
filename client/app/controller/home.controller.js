@@ -1,8 +1,7 @@
 var app = angular.module('myApp');
 
-app.controller('HomeController', function ($scope, $location, CategoryService) {
-
-    // Variables
+app.controller('HomeController', function ($scope, $location, CategoryService, EventService) {
+    // Variables for articles and pagination
     $scope.articles = [];
     $scope.filteredCards = [];
     $scope.visibleCards = [];
@@ -124,6 +123,23 @@ app.controller('HomeController', function ($scope, $location, CategoryService) {
         $scope.currentPage = $location.path().split('/')[1]; // Extract active page from URL
     });
 
+    // load events
+    $scope.events = [];
+    $scope.loadEvents = function() {
+        console.log("Before fetching events:", $scope.events); // Log initial state
+        EventService.getAll().then(response => {
+            console.log("Events fetched:", response.data.events); // Log fetched events
+            $scope.events = response.data.events;
+            console.log("After assigning events:", $scope.events); // Log assigned events
+        }).catch(error => {
+            console.error('Error fetching events:', error);
+        });
+    };
+    
+
+    $scope.loadEvents();
+
+    // Handle login status
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
     

@@ -6,7 +6,6 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../style/admin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <!-- Memuat AngularJS Route -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
     <script src="../../app.js"></script>
     <script src="../controller/admin.controller.js"></script>
@@ -38,7 +37,7 @@
     <div class="main-content">
         <header class="header">
             <h1>{{ currentTab === 'articles' ? 'Manage Articles' : 'Manage Events' }}</h1>
-            <button class="add-btn" ng-if="currentTab === 'articles'" ng-click="openArticleForm()">+ Add Articles</button>
+            <button class="add-btn" ng-if="currentTab === 'articles'" ng-click="openArticleForm()">+ Add Article</button>
             <button class="add-btn" ng-if="currentTab === 'events'" ng-click="openEventForm()">+ Add Event</button>
         </header>
 
@@ -49,12 +48,11 @@
         </div>
 
         <!-- Articles Table -->
-        <div class="content" ng-if="currentTab === 'articles'">
+        <div class="content articles" ng-if="currentTab === 'articles'">
             <table>
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Category</th>
                         <th>Author</th>
                         <th>Content</th>
                         <th>Actions</th>
@@ -63,9 +61,8 @@
                 <tbody ng-if="articles.length">
                     <tr ng-repeat="article in articles">
                         <td>{{ article.title }}</td>
-                        <td>{{ article.category }}</td>
                         <td>{{ article.author }}</td>
-                        <td><div class="content-list">{{ article.content }}</div></td>
+                        <td>{{ article.content }}</td>
                         <td>
                             <button class="edit-btn" ng-click="editArticle(article)">Edit</button>
                             <button class="delete-btn" ng-click="deleteArticle(article.id)">Delete</button>
@@ -76,7 +73,7 @@
         </div>
 
         <!-- Events Table -->
-        <div class="content" ng-if="currentTab === 'events'">
+        <div class="content events" ng-if="currentTab === 'events'">
             <table>
                 <thead>
                     <tr>
@@ -84,7 +81,7 @@
                         <th>Date</th>
                         <th>Time</th>
                         <th>Location</th>
-                        <th>Actions</th> 
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody ng-if="events.length">
@@ -114,18 +111,17 @@
                 <div ng-if="currentTab === 'articles'">
                     <label>Title:</label>
                     <input type="text" ng-model="formData.title" required>
-                    <div class="form-group">
-                        <label>Category:</label>
-                        <select id="category" class="form-control" ng-model="formData.category" required>
-                            <option value="Recipes">Recipes</option>
-                            <option value="DIY">DIY</option>
-                            <option value="Style">Style</option>
-                        </select>
-                    </div>                                                          
-                    <label>Author:</label> 
+
+                    <label>Author:</label>
                     <input type="text" ng-model="formData.author" required>
+
                     <label>Content:</label>
                     <textarea ng-model="formData.content" rows="10" cols="50" required></textarea>
+
+                    <!-- Image Upload -->
+                    <label>Image:</label>
+                    <input type="file" ng-model="formData.image" accept="image/*" ng-change="uploadImage()" />
+
                     <button type="submit">Save Article</button>
                 </div>
 
@@ -133,14 +129,19 @@
                 <div ng-if="currentTab === 'events'">
                     <label>Event Name:</label>
                     <input type="text" ng-model="formData.name" required>
+
                     <label>Date:</label>
                     <input type="date" ng-model="formData.date" required>
+
                     <label>Time:</label>
                     <input type="time" ng-model="formData.time" required>
+
                     <label>Location:</label>
                     <input type="text" ng-model="formData.location" required>
+
                     <button type="submit">Save Event</button>
                 </div>
+
             </form>
         </div>
     </div>
