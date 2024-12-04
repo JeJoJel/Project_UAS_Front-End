@@ -6,7 +6,7 @@ app.controller('HomeController', function ($scope, $location, CategoryService, E
     $scope.filteredCards = [];
     $scope.visibleCards = [];
     $scope.currentPage = 1;
-    $scope.itemsPerPage = 3;
+    $scope.itemsPerPage = 6;
     $scope.totalPages = 0;
     $scope.selectedArticle = null; 
 
@@ -66,13 +66,13 @@ app.controller('HomeController', function ($scope, $location, CategoryService, E
             // Ensure the correct fields are present in your response
             $scope.articles = response.data.map(article => ({
                 title: article.title,
-                category: article.category,
                 author: article.author,
                 content: article.content, 
                 link: article.link,
-                img: article.img,
+                image: article.image,
                 alt: article.alt
             }));
+            
 
             // Initialize pagination
             $scope.filteredCards = $scope.articles;
@@ -82,7 +82,7 @@ app.controller('HomeController', function ($scope, $location, CategoryService, E
             console.error('Error fetching articles:', error);
         });
     };
-
+    
     // Update visible articles for the current page
     $scope.updateVisibleCards = function () {
         const start = ($scope.currentPage - 1) * $scope.itemsPerPage;
@@ -115,7 +115,6 @@ app.controller('HomeController', function ($scope, $location, CategoryService, E
         }
     };
 
-    // Call this on page load
     $scope.loadArticles();
 
     // HeaderController functionality (from home.controller.js)

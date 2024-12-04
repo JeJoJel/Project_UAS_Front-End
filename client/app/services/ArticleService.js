@@ -11,10 +11,10 @@ app.service("ArticleService", function($http) {
         return $http.post(apiUrl, articles);
     };
 
-    this.update = function(id, articles) {
-        return $http.put(`${apiUrl}/${id}`, articles);
-    };
-
+    this.update = function(id, article) {
+        return $http.put(`${apiUrl}/${id}`, article);
+    };    
+    
     this.delete = function(id) {
         return $http.delete(`${apiUrl}/${id}`);
     };

@@ -82,19 +82,25 @@ router.put('/:id', async (req, res) => {
 
 
 
-// DELETE: Remove an article by ID
+// DELETE: Delete an article by ID
 router.delete('/:id', async (req, res) => {
+    const articleId = req.params.id;
+    if (!articleId) {
+        return res.status(400).json({ message: 'Invalid article ID' });
+    }
+
     try {
-        const deletedArticle = await Article.findByIdAndDelete(req.params.id);
+        const deletedArticle = await Article.findByIdAndDelete(articleId);
         if (!deletedArticle) {
             return res.status(404).json({ message: 'Article not found' });
         }
-
         res.status(200).json({ message: 'Article deleted successfully!' });
     } catch (error) {
         console.error('Error deleting article:', error);
         res.status(500).json({ message: 'Error deleting article', error: error.message });
     }
 });
+
+
 
 module.exports = router;

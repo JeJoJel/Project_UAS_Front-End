@@ -121,15 +121,15 @@ body {
 }
 
 .articles table th {
-    background-color: #d6eaf8; /* Light blue for header */
+    background-color: #d6eaf8;
 }
 
 .articles .edit-btn {
-    background-color: #2980b9; /* Dark blue */
+    background-color: #2980b9; 
 }
 
 .articles .delete-btn {
-    background-color: #e74c3c; /* Red */
+    background-color: #e74c3c; 
 }
 
 
@@ -144,7 +144,22 @@ table th, table td {
     text-align: left;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
+
+table th {
+    min-width: 150px; 
+}
+
+table td {
+    min-width: 210px;
+    max-width: 210px; 
+    word-wrap: break-word;
+    white-space: normal; 
+}
+
 
 /* Buttons */
 .edit-btn, .delete-btn {
