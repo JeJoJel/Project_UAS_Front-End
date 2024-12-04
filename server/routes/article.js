@@ -1,42 +1,21 @@
 const express = require('express');
-const multer = require('multer');
 const path = require('path');
-const Article = require('../models/Articles');  
+const mongoose = require('mongoose');
+const Article = require('../models/Articles'); 
 const router = express.Router();
 
-// Configure multer for image upload
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/'); // The directory where images will be stored
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Generate a unique filename
-    }
-});
-
-const upload = multer({ storage: storage });
-
-// API route for uploading images
-// app.post('/api/upload-image', upload.single('image'), (req, res) => {
-//     if (!req.file) {
-//         return res.status(400).send('No file uploaded');
-//     }
-
-//     // Assuming you save the file URL in your database
-//     const imageUrl = `/uploads/${req.file.filename}`;
-//     res.json({ imageUrl: imageUrl });
-// });
-
-// POST: Save a new article
-router.post('/', upload.single('image'), async (req, res) => {
+// POST: Create a new article
+router.post('/', async (req, res) => {
     try {
-        const { title, author, category, date, content } = req.body;
-        const image = req.file ? '/uploads/' + req.file.filename : null; // If image is uploaded, store the path
+        const { title, author, category, content, imageUrl } = req.body; // Receive image URL
 
-        const newArticle = new Article({ title, author, category, date, content, image });
+        // Check if imageUrl is provided
+        const image = imageUrl || ''; // Default to an empty string if no URL is provided
+
+        const newArticle = new Article({ title, author, category, content, image });
         await newArticle.save();
 
-        res.status(200).json({ message: 'Article added successfully!' });
+        res.status(200).json({ message: 'Article added successfully!', article: newArticle });
     } catch (error) {
         console.error('Error saving article:', error);
         res.status(500).json({ message: 'Error saving article', error: error.message });
@@ -51,6 +30,70 @@ router.get('/', async (req, res) => {
     } catch (error) {
         console.error('Error fetching articles:', error);
         res.status(500).json({ message: 'Error fetching articles', error: error.message });
+    }
+});
+
+// GET: Retrieve a single article by ID
+router.get('/:id', async (req, res) => {
+    const id = req.params.id;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ message: 'Invalid ID format' });
+    }
+
+    try {
+        const article = await Article.findById(id);
+        if (!article) {
+            return res.status(404).json({ message: 'Article not found' });
+        }
+
+        res.status(200).json(article);
+    } catch (error) {
+        console.error('Error fetching article:', error);
+        res.status(500).json({ message: 'Error fetching article', error: error.message });
+    }
+});
+
+// PUT: Update an article by ID
+router.put('/:id', async (req, res) => {
+    const id = req.params.id;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ message: 'Invalid ID format' });
+    }
+
+    try {
+        const { title, author, category, date, content, image } = req.body;
+
+        // Update the article with the provided data
+        const updatedData = { title, author, category, date, content, image };
+
+        const updatedArticle = await Article.findByIdAndUpdate(id, updatedData, { new: true });
+        if (!updatedArticle) {
+            return res.status(404).json({ message: 'Article not found' });
+        }
+
+        res.status(200).json({ message: 'Article updated successfully!', article: updatedArticle });
+    } catch (error) {
+        console.error('Error updating article:', error);
+        res.status(500).json({ message: 'Error updating article', error: error.message });
+    }
+});
+
+
+
+// DELETE: Remove an article by ID
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletedArticle = await Article.findByIdAndDelete(req.params.id);
+        if (!deletedArticle) {
+            return res.status(404).json({ message: 'Article not found' });
+        }
+
+        res.status(200).json({ message: 'Article deleted successfully!' });
+    } catch (error) {
+        console.error('Error deleting article:', error);
+        res.status(500).json({ message: 'Error deleting article', error: error.message });
     }
 });
 
