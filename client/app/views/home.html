@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="myApp" ng-controller="HomeController">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,9 @@
     <!-- CSS HOME-->
     <link rel="stylesheet" href="../style/home.css">
     <link rel="stylesheet" href="../style/category.css">
+    <!-- BOOSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   
+
     <!-- ANGULAR -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
@@ -19,10 +22,10 @@
     <script src ="/client/app/script/home.js"></script>
 
 </head>
-<body ng-controller="HomeController">
+<body>
     
     <!-- HEADER -->
-    <header>
+    <header ng-controller="HomeController">
         <div class="logo">
             <a href="#/home"><b>Chic & Simple.</b></a>
         </div>
@@ -48,7 +51,7 @@
     
         <!-- Profile Menu (when logged in) -->
         <div class="profile-menu" ng-if="isLoggedIn">
-            <div class="dropdown" ng-show="dropdownVisible">
+            <div class="dropdown">
                 <ul>
                     <li><a href="#">Profile</a></li>
                     <li><a href="#" ng-click="logout()">Logout</a></li>
@@ -58,6 +61,27 @@
     </header>
 
     <!-- Hero Section -->
+    <div class="container-fluid position-relative hero-section">
+        <!-- Image Section -->
+        <div class="row">
+            <div class="col-12">
+                <img ng-src="{{heroImages[currentImageIndex].src}}" alt="{{heroImages[currentImageIndex].alt}}" class="hero-image">
+            </div>
+        </div>
+    
+        <!-- Text Section -->
+        <div class="hero-content">
+            <h1>{{heroText.title}}</h1>
+            <p>{{heroText.subtitle}}</p>
+        </div>
+    
+        <!-- Navigation Buttons -->
+        <div class="hero-buttons">
+            <button class="btn btn-dark" ng-click="changeImage('prev')">&#10094;</button>
+            <button class="btn btn-dark" ng-click="changeImage('next')">&#10095;</button>
+        </div>
+    </div>       
+    
 
     <!-- Main Category Section -->
     <div class="container">
@@ -134,7 +158,30 @@
         </div>
     </div>
 
-    <!-- Testimonials -->
+    <!-- Testimonial -->
+    <section class="testimonial-section" ng-controller="HomeController">
+        <b>
+            <h2>
+            Testimonial
+        </h2>
+        </b>
+        <div class="carousel slide" data-bs-ride="carousel" id="testimonialCarousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="testimonial">
+                        <div class="testimonial-item" ng-repeat="testimonial in testimonials">
+                            <img ng-src="{{testimonial.img}}" alt="{{testimonial.name}}"/>
+                            <h5>{{testimonial.name}}</h5>
+                            <p>{{testimonial.message}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-indicators">
+                <button ng-repeat="testimonial in testimonials" ng-class="{'active': $index === 0}" data-bs-slide-to="{{$index}}" data-bs-target="#testimonialCarousel" type="button"></button>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
