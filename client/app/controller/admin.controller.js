@@ -13,6 +13,12 @@ app.controller("AdminController", function($scope, $http, $sce, $window, Article
         $window.location.href = 'createArticle.html';
     };
 
+    // Function to close the form modal
+    $scope.closeForm = function() {
+        $scope.showForm = false;
+        $scope.formData = {}; 
+    };
+
     // Load all articles
     $scope.loadArticles = function() {
         $scope.currentTab = 'articles';
