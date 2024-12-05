@@ -23,6 +23,11 @@ app.controller("AdminController", function($scope, $http, ArticleService, EventS
         $scope.showForm = true; 
     };
 
+    $scope.closeForm = function() {
+        $scope.showForm = false;
+        $scope.formData = {}; 
+    };
+    
     // Load all articles
     $scope.loadArticles = function() {
         $scope.currentTab = 'articles';

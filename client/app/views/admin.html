@@ -75,7 +75,7 @@
     <div class="main-content">
         <header class="header">
             <h1>{{ currentTab === 'articles' ? 'Manage Articles' : 'Manage Events' }}</h1>
-            <button class="add-btn" ng-if="currentTab === 'articles'" ng-click="createArticle()">+ Add Article</button>
+            <button class="add-btn" ng-if="currentTab === 'articles'" ng-click="openArticleForm()">+ Add Article</button>
             <button class="add-btn" ng-if="currentTab === 'events'" ng-click="openEventForm()">+ Add Event</button>
         </header>
 
@@ -87,40 +87,29 @@
 
         <!-- Articles Table -->
         <div class="content articles" ng-if="currentTab === 'articles'">
-            <div ng-repeat="article in articles" class="article-table">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th colspan="2" class="d-flex justify-content-between align-items-center">
-                                <span class="article-title">Title: {{ article.title }}</span>
-                                <div class="d-flex article-button">
-                                    <button class="edit-btn" ng-click="editArticle(article)">Edit</button>
-                                    <button class="delete-btn" ng-click="deleteArticle(article._id)">Delete</button>
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Author</td>
-                            <td>{{ article.author }}</td>
-                        </tr>
-                        <tr>
-                            <td>Content</td>
-                            <td>
-                                <div ng-bind-html="getTrustedHtml(article.content)"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Image</td>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Content</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody ng-if="articles.length">
+                    <tr ng-repeat="article in articles">
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.author }}</td>
+                        <td>{{ article.content }}</td>
+                        <td><img ng-src="{{ article.image }}" alt="Article Image" width="100" height="100"></td>
                         <td>
-                            <img ng-src="{{ article.image }}" alt="Article Image" width="auto" height="100">
+                            <button class="edit-btn" ng-click="editArticle(article)">Edit</button>
+                            <button class="delete-btn" ng-click="deleteArticle(article._id)">Delete</button>
                         </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-              
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Events Table -->
@@ -138,8 +127,8 @@
                 <tbody ng-if="events.length">
                     <tr ng-repeat="event in events">
                         <td>{{ event.name }}</td>
-                        <td>{{ event.date | date:'MMMM dd, yyyy' }}</td>
-                        <td>{{ event.time | date:'HH:mm' }}</td>
+                        <td>{{ event.date }}</td>
+                        <td>{{ event.time }}</td>
                         <td>{{ event.location }}</td>
                         <td>
                             <button class="edit-btn" ng-click="editEvent(event)">Edit</button>
