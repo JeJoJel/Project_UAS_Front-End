@@ -125,7 +125,7 @@
                                 <div class="caption-box text-color p-3 rounded shadow d-flex align-items-center justify-content-center">
                                     <h3 class="event-title">{{ event.name }}</h3>
                                     <div class="details flex-column">
-                                        <p><strong>Date:</strong> {{ event.date | date:'yyyy-MM-dd' }}</p>
+                                        <p><strong>Date:</strong> {{ event.date | date:'MMMM dd, yyyy' }}</p>
                                         <p><strong>Time:</strong> {{ event.time | date:'HH:mm' }}</p>
                                         <p><strong>Location:</strong> </p>
                                         <p>{{ event.location }}</p>
