@@ -59,7 +59,33 @@ app.controller("AdminController", function($scope, $http, $sce, $window, Article
 
     // Save the form (either article or event)
     $scope.saveForm = function() {
-        if ($scope.currentTab === 'events') {
+        if ($scope.currentTab === 'articles') {
+            if ($scope.editing && !$scope.formData._id) {
+                console.error('Missing article ID for update');
+                return;
+            }
+            if ($scope.editing) {
+                ArticleService.update($scope.formData._id, $scope.formData)
+                    .then(() => {
+                        $scope.loadArticles();
+                        alert('Article updated successfully');
+                    })
+                    .catch(error => {
+                        console.error('Error updating article:', error);
+                        alert('Failed to update article.');
+                    });
+            } else {
+                ArticleService.create($scope.formData)
+                    .then(() => {
+                        $scope.loadArticles();
+                        alert('Article added successfully');
+                    })
+                    .catch(error => {
+                        console.error('Error adding article:', error);
+                        alert('Failed to add article.');
+                    });
+            }
+        } else if ($scope.currentTab === 'events') {
             if ($scope.editing && !$scope.formData._id) {
                 console.error('Missing event ID for update');
                 return;
