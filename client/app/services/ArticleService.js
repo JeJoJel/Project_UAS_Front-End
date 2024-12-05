@@ -7,6 +7,10 @@ app.service("ArticleService", function($http) {
         return $http.get(apiUrl);
     };
 
+    this.getById = function(id) {
+        return $http.get(`${apiUrl}/${id}`);
+    };
+
     this.create = function(articles) {
         return $http.post(apiUrl, articles);
     };

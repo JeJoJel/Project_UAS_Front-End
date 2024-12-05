@@ -155,7 +155,7 @@
             <div class="page-content">
                 <!-- Gallery Section -->
                 <section class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center">
-                    <div class="col mb-4" ng-repeat="article in visibleCards" ng-click="showArticleContent(article)">
+                    <div class="col mb-4" ng-repeat="article in visibleCards" ng-click="goToArticle(article.id)">
                         <div class="card border-0 p-0"> 
                             <a href="{{article.link}}">
                                 <img ng-src="{{article.image}}" alt="{{article.alt}}" class="card-img-top">

@@ -1,6 +1,6 @@
 var app = angular.module('myApp');
 
-app.controller('HomeController', function ($scope, $location, CategoryService, EventService) {
+app.controller('HomeController', function ($scope, $window, $location, CategoryService, EventService) {
     // Variables for articles and pagination
     $scope.articles = [];
     $scope.filteredCards = [];
@@ -65,6 +65,7 @@ app.controller('HomeController', function ($scope, $location, CategoryService, E
             
             // Ensure the correct fields are present in your response
             $scope.articles = response.data.map(article => ({
+                id: article._id,
                 title: article.title,
                 author: article.author,
                 content: article.content, 
@@ -93,6 +94,15 @@ app.controller('HomeController', function ($scope, $location, CategoryService, E
     $scope.showArticleContent = function(article) {
         $scope.selectedArticle = article;
         document.getElementById("articleModal").style.display = "block";
+    };
+
+    // Redirect to article.html
+    $scope.goToArticle = function(articleId) {
+        if (articleId) {
+            $window.location.href = 'article.html?articleId=' + articleId;
+        } else {
+            console.error('articleId is undefined');
+        }
     };
 
     // Hide the modal
@@ -125,11 +135,8 @@ app.controller('HomeController', function ($scope, $location, CategoryService, E
     // load events
     $scope.events = [];
     $scope.loadEvents = function() {
-        console.log("Before fetching events:", $scope.events); // Log initial state
         EventService.getAll().then(response => {
-            console.log("Events fetched:", response.data.events); // Log fetched events
             $scope.events = response.data.events;
-            console.log("After assigning events:", $scope.events); // Log assigned events
         }).catch(error => {
             console.error('Error fetching events:', error);
         });

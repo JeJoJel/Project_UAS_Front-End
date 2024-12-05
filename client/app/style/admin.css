@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&display=swap');
+
 /* General Styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
+    font-family: 'Mate' !important;
     height: 100vh;
     color: #444;
     background-color: #ecf0f1;
@@ -138,6 +139,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    table-layout: auto;
 }
 
 table th, table td {
@@ -150,14 +152,25 @@ table th, table td {
 }
 
 table th {
-    min-width: 150px; 
+    min-width: 50px; 
 }
 
 table td {
-    min-width: 210px;
+    min-width: 50px;
     max-width: 210px; 
     word-wrap: break-word;
     white-space: normal; 
+}
+
+.article-title {
+    flex-grow: 1; 
+    font-size: 30px;
+}
+
+.article-button {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 10px; 
 }
 
 

@@ -1,6 +1,6 @@
 var app = angular.module('myApp', []);
 
-app.controller("AdminController", function($scope, $http, ArticleService, EventService) {
+app.controller("AdminController", function($scope, $http, $sce, $window, ArticleService, EventService) {
     $scope.currentTab = 'articles';
     $scope.articles = [];
     $scope.events = [];
@@ -9,18 +9,8 @@ app.controller("AdminController", function($scope, $http, ArticleService, EventS
     $scope.formData = {};
     $scope.successMessage = '';
 
-    // Open the form to add a new article
-    $scope.openArticleForm = function() {
-        $scope.formData = {};
-        $scope.editing = false; 
-        $scope.showForm = true; 
-    };
-    
-    // Open the form to add a new event
-    $scope.openEventForm = function() {
-        $scope.formData = {};
-        $scope.editing = false; 
-        $scope.showForm = true; 
+    $scope.createArticle = function() {
+        $window.location.href = 'createArticle.html';
     };
 
     // Load all articles
@@ -32,6 +22,17 @@ app.controller("AdminController", function($scope, $http, ArticleService, EventS
         }).catch(error => {
             console.error('Error loading articles:', error);
         });
+    };
+
+    $scope.getTrustedHtml = function(content) {
+        return $sce.trustAsHtml(content);
+    };
+
+    // Open the form to add a new event
+    $scope.openEventForm = function() {
+        $scope.formData = {};
+        $scope.editing = false; 
+        $scope.showForm = true; 
     };
 
     // Load all events
@@ -58,33 +59,7 @@ app.controller("AdminController", function($scope, $http, ArticleService, EventS
 
     // Save the form (either article or event)
     $scope.saveForm = function() {
-        if ($scope.currentTab === 'articles') {
-            if ($scope.editing && !$scope.formData._id) {
-                console.error('Missing article ID for update');
-                return;
-            }
-            if ($scope.editing) {
-                ArticleService.update($scope.formData._id, $scope.formData)
-                    .then(() => {
-                        $scope.loadArticles();
-                        alert('Article updated successfully');
-                    })
-                    .catch(error => {
-                        console.error('Error updating article:', error);
-                        alert('Failed to update article.');
-                    });
-            } else {
-                ArticleService.create($scope.formData)
-                    .then(() => {
-                        $scope.loadArticles();
-                        alert('Article added successfully');
-                    })
-                    .catch(error => {
-                        console.error('Error adding article:', error);
-                        alert('Failed to add article.');
-                    });
-            }
-        } else if ($scope.currentTab === 'events') {
+        if ($scope.currentTab === 'events') {
             if ($scope.editing && !$scope.formData._id) {
                 console.error('Missing event ID for update');
                 return;

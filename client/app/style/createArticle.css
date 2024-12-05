@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&display=swap');
+
+body{
+    font-family: 'Mate' !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color {
+    background-color: rgb(37, 77, 77, 0.3);
+    color: rgb(47, 46, 46);
+}
+
+#editor {
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    min-height: 100px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.input-field {
+    margin-bottom: 10px;
+}
