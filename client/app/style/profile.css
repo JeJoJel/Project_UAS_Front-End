@@ -1,0 +1,126 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.header {
+    background-color: #ffffff;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header .welcome {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.header .date {
+    font-size: 14px;
+    color: #888888;
+}
+
+.header .search-bar {
+    max-width: 300px;
+}
+
+.header .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: -5px; /
+}
+
+.profile-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card .profile-pic-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-card .profile-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.profile-card .profile-email {
+    font-size: 14px;
+    color: #888888;
+}
+
+.form-control {
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.btn-edit {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.email-list {
+    margin-top: 20px;
+}
+
+.email-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.email-item .email-icon {
+    font-size: 24px;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+.email-item .email-text {
+    font-size: 14px;
+    color: #333333;
+}
+
+.email-item .email-date {
+    font-size: 12px;
+    color: #888888;
+}
+
+.btn-add-email {
+    background-color: #e0e0e0;
+    color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 15px;
+    }
+
+    .profile-pic-large {
+        width: 60px;
+        height: 60px;
+    }
+
+    .email-item .email-icon {
+        font-size: 20px;
+    }
+}

@@ -89,3 +89,57 @@ exports.login = async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 };
+
+// Endpoint untuk mendapatkan data pengguna
+exports.getUserDetails = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id); // Mengambil user berdasarkan ID
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+        res.json(user); // Mengirimkan data user dalam format JSON
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+};
+
+// Endpoint untuk memperbarui data pengguna
+exports.updateUserDetails = async (req, res) => {
+    try {
+        const userId = req.body._id;  // Dapatkan userId dari body
+        const updatedData = req.body;
+
+        // Jangan izinkan perubahan pada 'role' di sini
+        if(updatedData.role) {
+            delete updatedData.role;
+        }
+
+        // Update data pengguna, jangan ubah password jika tidak ada perubahan
+        if(updatedData.password) {
+            const salt = await bcrypt.genSalt(10);
+            updatedData.password = await bcrypt.hash(updatedData.password, salt);
+        }
+
+        const user = await User.findByIdAndUpdate(userId, updatedData, { new: true });
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+
+        res.json(user); // Kirimkan data pengguna yang telah diperbarui
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+};
+
+// Endpoint untuk menghapus data pengguna
+exports.deleteUser = async (req, res) => {
+    try {
+        const user = await User.findByIdAndDelete(req.params.id);
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+        res.status(200).send('User deleted successfully');
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+};
