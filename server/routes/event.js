@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const Event = require('../models/Event');
 const router = express.Router();
 
@@ -26,14 +27,15 @@ router.get('/', async (req, res) => {
 
 // Create a new event
 router.post('/', async (req, res) => {
-    const { name, date, time, location } = req.body;
-
     try {
-        const EventSchema = new mongoose.Schema({
-            name: { type: String, required: true },
-            date: { type: Date, required: true },
-            time: { type: String, required: true },
-            location: { type: String, required: true }
+
+        const { name, date, time, location } = req.body;
+
+        const newEvent = new Event({
+            name,
+            date,
+            time,
+            location
         });
 
         await newEvent.save();
@@ -46,6 +48,7 @@ router.post('/', async (req, res) => {
         res.status(500).json({ message: 'Error saving event', error: err });
     }
 });
+
 
 // Get a specific event by ID
 router.get('/:id', async (req, res) => {
@@ -65,15 +68,13 @@ router.get('/:id', async (req, res) => {
 // Update an event by ID
 router.put('/:id', async (req, res) => {
     const id = req.params.id;
+    const { name, date, time, location } = req.body;
 
     try {
-        const { name, date, time, location } = req.body;
-
-        // Update the event with the provided data
         const updatedEvent = await Event.findByIdAndUpdate(
             id,
             { name, date, time, location },
-            { new: true } // Return the updated event
+            { new: true }
         );
 
         if (!updatedEvent) {
@@ -89,6 +90,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+
 // DELETE: Delete an event by ID
 router.delete('/:id', async (req, res) => {
     const eventId = req.params.id;
@@ -97,7 +99,7 @@ router.delete('/:id', async (req, res) => {
     }
 
     try {
-        const deletedEvent = await Article.findByIdAndDelete(eventId);
+        const deletedEvent = await Event.findByIdAndDelete(eventId);
         if (!deletedEvent) {
             return res.status(404).json({ message: 'Event not found' });
         }
