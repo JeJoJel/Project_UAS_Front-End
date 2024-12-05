@@ -41,8 +41,14 @@
     
         <!-- Search -->
         <div class="search">
-            <input type="text" ng-model="searchQuery" placeholder="Search..." ng-keyup="search()">
+            <div class="input-group">
+                <input type="text" ng-model="searchQuery" placeholder="Search..." ng-keyup="search()" class="form-control">
+                <button class="btn btn-outline-secondary" type="button" ng-click="search()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         </div>
+
     
         <!-- Login/Logout Section -->
         <div class="login" ng-if="!isLoggedIn">
@@ -153,7 +159,8 @@
                 </div>
             </div>
         </div>                
-
+    </div>
+    
     <!-- Brand Content -->
     <div class="brands-content">
         <h2>Brands love us!</h2>
