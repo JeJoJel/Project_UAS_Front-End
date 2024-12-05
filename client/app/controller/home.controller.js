@@ -162,12 +162,30 @@ app.controller('HomeController', function ($scope, $location, CategoryService, E
         console.log('Logged out');
     };
 
-    // Search functionality
-    $scope.searchQuery = "";
-    $scope.search = function() {
+    $scope.search = function () {
         console.log("Searching for:", $scope.searchQuery);
-        // Implement search logic based on query
+    
+        // Filter articles by title
+        $scope.filteredArticles = $scope.articles.filter(function(article) {
+            return article.title.toLowerCase().includes($scope.searchQuery.toLowerCase());
+        });
+    
+        // Filter events by title
+        $scope.filteredEvents = $scope.events.filter(function(event) {
+            return event.title.toLowerCase().includes($scope.searchQuery.toLowerCase());
+        });
+    
+        // Combine the filtered articles and events into one array
+        $scope.filteredCards = [...$scope.filteredArticles, ...$scope.filteredEvents];
+    
+        // Recalculate total pages based on the filtered results
+        $scope.totalPages = Math.ceil($scope.filteredCards.length / $scope.itemsPerPage);
+    
+        // Update the visible cards for pagination
+        $scope.updateVisibleCards();
     };
+    
+    
 
     // Fungsi untuk menangani pengiriman form
     $scope.submitForm = function() {

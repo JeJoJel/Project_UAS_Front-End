@@ -174,12 +174,12 @@ nav ul li a:hover {
 /* Styling untuk tombol */
 .hero-buttons {
     position: absolute;
-    top: 50%; /* Posisi tombol di tengah secara vertikal */
-    width: 100%; /* Memastikan tombol memenuhi lebar */
+    top: 50%; 
+    width: 100%; 
     display: flex;
-    justify-content: space-between; /* Menempatkan tombol di kiri dan kanan */
-    transform: translateY(-50%); /* Menyesuaikan posisi vertikal tombol */
-    z-index: 20; /* Pastikan tombol berada di atas gambar */
+    justify-content: space-between; 
+    transform: translateY(-50%); 
+    z-index: 20; 
 }
 
 .btn {
@@ -197,7 +197,7 @@ nav ul li a:hover {
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Mate';
+    font-family: 'Mate' !important;
     line-height: 1.6;
 }
 
@@ -215,6 +215,7 @@ html {
 body {
     font-family: 'Mate', serif;
 }
+
 
 
 /* Card Design */
@@ -484,6 +485,32 @@ footer {
 }
 
 /* Events */
+.text-color {
+    color: rgb(47, 46, 46);
+}
+
 .caption-box {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(37, 77, 77, 0.3);
+    width: 500px;
+    height: 200px;
+    gap: 30px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); 
+}
+
+.event-title {
+    flex: 0 0 30%; 
+    text-align: left; 
+    font-weight: 900;
+}
+
+.details {
+    flex: 0 0 50%; /* Lebar 60% */
+}
+
+.details p {
+    margin: 0.2rem 0;
 }

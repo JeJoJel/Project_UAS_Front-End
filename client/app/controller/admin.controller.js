@@ -149,18 +149,17 @@ app.controller("AdminController", function($scope, $http, ArticleService, EventS
             console.error('No ID found in event');
             return;
         }
-
+    
         EventService.update(event._id, event).then(function(response) {
-            console.log('Event updated successfully:', response.data.events);
+            console.log('Event updated successfully:', response.data);
+            alert('Event updated successfully');
+            $scope.loadEvents();
         }).catch(function(error) {
             console.error('Error updating event:', error);
+            alert('Error updating event. Please try again.');
         });
     };
-
-    // Close the form
-    $scope.closeForm = function() {
-        $scope.showForm = false;
-    };
+    
 
     // Delete an article
     $scope.deleteArticle = function(articleId) {
@@ -169,50 +168,60 @@ app.controller("AdminController", function($scope, $http, ArticleService, EventS
         return;
     }
     
-    // Show confirmation dialog
-    var confirmDelete = confirm('Are you sure you want to delete this article?');
+        // Show confirmation dialog
+        var confirmDelete = confirm('Are you sure you want to delete this article?');
 
-    if (confirmDelete) {
-        console.log('Deleting article with ID:', articleId);
-        $http.delete(`http://localhost:3000/api/articles/${articleId}`)
-            .then(response => {
-                console.log('Article deleted:', response.data);
-                $scope.loadArticles();  
-            })
-            .catch(error => {
-                console.error('Error deleting article:', error);
-            });
-    } else {
-        console.log('Article deletion was canceled');
-    }
-};
+        if (confirmDelete) {
+            console.log('Deleting article with ID:', articleId);
+            $http.delete(`http://localhost:3000/api/articles/${articleId}`)
+                .then(response => {
+                    console.log('Article deleted:', response.data);
+                    $scope.loadArticles();  
+                })
+                .catch(error => {
+                    console.error('Error deleting article:', error);
+                });
+        } else {
+            console.log('Article deletion was canceled');
+        }
+    };
 
     // Delete an event
     $scope.deleteEvent = function(eventId) {
         if (!eventId) {
-            console.error('Invalid Evnt ID');
+            console.error('Invalid Event ID');
             return;
         }
-        
-        // Show confirmation dialog
+    
         var confirmDelete = confirm('Are you sure you want to delete this event?');
     
         if (confirmDelete) {
-            console.log('Deleting article with ID:', eventId);
-            $http.delete(`http://localhost:3000/api/events/${eventId}`)
+            EventService.delete(eventId)
                 .then(response => {
-                    console.log('Event deleted:', response.data.events);
-                    $scope.loadEvents();  
+                    console.log('Event deleted:', response.data);
+                    $scope.loadEvents(); // Reload the events list
+                    alert('Event deleted successfully');
                 })
                 .catch(error => {
-                    console.error('Error deleting events:', error);
+                    console.error('Error deleting event:', error);
+                    alert('Failed to delete event.');
                 });
         } else {
             console.log('Event deletion was canceled');
         }
     };
+       
+    
+    // Logout function
+    $scope.logout = function() {
+        localStorage.removeItem('token');
+        window.location.href = '../../index.html';
+    };
 
-    // Load articles and events when the controller is initialized
+    console.log($scope.formData);  
+    console.log($scope.articles);
+    console.log($scope.events);
+
     $scope.loadArticles();
     $scope.loadEvents();
 });
