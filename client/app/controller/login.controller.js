@@ -3,7 +3,7 @@ var app = angular.module('myApp');
 app.controller('LoginController', function($scope, AuthService, $location) {
     $scope.title = "Login";
 
-    $scope.user = {}; 
+    $scope.user = {}; // Objek untuk menyimpan input user
     console.log('LoginController initialized');
     console.log('AuthService:', AuthService);
     $scope.login = function() {
@@ -16,6 +16,7 @@ app.controller('LoginController', function($scope, AuthService, $location) {
                     localStorage.setItem('token', token);
                     localStorage.setItem('role', role); // Simpan token di localStorage
                     
+                    // Cek role dan redirect sesuai kondisi
                     if (role === 'admin') {
                         // Redirect ke halaman admin
                         window.location.href = 'app/views/admin.html';

@@ -1,0 +1,9 @@
+<div class="login-container" ng-controller="LoginController">
+    <h1>{{title}}</h1>
+    <form class="login-form" ng-submit="login()">
+        <input type="text" placeholder="Username" name="username" ng-model="user.username" required>
+        <input type="password" placeholder="Password" name="password" ng-model="user.password" required>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#!/register">Register</a></p>
+</div>

@@ -1,6 +1,6 @@
 angular.module('myApp')
 app.service('ProfileService', function($http) {
-    const baseUrl = 'http://localhost:3000/api/user/get'; 
+    const baseUrl = 'http://localhost:3000/api/user/get'; // URL untuk mengakses API user
     
     // Mendapatkan data pengguna dari server
     this.getUserDetails = function() {
@@ -21,7 +21,7 @@ app.service('ProfileService', function($http) {
         // Kirim request untuk update data user dengan token di header Authorization
         return $http.put('http://localhost:3000/api/user/get', userDetails, {
             headers: {
-                'Authorization': 'Bearer ' + token 
+                'Authorization': 'Bearer ' + token  // Menyertakan token dalam header
             }
         });
     };
@@ -32,7 +32,7 @@ app.service('ProfileService', function($http) {
             newPassword: newPassword
         }, {
             headers: {
-                'Authorization': `Bearer ${token}` 
+                'Authorization': `Bearer ${token}` // Mengirimkan token di header untuk otentikasi
             }
         });
     };

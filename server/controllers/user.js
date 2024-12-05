@@ -15,7 +15,7 @@ exports.getUserFromToken = async (req, res) => {
         const decoded = jwt.verify(token, 'secret'); // Ganti dengan secret key Anda
 
         // Cari user berdasarkan id yang ada di dalam token
-        const user = await User.findById(decoded.id).select('username email');
+        const user = await User.findById(decoded.id).select('username email'); // Menampilkan field tertentu, seperti username dan email
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
@@ -59,7 +59,7 @@ exports.updatePassword = async (req, res) => {
         user.password = newPassword; // langsung masukkan password baru
 
         // Simpan perubahan
-        await user.save(); 
+        await user.save(); // Middleware pre('save') akan memproses hashing password
 
         res.status(200).json({ message: 'Password updated successfully' });
     } catch (error) {

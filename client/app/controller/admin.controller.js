@@ -1,6 +1,6 @@
 var app = angular.module('myApp', []);
 
-app.controller("AdminController", function($scope, $http, $sce, $window, ArticleService, EventService) {
+app.controller("AdminController", function($scope, $http, ArticleService, EventService) {
     $scope.currentTab = 'articles';
     $scope.articles = [];
     $scope.events = [];
@@ -9,14 +9,18 @@ app.controller("AdminController", function($scope, $http, $sce, $window, Article
     $scope.formData = {};
     $scope.successMessage = '';
 
-    $scope.createArticle = function() {
-        $window.location.href = 'createArticle.html';
+    // Open the form to add a new article
+    $scope.openArticleForm = function() {
+        $scope.formData = {};
+        $scope.editing = false; 
+        $scope.showForm = true; 
     };
-
-    // Function to close the form modal
-    $scope.closeForm = function() {
-        $scope.showForm = false;
-        $scope.formData = {}; 
+    
+    // Open the form to add a new event
+    $scope.openEventForm = function() {
+        $scope.formData = {};
+        $scope.editing = false; 
+        $scope.showForm = true; 
     };
 
     // Load all articles
@@ -28,17 +32,6 @@ app.controller("AdminController", function($scope, $http, $sce, $window, Article
         }).catch(error => {
             console.error('Error loading articles:', error);
         });
-    };
-
-    $scope.getTrustedHtml = function(content) {
-        return $sce.trustAsHtml(content);
-    };
-
-    // Open the form to add a new event
-    $scope.openEventForm = function() {
-        $scope.formData = {};
-        $scope.editing = false; 
-        $scope.showForm = true; 
     };
 
     // Load all events

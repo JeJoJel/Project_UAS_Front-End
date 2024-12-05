@@ -31,7 +31,7 @@ exports.register = async (req, res) => {
 
         // Membuat instance user dan menyimpannya
         const newUser = new User({ username, email, password });
-        await newUser.save(); 
+        await newUser.save(); // Password otomatis di-hash oleh model
 
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
@@ -93,11 +93,11 @@ exports.login = async (req, res) => {
 // Endpoint untuk mendapatkan data pengguna
 exports.getUserDetails = async (req, res) => {
     try {
-        const user = await User.findById(req.params.id);
+        const user = await User.findById(req.params.id); // Mengambil user berdasarkan ID
         if (!user) {
             return res.status(404).send('User not found');
         }
-        res.json(user);
+        res.json(user); // Mengirimkan data user dalam format JSON
     } catch (err) {
         res.status(500).send(err.message);
     }
@@ -106,9 +106,10 @@ exports.getUserDetails = async (req, res) => {
 // Endpoint untuk memperbarui data pengguna
 exports.updateUserDetails = async (req, res) => {
     try {
-        const userId = req.body._id; 
+        const userId = req.body._id;  // Dapatkan userId dari body
         const updatedData = req.body;
 
+        // Jangan izinkan perubahan pada 'role' di sini
         if(updatedData.role) {
             delete updatedData.role;
         }
@@ -118,7 +119,7 @@ exports.updateUserDetails = async (req, res) => {
             return res.status(404).send('User not found');
         }
 
-        res.json(user);
+        res.json(user); // Kirimkan data pengguna yang telah diperbarui
     } catch (err) {
         res.status(500).send(err.message);
     }

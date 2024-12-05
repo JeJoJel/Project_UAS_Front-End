@@ -20,12 +20,15 @@ app.controller('RegisterController', function($scope, AuthService, $location) {
         // Panggil service untuk registrasi
         AuthService.register($scope.user)
         .then(response => {
+            // Berhasil
             alert(response.data.message || 'Registration successful!');
+            // Alihkan ke halaman login menggunakan $location
             $location.path('/');
         })
         .catch(err => {
+            // Tangani error dari backend
             const errorMessage = err.data?.error || 'Error during registration, please try again';
-            alert(errorMessage);
+            alert(errorMessage); // Tampilkan pesan error
         });
     };
 });
