@@ -7,11 +7,7 @@ const router = express.Router();
 // POST: Create a new article
 router.post('/', async (req, res) => {
     try {
-        const { title, author, category, content, imageUrl } = req.body; // Receive image URL
-
-        // Check if imageUrl is provided
-        const image = imageUrl || ''; // Default to an empty string if no URL is provided
-
+        const { title, author, category, content, image } = req.body; 
         const newArticle = new Article({ title, author, category, content, image });
         await newArticle.save();
 

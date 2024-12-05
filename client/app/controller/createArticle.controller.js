@@ -8,14 +8,9 @@ app.controller('CreateArticleController', ['$scope', '$window', 'ArticleService'
         contentHTML: "" 
     };
 
-    // Apply formatting using execCommand
-    // $scope.applyFormat = function (command) {
-    //     document.execCommand(command, false, null); // Execute the formatting command
-    // };
-
     // Save the article to the server
     $scope.saveArticle = function () {
-        if (!$scope.article.title || !$scope.article.author || !$scope.article.author ) {
+        if (!$scope.article.title || !$scope.article.author) {
             alert("Please complete all fields.");
             return;
         }
