@@ -82,10 +82,19 @@
 }
 
 /* Main Content */
+.container {
+    display: flex;
+    height: 100vh; 
+}
+
+.sidebar {
+    width: 250px;
+}
+
 .main-content {
+    flex: 1; 
     padding: 20px;
-    margin-left: 270px;
-    background-color: #ecf0f1;
+    margin-left: 260px;
 }
 
 .header {
