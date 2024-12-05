@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
-
+const bcrypt = require('bcrypt');
 
 // Register
 exports.register = async (req, res) => {
@@ -31,7 +31,7 @@ exports.register = async (req, res) => {
 
         // Membuat instance user dan menyimpannya
         const newUser = new User({ username, email, password });
-        await newUser.save(); // Password otomatis di-hash oleh model
+        await newUser.save(); 
 
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
@@ -46,7 +46,6 @@ exports.register = async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 };
-
 
 
 // Login
@@ -78,11 +77,12 @@ exports.login = async (req, res) => {
             { expiresIn: '1h' }
         );
 
+
         // Kirim token dan role dalam respons
         res.status(200).json({
             message: 'Login successful',
             token,
-            role: user.role // Pastikan role disertakan di sini
+            role: user.role
         });
     } catch (error) {
         console.error('Error during login:', error);
@@ -93,11 +93,11 @@ exports.login = async (req, res) => {
 // Endpoint untuk mendapatkan data pengguna
 exports.getUserDetails = async (req, res) => {
     try {
-        const user = await User.findById(req.params.id); // Mengambil user berdasarkan ID
+        const user = await User.findById(req.params.id);
         if (!user) {
             return res.status(404).send('User not found');
         }
-        res.json(user); // Mengirimkan data user dalam format JSON
+        res.json(user);
     } catch (err) {
         res.status(500).send(err.message);
     }
@@ -106,18 +106,11 @@ exports.getUserDetails = async (req, res) => {
 // Endpoint untuk memperbarui data pengguna
 exports.updateUserDetails = async (req, res) => {
     try {
-        const userId = req.body._id;  // Dapatkan userId dari body
+        const userId = req.body._id; 
         const updatedData = req.body;
 
-        // Jangan izinkan perubahan pada 'role' di sini
         if(updatedData.role) {
             delete updatedData.role;
-        }
-
-        // Update data pengguna, jangan ubah password jika tidak ada perubahan
-        if(updatedData.password) {
-            const salt = await bcrypt.genSalt(10);
-            updatedData.password = await bcrypt.hash(updatedData.password, salt);
         }
 
         const user = await User.findByIdAndUpdate(userId, updatedData, { new: true });
@@ -125,7 +118,7 @@ exports.updateUserDetails = async (req, res) => {
             return res.status(404).send('User not found');
         }
 
-        res.json(user); // Kirimkan data pengguna yang telah diperbarui
+        res.json(user);
     } catch (err) {
         res.status(500).send(err.message);
     }

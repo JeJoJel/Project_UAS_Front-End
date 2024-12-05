@@ -6,6 +6,7 @@ const cors = require('cors');
 // Import routes
 const authRoutes = require('./routes/auth.js');
 const articleRouter = require('./routes/article.js');
+const userRouter = require('./routes/user.js');
 const eventRouter = require('./routes/event.js');
 const categoryRoutes = require('./routes/category.js');
 
@@ -23,6 +24,7 @@ app.use(bodyParser.json()); // Parse JSON payloads
 
 // Define routes
 app.use('/api/auth', authRoutes);
+app.use('/api/user', userRouter);
 app.use('/api/articles', articleRouter);
 app.use('/api/events', eventRouter);
 app.use('/api/categories', categoryRoutes);

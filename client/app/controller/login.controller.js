@@ -1,17 +1,11 @@
 var app = angular.module('myApp');
 
-app.service('AuthService', function($http) {
-    this.register = function(user) {
-        return $http.post('/api/register', user);
-    };
-});
-
-app.controller('LoginController', function($scope, AuthService) {
-
+app.controller('LoginController', function($scope, AuthService, $location) {
     $scope.title = "Login";
 
-    $scope.user = {}; // Objek untuk menyimpan input user
-
+    $scope.user = {}; 
+    console.log('LoginController initialized');
+    console.log('AuthService:', AuthService);
     $scope.login = function() {
         AuthService.login($scope.user)
             .then(response => {
@@ -22,13 +16,12 @@ app.controller('LoginController', function($scope, AuthService) {
                     localStorage.setItem('token', token);
                     localStorage.setItem('role', role); // Simpan token di localStorage
                     
-                    // Cek role dan redirect sesuai kondisi
                     if (role === 'admin') {
                         // Redirect ke halaman admin
-                        window.location.href = '/client/app/views/admin.html';
+                        window.location.href = 'app/views/admin.html';
                     } else {
                         // Redirect ke halaman user biasa
-                        window.location.href = '/client/app/views/home.html';
+                        $location.path('/home');
                     }
 
                     alert(response.data.message); // Tampilkan pesan sukses

@@ -1,14 +1,39 @@
-angular.module('profileApp')
+angular.module('myApp')
 app.service('ProfileService', function($http) {
-    const baseUrl = '/api/user'; // URL untuk mengakses API user
+    const baseUrl = 'http://localhost:3000/api/user/get'; 
     
     // Mendapatkan data pengguna dari server
     this.getUserDetails = function() {
-        return $http.get(baseUrl); // Ambil data pengguna yang sudah login
+        const token = localStorage.getItem('token'); // Ambil token dari localStorage
+
+        // Kirim request ke backend dengan token di header Authorization
+        return $http.get('http://localhost:3000/api/user/get', {
+            headers: {
+                'Authorization': 'Bearer ' + token  // Menyertakan token dalam header
+            }
+        });
     };
 
-    // Memperbarui data pengguna
+    // Fungsi untuk memperbarui data user di backend
     this.updateUserDetails = function(userDetails) {
-        return $http.put(baseUrl, userDetails); // Kirim data pengguna yang diperbarui ke server
+        const token = localStorage.getItem('token'); // Ambil token dari localStorage
+
+        // Kirim request untuk update data user dengan token di header Authorization
+        return $http.put('http://localhost:3000/api/user/get', userDetails, {
+            headers: {
+                'Authorization': 'Bearer ' + token 
+            }
+        });
+    };
+
+    this.updatePassword = function(oldPassword, newPassword, token) {
+        return $http.put(`http://localhost:3000/api/user/ganti-password`, {
+            oldPassword: oldPassword,
+            newPassword: newPassword
+        }, {
+            headers: {
+                'Authorization': `Bearer ${token}` 
+            }
+        });
     };
 });

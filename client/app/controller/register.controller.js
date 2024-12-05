@@ -1,15 +1,7 @@
 var app = angular.module('myApp');
 
-app.service('AuthService', function($http) {
-    this.register = function(user) {
-        return $http.post('/api/register', user);
-    };
-});
-
-app.controller('RegisterController', function($scope, AuthService) {
-
+app.controller('RegisterController', function($scope, AuthService, $location) {
     $scope.title = "Register";
-
     $scope.user = {};
 
     $scope.register = function() {
@@ -19,18 +11,21 @@ app.controller('RegisterController', function($scope, AuthService) {
             return;
         }
 
+        // Validasi form sederhana (opsional)
+        if (!$scope.user.username || !$scope.user.email || !$scope.user.password) {
+            alert('Please fill in all fields.');
+            return;
+        }
+
         // Panggil service untuk registrasi
         AuthService.register($scope.user)
         .then(response => {
-            // Berhasil
-            alert(response.data.message); // Tampilkan pesan sukses
-            // route ke halaman login
-            window.location.href = '../../index.html';
+            alert(response.data.message || 'Registration successful!');
+            $location.path('/');
         })
         .catch(err => {
-            // Tangani error dari backend
             const errorMessage = err.data?.error || 'Error during registration, please try again';
-            alert(errorMessage); // Tampilkan pesan error
+            alert(errorMessage);
         });
     };
 });

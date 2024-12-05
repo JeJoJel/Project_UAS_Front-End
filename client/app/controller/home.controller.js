@@ -1,6 +1,26 @@
 var app = angular.module('myApp');
 
-app.controller('HomeController', function ($scope, $window, $location, CategoryService, EventService) {
+app.controller('HomeController', function ($scope, $location, $http, CategoryService, EventService) {
+
+        // Handle login status
+        const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");
+        
+        // Debugging log untuk memastikan token dan user ada
+        console.log('Token:', token); // Periksa apakah token ada
+        console.log('User:', user);   // Periksa apakah user ada
+        
+        // Set status login di scope
+        $scope.isLoggedIn = !!token;   // Jika token ada, berarti login
+        $scope.user = user ? JSON.parse(user) : null; // Jika ada user di localStorage, parse data JSON-nya
+        
+        // Cek apakah status login sudah benar
+        console.log('isLoggedIn:', $scope.isLoggedIn); // Log status login
+
+        if(!token){
+            $location.path('#!/');
+        }
+
     // Variables for articles and pagination
     $scope.articles = [];
     $scope.filteredCards = [];
@@ -60,49 +80,36 @@ app.controller('HomeController', function ($scope, $window, $location, CategoryS
 
     // Load articles and extract necessary fields
     $scope.loadArticles = function () {
-        CategoryService.getAll().then(response => {
-            console.log("Response data:", response.data); // Log to ensure data is received
-            
-            // Ensure the correct fields are present in your response
-            $scope.articles = response.data.map(article => ({
-                id: article._id,
-                title: article.title,
-                author: article.author,
-                content: article.content, 
-                link: article.link,
-                image: article.image,
-                alt: article.alt
-            }));
-            
-
-            // Initialize pagination
-            $scope.filteredCards = $scope.articles;
-            $scope.totalPages = Math.ceil($scope.filteredCards.length / $scope.itemsPerPage);
-            $scope.updateVisibleCards();
-        }).catch(error => {
-            console.error('Error fetching articles:', error);
-        });
-    };
+        // Ambil data pencarian dan query pencarian dari localStorage
+        const searches = localStorage.getItem('searchResults'); // Ambil hasil pencarian
+        const searchesQuery = localStorage.getItem('searchQuery'); // Ambil query pencarian
     
-    // Update visible articles for the current page
-    $scope.updateVisibleCards = function () {
-        const start = ($scope.currentPage - 1) * $scope.itemsPerPage;
-        $scope.visibleCards = $scope.filteredCards.slice(start, start + $scope.itemsPerPage);
-    };
+        // Jika ada hasil pencarian di localStorage dan ada query pencarian
+        if (searches && searchesQuery) {
+            // Parse data yang ada di localStorage
+            $scope.visibleCards = JSON.parse(searches);  // Set artikel dari hasil pencarian
+            $scope.searchQuery = searchesQuery;  // Set query pencarian
+    
+            // Jika data ada, tampilkan hasil pencarian yang sesuai
+            console.log("Articles loaded from localStorage:", $scope.visibleCards);
+            console.log("Search query:", $scope.searchQuery);
+        } else {
+            // Jika tidak ada hasil pencarian, ambil artikel umum atau yang sesuai
+            CategoryService.getAll().then(response => {
+                console.log("Response data:", response.data);
+                $scope.visibleCards = response.data;  // Tampilkan artikel jika tidak ada pencarian
+                console.log($scope.visibleCards);  // Debugging log
+            }).catch(error => {
+                console.error('Error fetching articles:', error);
+            });
+        }
+    }; 
+    
 
     // Show selected article content in the modal
     $scope.showArticleContent = function(article) {
         $scope.selectedArticle = article;
         document.getElementById("articleModal").style.display = "block";
-    };
-
-    // Redirect to article.html
-    $scope.goToArticle = function(articleId) {
-        if (articleId) {
-            $window.location.href = 'article.html?articleId=' + articleId;
-        } else {
-            console.error('articleId is undefined');
-        }
     };
 
     // Hide the modal
@@ -129,14 +136,27 @@ app.controller('HomeController', function ($scope, $window, $location, CategoryS
 
     // HeaderController functionality (from home.controller.js)
     $scope.$on('$routeChangeSuccess', function() {
-        $scope.currentPage = $location.path().split('/')[1]; // Extract active page from URL
+        // Ambil path setelah #
+        var path = $location.path().substring(1); // Menghapus "#!" dari URL
+        console.log('Current Path:', path); // Debugging untuk memeriksa nilai path
+    
+        // Tentukan currentPage berdasarkan path
+        if (['home', 'style', 'contact'].includes(path)) {
+            $scope.currentPage = path;
+        } else {
+            $scope.currentPage = ''; // Atur default jika tidak ditemukan
+        }
     });
+    
 
     // load events
     $scope.events = [];
     $scope.loadEvents = function() {
+        console.log("Before fetching events:", $scope.events); // Log initial state
         EventService.getAll().then(response => {
+            console.log("Events fetched:", response.data.events); // Log fetched events
             $scope.events = response.data.events;
+            console.log("After assigning events:", $scope.events); // Log assigned events
         }).catch(error => {
             console.error('Error fetching events:', error);
         });
@@ -144,21 +164,6 @@ app.controller('HomeController', function ($scope, $window, $location, CategoryS
     
 
     $scope.loadEvents();
-
-    // Handle login status
-    const token = localStorage.getItem("token");
-    const user = localStorage.getItem("user");
-    
-    // Debugging log untuk memastikan token dan user ada
-    console.log('Token:', token); // Periksa apakah token ada
-    console.log('User:', user);   // Periksa apakah user ada
-    
-    // Set status login di scope
-    $scope.isLoggedIn = !!token;   // Jika token ada, berarti login
-    $scope.user = user ? JSON.parse(user) : null; // Jika ada user di localStorage, parse data JSON-nya
-    
-    // Cek apakah status login sudah benar
-    console.log('isLoggedIn:', $scope.isLoggedIn); // Log status login
 
     // Fungsi logout
     $scope.logout = function() {
@@ -172,28 +177,37 @@ app.controller('HomeController', function ($scope, $window, $location, CategoryS
     $scope.search = function () {
         console.log("Searching for:", $scope.searchQuery);
     
-        // Filter articles by title
-        $scope.filteredArticles = $scope.articles.filter(function(article) {
-            return article.title.toLowerCase().includes($scope.searchQuery.toLowerCase());
-        });
+        if (!$scope.searchQuery) {
+            localStorage.removeItem('searchResults');
+            localStorage.removeItem('searchQuery');
+            return;
+        }
     
-        // Filter events by title
-        $scope.filteredEvents = $scope.events.filter(function(event) {
-            return event.title.toLowerCase().includes($scope.searchQuery.toLowerCase());
-        });
+        // Panggil endpoint search melalui $http
+        $http.get(`http://localhost:3000/api/articles/search?title=${encodeURIComponent($scope.searchQuery)}`)
+            .then(function (response) {
+                // Simpan hasil pencarian di localStorage
+                localStorage.setItem('searchResults', JSON.stringify(response.data));
+                localStorage.setItem('searchQuery', $scope.searchQuery);
     
-        // Combine the filtered articles and events into one array
-        $scope.filteredCards = [...$scope.filteredArticles, ...$scope.filteredEvents];
+                // Arahkan pengguna ke halaman /article
+                $location.path('/article');
+            })
+            .catch(function (error) {
+                console.error('Error fetching search results:', error);
     
-        // Recalculate total pages based on the filtered results
-        $scope.totalPages = Math.ceil($scope.filteredCards.length / $scope.itemsPerPage);
-    
-        // Update the visible cards for pagination
-        $scope.updateVisibleCards();
+                // Menangkap dan menampilkan pesan error dari response data
+                // Cek apakah error.response.data.message ada
+                if (error.data && error.data.message) {
+                    alert(error.data.message);  // Menampilkan pesan error
+                } else {
+                    alert('An unexpected error occurred. Please try again later.');
+                }
+            });
     };
     
     
-
+    
     // Fungsi untuk menangani pengiriman form
     $scope.submitForm = function() {
         if ($scope.contactForm.$valid) {
