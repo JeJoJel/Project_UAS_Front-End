@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -29,6 +30,19 @@ app.use('/api/articles', articleRouter);
 app.use('/api/events', eventRouter);
 app.use('/api/categories', categoryRoutes);
 
+// Serve static files from the 'client' folder
+app.use(express.static(path.join(__dirname, '../client')));  // Pastikan 'client' folder dapat diakses
+
+// Fallback ke index.html untuk request selain API
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client', 'index.html'));  // Mengarahkan semua request ke index.html
+  });
+
+  // Handle 404 error for static files
+app.use((req, res, next) => {
+    res.status(404).send('File not found');
+  });
+  
 
 // MongoDB connection
 mongoose

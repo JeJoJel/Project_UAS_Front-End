@@ -19,7 +19,7 @@ app.controller('LoginController', function($scope, AuthService, $location) {
                     // Cek role dan redirect sesuai kondisi
                     if (role === 'admin') {
                         // Redirect ke halaman admin
-                        window.location.href = 'app/views/admin.html';
+                        $location.path('/admin');
                     } else {
                         // Redirect ke halaman user biasa
                         $location.path('/home');

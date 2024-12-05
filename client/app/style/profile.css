@@ -9,6 +9,7 @@
     font-size: 24px;
     font-weight: bold;
     color: #333333;
+    margin-right: 25px;
 }
 
 .header .date {
@@ -27,6 +28,33 @@
     margin-top: -5px; /
 }
 
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 100px; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+}
+
+nav ul li.active a {
+    font-weight: bold;
+    color: #007bff;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
 .profile-card {
     background-color: #ffffff;
     border-radius: 10px;
@@ -36,9 +64,9 @@
 }
 
 .profile-card .profile-pic-large {
-        border-radius: 50%; 
-        background-color: #f0f0f0; 
-        display: inline-flex; 
+        border-radius: 50%; /* Membuat ikon menjadi lingkaran */
+        background-color: #f0f0f0; /* Menambahkan latar belakang terang agar ikon lebih menonjol */
+        display: inline-flex; /* Menjaga ikon tetap dalam ukuran yang sesuai */
         justify-content: center;
         align-items: center;    
 }
