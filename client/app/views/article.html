@@ -1,4 +1,4 @@
-<div ng-controller="HomeController">
+<div ng-controller="ArticleController">
     <!-- HEADER -->
     <header>
         <div class="logo">
@@ -9,7 +9,6 @@
         <nav>
             <ul>
                 <li><a href="#!/home">Home</a></li>
-                <li><a href="#!/article">Articles</a></li>
                 <li><a href="#!/event">Events</a></li>
             </ul>
         </nav>
@@ -41,38 +40,11 @@
     
     <!-- Main Category Section -->
     <div class="container-fluid">
-        <!-- About Us Section -->
-        
-        <hr>
-
-        <div class="page-container">
-            <div class="page-content">
-                <!-- Gallery Section -->
-                <section class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center">
-                    <div class="col mb-4" ng-repeat="article in visibleCards" ng-click="showArticleContent(article)">
-                        <div class="card border-0 p-0"> 
-                            <a href="{{article.link}}">
-                                <img ng-src="{{article.image}}" alt="{{article.alt}}" class="card-img-top">
-                            </a>
-                            <div class="card-body text-center p-3">
-                                <h3 class="card-title">{{article.title}}</h3>
-                                <p class="card-text">By: {{article.author}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-        
-        <!-- Article Modal -->
-        <div id="articleModal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" ng-click="closeModal()">&times;</span>
-                <h2>{{selectedArticle.title}}</h2>
-                <div class="article-content">
-                    <p>{{selectedArticle.content}}</p>
-                </div>
-            </div>
+        <div class="container m-5 p-3">
+            <h1>{{article.title}}</h1>
+            <p>By: {{article.author}}</p>
+            <img ng-src="{{article.image}}" alt="{{article.alt}}" class="img-fluid">
+            <div class="article-content" ng-bind-html="getTrustedHtml(article.content)"></div>
         </div>                
     </div>
     

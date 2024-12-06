@@ -1,6 +1,6 @@
 var app = angular.module('myApp');
 
-app.controller('HomeController', function ($scope, $location, $http, CategoryService, EventService) {
+app.controller('HomeController', function ($scope, $location, $http, $window, CategoryService, EventService) {
 
     // Mengaktifkan style untuk halaman Home, menonaktifkan lainnya
     document.getElementById('home').disabled = false;
@@ -114,10 +114,13 @@ app.controller('HomeController', function ($scope, $location, $http, CategorySer
     }; 
     
 
-    // Show selected article content in the modal
-    $scope.showArticleContent = function(article) {
-        $scope.selectedArticle = article;
-        document.getElementById("articleModal").style.display = "block";
+    // Redirect to article.html
+    $scope.goToArticle = function(articleId) {
+        if (articleId) {
+            $window.location.href = '#!/article?articleId=' + articleId;
+        } else {
+            console.error('articleId is undefined');
+        }
     };
 
     // Hide the modal

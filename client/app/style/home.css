@@ -5,6 +5,10 @@ html {
     scroll-behavior: smooth;
 }
 
+* {
+    font-family: 'Mate';
+}
+
 /* HEADER */
 header {
     display: flex;

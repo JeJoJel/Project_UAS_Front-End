@@ -20,7 +20,7 @@ app.config(['$routeProvider', function($routeProvider) {
         })
         .when('/article', {
             templateUrl: 'app/views/article.html',
-            controller: 'HomeController'
+            controller: 'ArticleController'
         })
         .when('/event', {
             templateUrl: 'app/views/event.html',
