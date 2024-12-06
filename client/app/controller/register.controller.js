@@ -8,7 +8,8 @@ app.controller('RegisterController', function($scope, AuthService, $location) {
     document.getElementById('profile').disabled = true;
     document.getElementById('admin').disabled = true;
     document.getElementById('create').disabled = true;
-    
+    document.getElementById('login').disabled = true;
+
     $scope.title = "Register";
     $scope.user = {};
 

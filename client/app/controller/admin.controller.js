@@ -8,6 +8,8 @@ app.controller("AdminController", function($scope, $http, $sce, $window, Article
     document.getElementById('home').disabled = true;
     document.getElementById('profile').disabled = true;
     document.getElementById('create').disabled = true;
+    document.getElementById('login').disabled = true;
+
 
     $scope.currentTab = 'articles';
     $scope.articles = [];
