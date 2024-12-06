@@ -7,6 +7,7 @@ app.controller('HomeController', function ($scope, $location, $http, CategorySer
     document.getElementById('register').disabled = true;
     document.getElementById('profile').disabled = true;
     document.getElementById('admin').disabled = true;
+    document.getElementById('create').disabled = true;
 
         // Handle login status
         const token = localStorage.getItem("token");

@@ -1,13 +1,13 @@
 var app = angular.module('myApp');
 
-app.controller("AdminController", function($scope, $http, $sce, ArticleService, EventService) {
+app.controller("AdminController", function($scope, $http, $sce, $window, ArticleService, EventService) {
 
     // Mengaktifkan style untuk halaman Admin, menonaktifkan lainnya
     document.getElementById('admin').disabled = false;
     document.getElementById('register').disabled = true;
     document.getElementById('home').disabled = true;
     document.getElementById('profile').disabled = true;
-
+    document.getElementById('create').disabled = true;
 
     $scope.currentTab = 'articles';
     $scope.articles = [];
@@ -17,11 +17,8 @@ app.controller("AdminController", function($scope, $http, $sce, ArticleService, 
     $scope.formData = {};
     $scope.successMessage = '';
 
-    // Open the form to add a new article
-    $scope.openArticleForm = function() {
-        $scope.formData = {};
-        $scope.editing = false; 
-        $scope.showForm = true; 
+    $scope.createArticle = function() {
+        $window.location.href = '#!/createArticle';
     };
 
     $scope.getTrustedHtml = function(content) {

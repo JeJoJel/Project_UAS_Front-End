@@ -7,6 +7,7 @@ app.controller('RegisterController', function($scope, AuthService, $location) {
     document.getElementById('home').disabled = true;
     document.getElementById('profile').disabled = true;
     document.getElementById('admin').disabled = true;
+    document.getElementById('create').disabled = true;
     
     $scope.title = "Register";
     $scope.user = {};
