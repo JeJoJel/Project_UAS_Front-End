@@ -1,6 +1,14 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp');
 
-app.controller("AdminController", function($scope, $http, ArticleService, EventService) {
+app.controller("AdminController", function($scope, $http, $sce, ArticleService, EventService) {
+
+    // Mengaktifkan style untuk halaman Admin, menonaktifkan lainnya
+    document.getElementById('admin').disabled = false;
+    document.getElementById('register').disabled = true;
+    document.getElementById('home').disabled = true;
+    document.getElementById('profile').disabled = true;
+
+
     $scope.currentTab = 'articles';
     $scope.articles = [];
     $scope.events = [];
@@ -14,6 +22,10 @@ app.controller("AdminController", function($scope, $http, ArticleService, EventS
         $scope.formData = {};
         $scope.editing = false; 
         $scope.showForm = true; 
+    };
+
+    $scope.getTrustedHtml = function(content) {
+        return $sce.trustAsHtml(content);
     };
     
     // Open the form to add a new event
@@ -48,17 +60,6 @@ app.controller("AdminController", function($scope, $http, ArticleService, EventS
         }).catch(error => {
             console.error('Error loading events:', error);
         });
-    };
-
-    // Image upload function (for articles)
-    $scope.uploadImage = function() {
-        var imageUrl = $scope.formData.imageUrl;
-        if (imageUrl) {
-            $scope.formData.imageUrl = imageUrl; 
-            console.log('Image URL:', imageUrl);
-        } else {
-            console.error('Please provide a valid image URL');
-        }
     };
 
     // Save the form (either article or event)

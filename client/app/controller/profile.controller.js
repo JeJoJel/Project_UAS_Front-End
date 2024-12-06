@@ -2,6 +2,14 @@ var app = angular.module('myApp');
 
 // Controller untuk menampilkan dan mengelola data profilangular.module('profileApp', [])
 app.controller('ProfileController', function($scope, ProfileService) {
+
+
+    // Mengaktifkan style untuk halaman Profile, menonaktifkan lainnya
+    document.getElementById('profile').disabled = false;
+    document.getElementById('register').disabled = true;
+    document.getElementById('home').disabled = true;
+    document.getElementById('admin').disabled = true;
+    
     $scope.userDetails = {};
     $scope.isEditMode = false; // Set apakah form dalam mode edit atau tidak
     $scope.user = {
