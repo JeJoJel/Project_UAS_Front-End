@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My App</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="app/style/register.css">
-    <link rel="stylesheet" href="app/style/home.css">
-    <link rel="stylesheet" href="app/style/profile.css">
+    <link rel="stylesheet" href="style.css" id="login" disabled> 
+    <link rel="stylesheet" href="app/style/register.css" id ="register" disabled>
+    <link rel="stylesheet" href="app/style/home.css" id ="home" disabled>
+    <link rel="stylesheet" href="app/style/profile.css" id ="profile" disabled>
+    <link rel="stylesheet" href="app/style/admin.css"id ="admin" disabled>
     <!-- Link CDN Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Memuat AngularJS -->
@@ -32,6 +33,7 @@
     <script src ="app/services/ArticleService.js"></script> 
 
     <script src="app/controller/login.controller.js"></script>
+    <script src ="app/controller/admin.controller.js"></script>
     <script src="app/controller/register.controller.js"></script>
     <script src ="app/controller/home.controller.js"></script>
     <script src="app/services/ProfileService.js"></script>

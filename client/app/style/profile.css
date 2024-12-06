@@ -1,144 +1,217 @@
-
-.header {
-    background-color: #ffffff;
-    padding: 20px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.header .welcome {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333333;
-    margin-right: 25px;
-}
-
-.header .date {
-    font-size: 14px;
-    color: #888888;
-}
-
-.header .search-bar {
-    max-width: 300px;
-}
-
-.header .profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-top: -5px; /
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
-    margin-right: 100px; 
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
-nav ul li a {
+.left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.date {
+    font-size: 14px;
+    color: #888;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu ul li {
+    margin-right: 20px;
+}
+
+.nav-menu ul li a {
     text-decoration: none;
     color: #333;
-    font-size: 20px;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
 }
 
-nav ul li.active a {
+.nav-menu ul li a:hover {
+    color: #007bff;
     font-weight: bold;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-toggle {
+    font-size: 16px;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.notification-icon i {
+    font-size: 20px;
+    color: #333;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.notification-icon i:hover {
     color: #007bff;
 }
 
-nav ul li a:hover {
-    color: #007bff;
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .nav-menu ul li {
+        margin-bottom: 10px;
+    }
+
+    .right-section {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .left-section {
+        margin-bottom: 10px;
+    }
+
+    .notification-icon i {
+        font-size: 24px;
+    }
 }
 
+/* Profile Card */
 .profile-card {
     background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 30px;
     margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .profile-card .profile-pic-large {
-        border-radius: 50%; /* Membuat ikon menjadi lingkaran */
-        background-color: #f0f0f0; /* Menambahkan latar belakang terang agar ikon lebih menonjol */
-        display: inline-flex; /* Menjaga ikon tetap dalam ukuran yang sesuai */
-        justify-content: center;
-        align-items: center;    
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .profile-card .profile-name {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     color: #333333;
 }
 
 .profile-card .profile-email {
+    font-size: 16px;
+    color: #666666;
+}
+
+.profile-card .profile-role {
     font-size: 14px;
-    color: #888888;
-}
-
-.form-control {
-    background-color: #f8f9fa;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 15px;
-}
-
-.form-control:focus {
-    box-shadow: none;
+    color: #999999;
 }
 
 .btn-edit {
     background-color: #007bff;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+    border-radius: 8px;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
 }
 
-.email-list {
-    margin-top: 20px;
+.btn-edit:hover {
+    background-color: #0056b3;
+    cursor: pointer;
 }
 
-.email-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+.form-control {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
 }
 
-.email-item .email-icon {
-    font-size: 24px;
-    color: #007bff;
-    margin-right: 10px;
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.email-item .email-text {
+label {
+    font-weight: bold;
     font-size: 14px;
-    color: #333333;
+    color: #555555;
 }
 
-.email-item .email-date {
-    font-size: 12px;
-    color: #888888;
-}
-
-.btn-add-email {
-    background-color: #e0e0e0;
-    color: #007bff;
+button[type="submit"] {
+    background-color: #007bff;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Media Query untuk responsif */
 @media (max-width: 768px) {
     .profile-card {
-        padding: 15px;
+        padding: 20px;
     }
 
     .profile-pic-large {
@@ -146,7 +219,15 @@ nav ul li a:hover {
         height: 60px;
     }
 
-    .email-item .email-icon {
+    .profile-name {
         font-size: 20px;
+    }
+
+    .profile-email {
+        font-size: 14px;
+    }
+
+    .btn-edit {
+        font-size: 14px;
     }
 }

@@ -1,6 +1,14 @@
 var app = angular.module('myApp');
 
 app.controller('RegisterController', function($scope, AuthService, $location) {
+
+    // Mengaktifkan style untuk halaman Register, menonaktifkan lainnya
+    document.getElementById('register').disabled = false;
+    document.getElementById('home').disabled = true;
+    document.getElementById('profile').disabled = true;
+    document.getElementById('admin').disabled = true;
+    document.getElementById('login').disabled = true;
+
     $scope.title = "Register";
     $scope.user = {};
 

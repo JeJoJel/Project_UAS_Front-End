@@ -1,6 +1,14 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp');
 
 app.controller("AdminController", function($scope, $http, ArticleService, EventService) {
+
+    // Mengaktifkan style untuk halaman Admin, menonaktifkan lainnya
+    document.getElementById('admin').disabled = false;
+    document.getElementById('register').disabled = true;
+    document.getElementById('home').disabled = true;
+    document.getElementById('profile').disabled = true;
+
+
     $scope.currentTab = 'articles';
     $scope.articles = [];
     $scope.events = [];

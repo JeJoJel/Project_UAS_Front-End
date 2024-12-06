@@ -2,6 +2,13 @@ var app = angular.module('myApp');
 
 app.controller('HomeController', function ($scope, $location, $http, CategoryService, EventService) {
 
+    // Mengaktifkan style untuk halaman Home, menonaktifkan lainnya
+    document.getElementById('home').disabled = false;
+    document.getElementById('register').disabled = true;
+    document.getElementById('profile').disabled = true;
+    document.getElementById('admin').disabled = true;
+    document.getElementById('login').disabled = true;
+
         // Handle login status
         const token = localStorage.getItem("token");
         const user = localStorage.getItem("user");
