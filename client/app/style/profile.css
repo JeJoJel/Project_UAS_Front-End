@@ -64,9 +64,9 @@ nav ul li a:hover {
 }
 
 .profile-card .profile-pic-large {
-        border-radius: 50%; /* Membuat ikon menjadi lingkaran */
-        background-color: #f0f0f0; /* Menambahkan latar belakang terang agar ikon lebih menonjol */
-        display: inline-flex; /* Menjaga ikon tetap dalam ukuran yang sesuai */
+        border-radius: 50%; 
+        background-color: #f0f0f0; 
+        display: inline-flex; 
         justify-content: center;
         align-items: center;    
 }
