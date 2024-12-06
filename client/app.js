@@ -30,6 +30,10 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'app/views/admin.html',
             controller: 'AdminController'
         })
+        .when('/createArticle', {
+            templateUrl: 'app/views/createArticle.html',
+            controller: 'CreateArticleController'
+        })
         .otherwise({
             redirectTo: '/'
         });

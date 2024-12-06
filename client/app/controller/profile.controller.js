@@ -9,6 +9,7 @@ app.controller('ProfileController', function($scope, ProfileService) {
     document.getElementById('register').disabled = true;
     document.getElementById('home').disabled = true;
     document.getElementById('admin').disabled = true;
+    document.getElementById('create').disabled = true;
     document.getElementById('login').disabled = false;
 
     $scope.userDetails = {};

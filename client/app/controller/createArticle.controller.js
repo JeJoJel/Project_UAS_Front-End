@@ -1,6 +1,13 @@
 var app = angular.module('myApp');
 
 app.controller('CreateArticleController', ['$scope', '$window', 'ArticleService', function ($scope, $window, ArticleService) {
+    // Mengaktifkan style untuk halaman Admin, menonaktifkan lainnya
+    document.getElementById('admin').disabled = true;
+    document.getElementById('register').disabled = true;
+    document.getElementById('home').disabled = true;
+    document.getElementById('profile').disabled = true;
+    document.getElementById('create').disabled = false;
+
     $scope.article = {
         title: "",
         author: "",
@@ -25,7 +32,7 @@ app.controller('CreateArticleController', ['$scope', '$window', 'ArticleService'
         ArticleService.create(articleData)
             .then(() => {
                 alert('Article added successfully');
-                $window.location.href = 'admin.html';
+                $window.location.href = '#!/admin';
             })
             .catch(error => {
                 console.error('Error adding article:', error);
