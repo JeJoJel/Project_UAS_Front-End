@@ -7,6 +7,7 @@ app.controller("AdminController", function($scope, $http, $sce, ArticleService, 
     document.getElementById('register').disabled = true;
     document.getElementById('home').disabled = true;
     document.getElementById('profile').disabled = true;
+    document.getElementById('login').disabled = true;
 
 
     $scope.currentTab = 'articles';
