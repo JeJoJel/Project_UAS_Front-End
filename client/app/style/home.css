@@ -264,9 +264,6 @@ html {
 }
 
 
-
-
-
 /* Card Design */
 .card {
     margin-top: 20px;
@@ -284,9 +281,10 @@ html {
 
 .card-img-top {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
     margin-bottom: 15px;
+    border-radius: 5px;
 }
 
 .card-title {

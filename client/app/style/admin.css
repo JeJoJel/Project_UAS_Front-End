@@ -1,38 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&display=swap');
+
 /* General Styles */
-.success-message {
-    position: relative;
-    background-color: #dff0d8;
-    color: #3c763d;
-    padding: 15px;
-    border: 1px solid #d6e9c6;
-    border-radius: 4px;
-    margin-bottom: 20px;
-}
-.close-msg-btn {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    color: #3c763d;
-    cursor: pointer;
-}
-.close-msg-btn:hover {
-    color: #d9534f;
-}
-.modal-content .close-btn {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    font-size: 20px;
-    background: none;
-    border: none;
-    color: #333;
-    cursor: pointer;
-}
-.modal-content .close-btn:hover {
-    color: #d9534f;
+body {
+    margin: 0;
+    font-family: 'Mate' !important;
+    height: 100vh;
+    color: #444;
+    background-color: #ecf0f1;
 }
 
 /* Sidebar */
@@ -82,19 +56,10 @@
 }
 
 /* Main Content */
-.container {
-    display: flex;
-    height: 100vh; 
-}
-
-.sidebar {
-    width: 250px;
-}
-
 .main-content {
-    flex: 1; 
     padding: 20px;
-    margin-left: 260px;
+    margin-left: 270px;
+    background-color: #ecf0f1;
 }
 
 .header {
@@ -121,7 +86,7 @@
 .events {
     padding: 25px;
     background-color: #fdfcfb;
-    border: 2px solid #1abc9c; 
+    border: 2px solid #1abc9c; /* Green border */
     border-radius: 8px;
     margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(26, 188, 156, 0.2);
@@ -132,21 +97,21 @@
 }
 
 .events table th {
-    background-color: #e8f8f5; 
+    background-color: #e8f8f5; /* Light green for header */
 }
 
 .events .edit-btn {
-    background-color: #16a085; 
+    background-color: #16a085; /* Dark green */
 }
 
 .events .delete-btn {
-    background-color: #c0392b; 
+    background-color: #c0392b; /* Darker red */
 }
 
 .articles {
     padding: 25px;
     background-color: #f7f7f7;
-    border: 2px solid #3498db; 
+    border: 2px solid #3498db; /* Blue border */
     border-radius: 8px;
     margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
@@ -174,6 +139,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    table-layout: auto;
 }
 
 table th, table td {
@@ -186,14 +152,25 @@ table th, table td {
 }
 
 table th {
-    min-width: 150px; 
+    min-width: 50px; 
 }
 
 table td {
-    min-width: 210px;
+    min-width: 50px;
     max-width: 210px; 
     word-wrap: break-word;
     white-space: normal; 
+}
+
+.article-title {
+    flex-grow: 1; 
+    font-size: 30px;
+}
+
+.article-button {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 10px; 
 }
 
 
@@ -281,4 +258,41 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #16a085;
+}
+
+/* Custom Styles */
+.success-message {
+    position: relative;
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 15px;
+    border: 1px solid #d6e9c6;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.close-msg-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #3c763d;
+    cursor: pointer;
+}
+.close-msg-btn:hover {
+    color: #d9534f;
+}
+.modal-content .close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+.modal-content .close-btn:hover {
+    color: #d9534f;
 }

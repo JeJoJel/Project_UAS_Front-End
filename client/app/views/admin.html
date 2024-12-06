@@ -1,57 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../style/admin.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
-    <script src="../../app.js"></script>
-    <script src="../controller/admin.controller.js"></script>
-    <script src="../services/ArticleService.js"></script>
-    <script src="../services/EventService.js"></script>
-    <style>
-        /* Custom Styles */
-        .success-message {
-            position: relative;
-            background-color: #dff0d8;
-            color: #3c763d;
-            padding: 15px;
-            border: 1px solid #d6e9c6;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-        .close-msg-btn {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            background: none;
-            border: none;
-            font-size: 20px;
-            color: #3c763d;
-            cursor: pointer;
-        }
-        .close-msg-btn:hover {
-            color: #d9534f;
-        }
-        .modal-content .close-btn {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            font-size: 20px;
-            background: none;
-            border: none;
-            color: #333;
-            cursor: pointer;
-        }
-        .modal-content .close-btn:hover {
-            color: #d9534f;
-        }
-    </style>
-</head>
-
-<body ng-controller="AdminController">
+<div ng-controller="AdminController">
 
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -60,13 +7,13 @@
         </div>
         <ul class="sidebar-menu">
             <li ng-click="loadArticles()" ng-class="{'active': currentTab === 'articles'}">
-                <a href="#articles"><i class="fas fa-newspaper"></i> Manage Articles</a>
+                <i class="fas fa-newspaper"></i> Manage Articles</a>
             </li>
             <li ng-click="loadEvents()" ng-class="{'active': currentTab === 'events'}">
-                <a href="#events"><i class="fas fa-calendar-alt"></i> Manage Events</a>
+                <i class="fas fa-calendar-alt"></i> Manage Events</a>
             </li>
             <li ng-click="logout()">
-                <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <a href="#!/"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </li>
         </ul>
     </aside>
@@ -75,7 +22,7 @@
     <div class="main-content">
         <header class="header">
             <h1>{{ currentTab === 'articles' ? 'Manage Articles' : 'Manage Events' }}</h1>
-            <button class="add-btn" ng-if="currentTab === 'articles'" ng-click="openArticleForm()">+ Add Article</button>
+            <button class="add-btn" ng-if="currentTab === 'articles'" ng-click="createArticle()">+ Add Article</button>
             <button class="add-btn" ng-if="currentTab === 'events'" ng-click="openEventForm()">+ Add Event</button>
         </header>
 
@@ -84,32 +31,42 @@
             <p>{{ successMessage }}</p>
             <button class="close-msg-btn" ng-click="closeSuccessMessage()">×</button>
         </div>
-
+ 
         <!-- Articles Table -->
         <div class="content articles" ng-if="currentTab === 'articles'">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Content</th>
-                        <th>Image</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody ng-if="articles.length">
-                    <tr ng-repeat="article in articles">
-                        <td>{{ article.title }}</td>
-                        <td>{{ article.author }}</td>
-                        <td>{{ article.content }}</td>
-                        <td><img ng-src="{{ article.image }}" alt="Article Image" width="100" height="100"></td>
+            <div ng-repeat="article in articles" class="article-table">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <span class="article-title">Title: {{ article.title }}</span>
+                                <div class="d-flex article-button">
+                                    <button class="edit-btn" ng-click="editArticle(article)">Edit</button>
+                                    <button class="delete-btn" ng-click="deleteArticle(article._id)">Delete</button>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Author</td>
+                            <td>{{ article.author }}</td>
+                        </tr>
+                        <tr>
+                            <td>Content</td>
+                            <td>
+                                <div ng-bind-html="getTrustedHtml(article.content)"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Image</td>
                         <td>
-                            <button class="edit-btn" ng-click="editArticle(article)">Edit</button>
-                            <button class="delete-btn" ng-click="deleteArticle(article._id)">Delete</button>
+                            <img ng-src="{{ article.image }}" alt="Article Image" width="auto" height="100">
                         </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- Events Table -->
@@ -127,8 +84,8 @@
                 <tbody ng-if="events.length">
                     <tr ng-repeat="event in events">
                         <td>{{ event.name }}</td>
-                        <td>{{ event.date }}</td>
-                        <td>{{ event.time }}</td>
+                        <td>{{ event.date | date:'MMMM dd, yyyy' }}</td>
+                        <td>{{ event.time | date:'HH:mm' }}</td>
                         <td>{{ event.location }}</td>
                         <td>
                             <button class="edit-btn" ng-click="editEvent(event)">Edit</button>
@@ -186,5 +143,4 @@
         </div>
     </div>
 
-</body>
-</html>
+</div>

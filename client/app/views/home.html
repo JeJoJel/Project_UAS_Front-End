@@ -122,14 +122,13 @@
             </div>
         </div>
         
-        <hr>
-
         <div class="page-container">
             <div class="page-content">
+                <h2 class="fw-bold mt-3">Gallery</h2>
                 <!-- Gallery Section -->
-                <section class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center">
+                <section class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center" style="margin-top: 20px;">
                     <div class="col mb-4" ng-repeat="article in visibleCards" ng-click="showArticleContent(article)">
-                        <div class="card border-0 p-0"> 
+                        <div class="card border-0 p-0">
                             <a href="{{article.link}}">
                                 <img ng-src="{{article.image}}" alt="{{article.alt}}" class="card-img-top">
                             </a>
@@ -139,7 +138,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section>                
             </div>
         </div>
         
