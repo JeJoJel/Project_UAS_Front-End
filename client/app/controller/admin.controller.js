@@ -122,17 +122,21 @@ app.controller("AdminController", function($scope, $http, $sce, $window, Article
 
     // Edit an article
     $scope.editArticle = function(article) {
+        console.log('Editing article:', article);
         $scope.formData = angular.copy(article);
         $scope.showForm = true;
         $scope.editing = true;
     };
+    
 
     // Edit an event
     $scope.editEvent = function(event) {
+        console.log('Editing event:', event);
         $scope.formData = angular.copy(event);
         $scope.showForm = true;
         $scope.editing = true;
     };
+    
 
     // Update article
     $scope.updateArticle = function(article) {
@@ -229,4 +233,8 @@ app.controller("AdminController", function($scope, $http, $sce, $window, Article
 
     $scope.loadArticles();
     $scope.loadEvents();
+
+    console.log($scope.articles);
+    console.log($scope.events);
+
 });

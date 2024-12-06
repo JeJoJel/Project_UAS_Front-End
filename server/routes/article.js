@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Article = require('../models/Articles'); 
 const router = express.Router();
 
+
 // POST: Create a new article
 router.post('/', async (req, res) => {
     try {
